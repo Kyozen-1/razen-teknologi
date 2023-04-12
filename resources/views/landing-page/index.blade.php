@@ -1,4 +1,5 @@
 @extends('landing-page.layouts.app')
+@section('title', 'Razen Teknologi | Beranda')
 
 @section('content')
     <!-- banner area start -->

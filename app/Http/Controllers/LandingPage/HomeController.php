@@ -11,4 +11,24 @@ class HomeController extends Controller
     {
         return view('landing-page.index');
     }
+
+    public function perusahaan()
+    {
+        return view('landing-page.perusahaan');
+    }
+
+    public function layanan()
+    {
+        return view('landing-page.layanan');
+    }
+
+    public function aplikasi()
+    {
+        return view('landing-page.aplikasi');
+    }
+
+    public function kontak()
+    {
+        return view('landing-page.kontak');
+    }
 }

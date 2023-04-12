@@ -1,3 +1,9 @@
+@php
+    use App\Models\Profil;
+
+    $profil = Profil::first();
+@endphp
+
 <head>
 
     <!--========= Required meta tags =========-->
@@ -10,7 +16,7 @@
     <title>@yield('title', 'TechBuzz - Multipurpose Technology HTML5 Template')</title>
 
     <!--====== Favicon ======-->
-    <link rel="shortcut icon" href="{{ asset('techbuzz/assets/images/logo/favicon.ico') }}" type="images/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('images/razen-teknologi/logo/'.$profil->logo) }}" type="images/x-icon" />
 
     <!--====== CSS Here ======-->
     <link rel="stylesheet" href="{{ asset('techbuzz/assets/css/bootstrap.min.css') }}">

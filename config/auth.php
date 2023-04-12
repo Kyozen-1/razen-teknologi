@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'razen_teknologi' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
