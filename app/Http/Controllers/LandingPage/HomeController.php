@@ -46,4 +46,29 @@ class HomeController extends Controller
     {
         return view('landing-page.kontak');
     }
+
+    public function kontak_kami(Request $request)
+    {
+        $this->validate($request,[
+            'nama' => 'required | max:255',
+            'email' => 'required | max:255',
+            'no_hp' => 'required | max:255',
+            'subjek' => 'required',
+            'message' => 'required'
+        ]);
+
+        $data = [
+            'email' => $request->email,
+            'subjek' => $request->subjek,
+            'body' => $request->message
+        ];
+
+        Mail::send('emails.kontak-kami', $data, function($message) use ($data){
+            $message->from($data['email']);
+            $message->to('skadi1268@gmail.com', 'Kristoforus Fasco');
+            $message->subject($data['subjek']);
+        });
+
+        return redirect(route('kontak'));
+    }
 }

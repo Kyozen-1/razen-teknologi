@@ -1,10 +1,16 @@
+@php
+    use App\Models\Profil;
+    use Carbon\Carbon;
+
+    $profil = Profil::first();
+@endphp
 <!-- footer area start -->
 <footer class="site-footer bg_img pt-100" data-background="{{ asset('techbuzz/assets/images/pattern/footer-pattern.png') }}">
     <div class="container">
         <div class="row">
             <div class="col-xl-12 text-center">
                 <a href="index.html" class="site-logo mb-50">
-                    <img src="{{ asset('techbuzz/assets/images/logo/logo.png') }}" alt="Logo">
+                    <img src="{{ asset('images/razen-teknologi/logo/'.$profil->logo) }}" alt="Logo">
                 </a>
             </div>
             <div class="col-xl-12">
@@ -15,8 +21,8 @@
                                 <img src="{{ asset('techbuzz/assets/images/icons/footer-info-icon-1.png') }}" alt="">
                             </div>
                             <div class="content">
-                                <h4 class="title">Phone Number</h4>
-                                <a href="tel:98787676576577">+987 876 765 76 577</a>
+                                <h4 class="title">Nomor HP</h4>
+                                <a href="tel:{{$profil->no_hp}}">{{$profil->no_hp}}</a>
                             </div>
                         </div>
                         <div class="footer__info--item d-flex align-items-center">
@@ -24,8 +30,8 @@
                                 <img src="{{ asset('techbuzz/assets/images/icons/footer-info-icon-2.png') }}" alt="">
                             </div>
                             <div class="content">
-                                <h4 class="title">Email Address</h4>
-                                <a href="mailto:info@webmail.com">info@webmail.com</a>
+                                <h4 class="title">Email</h4>
+                                <a href="mailto:{{$profil->email}}">{{$profil->email}}</a>
                             </div>
                         </div>
                         <div class="footer__info--item d-flex align-items-center">
@@ -33,8 +39,8 @@
                                 <img src="{{ asset('techbuzz/assets/images/icons/footer-info-icon-3.png') }}" alt="">
                             </div>
                             <div class="content">
-                                <h4 class="title">Office Address</h4>
-                                <span>14/A, Miranda City, NYC</span>
+                                <h4 class="title">Alamat Kantor</h4>
+                                <span>{{$profil->alamat}}</span>
                             </div>
                         </div>
                     </div>
@@ -82,13 +88,10 @@
             </div>
             <div class="col-xl-2 col-lg-6 col-sm-6 col-6 mt-30">
                 <div class="footer__widget">
-                    <h4 class="title mb-30">Support</h4>
+                    <h4 class="title mb-30">Bantuan</h4>
                     <ul>
-                        <li><a href="#0">Forum Support</a></li>
-                        <li><a href="#0">Help & FAQ</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="services.html">Pricing and plans</a></li>
-                        <li><a href="#0">Cookies Policy</a></li>
+                        <li><a href="#0">Bantuan & FAQ</a></li>
+                        <li><a href="{{ route('kontak') }}">Kontak Kami</a>
                     </ul>
                 </div>
             </div>
@@ -131,7 +134,7 @@
                 <div class="copyright-text mt-60">
                     <div class="row">
                         <div class="col-xl-12 text-center">
-                            <p>Copyright By@Example - <span>2020</span></p>
+                            <p>Copyright By {{$profil->pt}} - <span>{{Carbon::now()->year}}</span></p>
                         </div>
                     </div>
                 </div>

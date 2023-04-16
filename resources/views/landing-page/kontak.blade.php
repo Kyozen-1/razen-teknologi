@@ -2,20 +2,29 @@
 @section('title', 'Razen Teknologi | Kontak')
 
 @section('content')
+    @php
+        use App\Models\LandingPageKontak;
+        use App\Models\Profil;
+
+        $kontak = LandingPageKontak::first();
+        $profil = Profil::first();
+
+        $section_1 = json_decode($kontak->section_1, true);
+    @endphp
     <!-- breadcrumb area start -->
-    <section class="breadcrumb pt-150 pb-150 bg_img" data-background="assets/images/bg/breadcrumb-bg-1.jpeg"
+    <section class="breadcrumb pt-150 pb-150 bg_img" data-background="{{ asset('images/landing-page/kontak/'.$section_1['gambar']) }}"
         data-overlay="dark" data-opacity="5">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="breadcrumb__wrap">
-                        <h2 class="title">Contact Us</h2>
+                        <h2 class="title">Kontak Kami</h2>
                         <div class="breadcrumb__nav">
                             <ul>
                                 <li><span>//</span></li>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="{{ route('beranda') }}">Beranda</a></li>
                                 <li>|</li>
-                                <li>Contact</li>
+                                <li>Kontak</li>
                             </ul>
                         </div>
                     </div>
@@ -34,40 +43,41 @@
                         <div class="row justify-content-center">
                             <div class="col-xl-10">
                                 <div class="contact__form">
-                                    <form id="contacts-us-form" action="mail.php" method="POST">
+                                    <form action="{{ route('kontak-kami') }}" method="POST">
+                                        @csrf
                                         <div class="row mt-none-30">
                                             <div class="col-xl-6 mt-30">
                                                 <div class="form__group">
-                                                    <label for="name"><i class="fal fa-user"></i></label>
-                                                    <input name="name" type="text" id="name" placeholder="Enter your full name">
+                                                    <label for="nama"><i class="fal fa-user"></i></label>
+                                                    <input name="nama" type="text" id="nama" placeholder="Masukan nama anda">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 mt-30">
                                                 <div class="form__group">
                                                     <label for="email"><i class="fal fa-envelope"></i></label>
-                                                    <input name="email" type="email" id="email" placeholder="Enter email address">
+                                                    <input name="email" type="email" id="email" placeholder="Masukkan email">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 mt-30">
                                                 <div class="form__group">
-                                                    <label for="tel"><i class="fal fa-phone"></i></label>
-                                                    <input name="phone" type="tel" id="tel" placeholder="Add phone number">
+                                                    <label for="no_hp"><i class="fal fa-phone"></i></label>
+                                                    <input name="no_hp" type="tel" id="no_hp" placeholder="Masukan Nomor HP">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 mt-30">
                                                 <div class="form__group">
-                                                    <label for="subject"><i class="fal fa-book"></i></label>
-                                                    <input name="subject" type="text" id="subject" placeholder="Enter your subject">
+                                                    <label for="subjek"><i class="fal fa-book"></i></label>
+                                                    <input name="subjek" type="text" id="subjek" placeholder="Masukan subjek">
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 mt-30">
                                                 <div class="form__group">
                                                     <label for="message"><i class="fal fa-pen"></i></label>
-                                                    <textarea name="message" id="message" placeholder="Enter messages"></textarea>
+                                                    <textarea name="message" id="message" placeholder="Masukan pesan"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-xl-12 mt-30 text-center">
-                                                <button class="site-btn" type="submit">Get Free Consultancy</button>
+                                                <button class="site-btn" type="submit">Dapatkan Konsultasi Gratis</button>
                                                 <p class="ajax-response mt-15" style="color: #fff;"></p>
                                             </div>
                                         </div>
@@ -93,9 +103,8 @@
                             <span><i class="fal fa-check"></i></span>
                         </div>
                         <div class="content">
-                            <h2 class="title">Office Address</h2>
-                            <p>99 NY Address street, Brooklyn, <br>
-                            United State</p>
+                            <h2 class="title">Alamat Kantor</h2>
+                            <p>{{$profil->alamat}}</p>
                         </div>
                     </div>
                 </div>
@@ -106,9 +115,8 @@
                             <span><i class="fal fa-check"></i></span>
                         </div>
                         <div class="content">
-                            <h2 class="title">Phone Number</h2>
-                            <a href="tel:87575564647658">875 7556 464 765 8</a>
-                            <a href="tel:76564856798">765 648 567 98</a>
+                            <h2 class="title">Nomor HP</h2>
+                            <a href="tel:{{$profil->no_hp}}">{{$profil->no_hp}}</a>
                         </div>
                     </div>
                 </div>
@@ -119,9 +127,8 @@
                             <span><i class="fal fa-check"></i></span>
                         </div>
                         <div class="content">
-                            <h2 class="title">Web Connect</h2>
-                            <a href="mailto:info@webmail.com">info@webmail.com</a>
-                            <a href="mailto:webexample.com">webexample.com</a>
+                            <h2 class="title">Email</h2>
+                            <a href="mailto:{{$profil->email}}">{{$profil->email}}</a>
                         </div>
                     </div>
                 </div>
@@ -130,7 +137,15 @@
     </div>
     <!-- contact info area end -->
 
-    <!-- map area start -->
-    <div id="contact-map"></div>
-    <!-- map area end -->
+    <!-- contact-map -->
+    <div id="contact-map">
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=razen%20teknologi&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                <a href="https://123movies-i.net">lethal weapon 1987 123movies</a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}</style><a href="https://www.embedgooglemap.net">embedding google maps into website</a>
+                <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style>
+            </div>
+        </div>
+    </div>
+    <!-- contact-map-end -->
 @endsection

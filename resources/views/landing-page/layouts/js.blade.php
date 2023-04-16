@@ -11,7 +11,6 @@
 <script src="{{ asset('techbuzz/assets/js/circle-progress.min.js') }}"></script>
 <script src="{{ asset('techbuzz/assets/js/wow.min.js') }}"></script>
 <script src="{{ asset('techbuzz/assets/js/waypoint.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfpGBFn5yRPvJrvAKoGIdj1O1aO9QisgQ"></script>
 <script src="{{ asset('techbuzz/assets/js/main.js') }}"></script>
 <script src="https://opuslab.works/js/app.js"></script>
 <script src="https://opuslab.works/js/owl.carousel.min.js"></script>
