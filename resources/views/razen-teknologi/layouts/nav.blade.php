@@ -68,6 +68,67 @@
                         <span class="label">Dashboard</span>
                     </a>
                 </li>
+                <li>
+                    @if (request()->routeIs('razen-teknologi.landing-page.beranda.index') ||
+                    request()->routeIs('razen-teknologi.landing-page.perusahaan.index') ||
+                    request()->routeIs('razen-teknologi.landing-page.layanan.index') ||
+                    request()->routeIs('razen-teknologi.landing-page.aplikasi.index') ||
+                    request()->routeIs('razen-teknologi.landing-page.kontak.index'))
+                    <a href="#landing_page" class="active">
+                    @else
+                    <a href="#landing_page">
+                    @endif
+                        <i data-acorn-icon="notebook-1" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Landing Page</span>
+                    </a>
+                    <ul id="landing_page">
+                        <li>
+                            @if (request()->routeIs('razen-teknologi.landing-page.beranda.index'))
+                                <a href="{{ route('razen-teknologi.landing-page.beranda.index') }}" class="active">
+                            @else
+                                <a href="{{ route('razen-teknologi.landing-page.beranda.index') }}">
+                            @endif
+                                <span class="label">Beranda</span>
+                            </a>
+                        </li>
+                        <li>
+                            @if (request()->routeIs('razen-teknologi.landing-page.perusahaan.index'))
+                                <a href="{{ route('razen-teknologi.landing-page.perusahaan.index') }}" class="active">
+                            @else
+                                <a href="{{ route('razen-teknologi.landing-page.perusahaan.index') }}">
+                            @endif
+                                <span class="label">Perusahaan</span>
+                            </a>
+                        </li>
+                        <li>
+                            @if (request()->routeIs('razen-teknologi.landing-page.layanan.index'))
+                                <a href="{{ route('razen-teknologi.landing-page.layanan.index') }}" class="active">
+                            @else
+                                <a href="{{ route('razen-teknologi.landing-page.layanan.index') }}">
+                            @endif
+                                <span class="label">Layanan</span>
+                            </a>
+                        </li>
+                        <li>
+                            @if (request()->routeIs('razen-teknologi.landing-page.aplikasi.index'))
+                                <a href="{{ route('razen-teknologi.landing-page.aplikasi.index') }}" class="active">
+                            @else
+                                <a href="{{ route('razen-teknologi.landing-page.aplikasi.index') }}">
+                            @endif
+                                <span class="label">Aplikasi</span>
+                            </a>
+                        </li>
+                        <li>
+                            @if (request()->routeIs('razen-teknologi.landing-page.kontak.index'))
+                                <a href="{{ route('razen-teknologi.landing-page.kontak.index') }}" class="active">
+                            @else
+                                <a href="{{ route('razen-teknologi.landing-page.kontak.index') }}">
+                            @endif
+                                <span class="label">Kontak</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- Menu End -->

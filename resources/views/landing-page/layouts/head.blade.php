@@ -27,5 +27,38 @@
     <link rel="stylesheet" href="{{ asset('techbuzz/assets/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('techbuzz/assets/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('techbuzz/assets/css/style.css') }}">
+    <link rel="stylesheet" href="https://opuslab.works/css/style.css">
+    <link rel="stylesheet" href="https://opuslab.works/css/animate.css">
+    <link rel="stylesheet" href="https://opuslab.works/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://opuslab.works/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <style>
+        @font-face {
+            font-family: 'Google Sans';
+            src: url('{{ asset('font/GoogleSans-Medium.ttf') }}') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+
+        @font-face {
+            font-family: 'Google Sans';
+            src: url('{{ asset('font/GoogleSans-Regular.ttf') }}') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Google Sans';
+            src: url('{{ asset('font/GoogleSans-Bold.ttf') }}') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+    </style>
     @yield('css')
 </head>

@@ -22,9 +22,24 @@ class HomeController extends Controller
         return view('landing-page.layanan');
     }
 
+    public function layanan_detail($id)
+    {
+        return view('landing-page.layanan-detail');
+    }
+
     public function aplikasi()
     {
         return view('landing-page.aplikasi');
+    }
+
+    public function aplikasi_detail($id)
+    {
+        return view('landing-page.aplikasi-detail');
+    }
+
+    public function aplikasi_kategori($id)
+    {
+        return view('landing-page.aplikasi-kategori');
     }
 
     public function kontak()

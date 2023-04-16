@@ -74,7 +74,10 @@ class Handler extends ExceptionHandler
 
         switch($guard)
         {
-            case 'razen-teknologi':
+            case 'razen_teknologi':
+                $login = 'razen-teknologi.login';
+                break;
+            default:
                 $login = 'razen-teknologi.login';
                 break;
         }

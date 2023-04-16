@@ -1,5 +1,5 @@
 @extends('landing-page.layouts.app')
-@section('title', 'Razen Teknologi | Aplikasi')
+@section('title', 'Razen Teknologi | Aplikasi | Kategori | -')
 
 @section('content')
     <!-- breadcrumb area start -->
@@ -15,7 +15,9 @@
                                 <li><span>//</span></li>
                                 <li><a href="index.html">Home</a></li>
                                 <li>|</li>
-                                <li>Application</li>
+                                <li><a href="index.html">Application</a></li>
+                                <li>|</li>
+                                <li>Kategori</li>
                             </ul>
                         </div>
                     </div>

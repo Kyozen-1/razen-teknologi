@@ -119,7 +119,6 @@
                         <p>Labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat ion ullamco laboris nisi ut aliquip ex ea
                         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <a href="about.html" class="site-btn mt-35">Learn More <span>+</span></a>
                     </div>
                 </div>
             </div>
@@ -349,87 +348,4 @@
         </div>
     </section>
     <!-- tema area end -->
-
-    <!-- timeline area start -->
-    <section class="timeline-area pt-95 pb-100 bg_img" data-background="{{ asset('techbuzz/assets/images/pattern/timeline-pattern.png') }}">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-7 text-center">
-                    <div class="section__heading white mb-60">
-                        <h4 class="section__heading--title-small"><span class="mr-10">//</span>Our Journey<span
-                                class="ml-10">//</span>
-                        </h4>
-                        <h1 class="section__heading--transparent">Timeline</h1>
-                        <h2 class="section__heading--title">Having Someone With a Deep
-                            &amp; Broad Understanding<span>.</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="timeline">
-                        <span class="shape"></span>
-                        <span class="shape shape--2"></span>
-                        <div class="timeline__box">
-                            <span class="year">1990</span>
-                            <div class="timeline__box--inner">
-                                <div class="thumb">
-                                    <img src="{{ asset('techbuzz/assets/images/others/timeline-1.jpeg') }}" alt="">
-                                </div>
-                                <div class="content">
-                                    <h4 class="title">Founded Company</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore.</p>
-                                    <span class="number">01</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline__box">
-                            <span class="year">2001</span>
-                            <div class="timeline__box--inner">
-                                <div class="thumb">
-                                    <img src="{{ asset('techbuzz/assets/images/others/timeline-2.jpeg') }}" alt="">
-                                </div>
-                                <div class="content">
-                                    <h4 class="title">Design Award Winning</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore.</p>
-                                    <span class="number">02</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline__box">
-                            <span class="year">2008</span>
-                            <div class="timeline__box--inner">
-                                <div class="thumb">
-                                    <img src="{{ asset('techbuzz/assets/images/others/timeline-3.jpeg') }}" alt="">
-                                </div>
-                                <div class="content">
-                                    <h4 class="title">200+ Emploee Join</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore.</p>
-                                    <span class="number">03</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline__box">
-                            <span class="year">2020</span>
-                            <div class="timeline__box--inner">
-                                <div class="thumb">
-                                    <img src="{{ asset('techbuzz/assets/images/others/timeline-4.jpeg') }}" alt="">
-                                </div>
-                                <div class="content">
-                                    <h4 class="title">100+ Project Done</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore.</p>
-                                    <span class="number">04</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- timeline area end -->
 @endsection
