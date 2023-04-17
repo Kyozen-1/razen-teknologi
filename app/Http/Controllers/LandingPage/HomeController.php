@@ -4,12 +4,16 @@ namespace App\Http\Controllers\LandingPage;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Timeline;
 
 class HomeController extends Controller
 {
     public function beranda()
     {
-        return view('landing-page.index');
+        $timelines = Timeline::all();
+        return view('landing-page.index', [
+            'timelines' => $timelines
+        ]);
     }
 
     public function perusahaan()

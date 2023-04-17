@@ -6,6 +6,15 @@ Route::prefix('razen-teknologi')->group(function(){
             Route::get('/', 'RazenTeknologi\Admin\DashboardController@index')->name('razen-teknologi.admin.dashboard.index');
             Route::post('/change', 'RazenTeknologi\Admin\DashboardController@change')->name('razen-teknologi.admin.dashboard.change');
         });
+
+        Route::prefix('timeline')->group(function(){
+            Route::get('/', 'RazenTeknologi\Admin\TimelineController@index')->name('razen-teknologi.admin.timeline.index');
+            Route::get('/detail/{id}', 'RazenTeknologi\Admin\TimelineController@show')->name('razen-teknologi.admin.timeline.show');
+            Route::post('/','RazenTeknologi\Admin\TimelineController@store')->name('razen-teknologi.admin.timeline.store');
+            Route::get('/edit/{id}','RazenTeknologi\Admin\TimelineController@edit')->name('razen-teknologi.admin.timeline.edit');
+            Route::post('/update','RazenTeknologi\Admin\TimelineController@update')->name('razen-teknologi.admin.timeline.update');
+            Route::get('/destroy/{id}','RazenTeknologi\Admin\TimelineController@destroy')->name('razen-teknologi.admin.timeline.destroy');
+        });
     });
 
     Route::prefix('landing-page')->group(function(){

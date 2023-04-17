@@ -69,6 +69,16 @@
                     </a>
                 </li>
                 <li>
+                    @if (request()->routeIs('razen-teknologi.admin.timeline.index'))
+                        <a href="{{ route('razen-teknologi.admin.timeline.index') }}" class="active">
+                    @else
+                        <a href="{{ route('razen-teknologi.admin.timeline.index') }}">
+                    @endif
+                        <i data-acorn-icon="home-garage" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Timeline</span>
+                    </a>
+                </li>
+                <li>
                     @if (request()->routeIs('razen-teknologi.landing-page.beranda.index') ||
                     request()->routeIs('razen-teknologi.landing-page.perusahaan.index') ||
                     request()->routeIs('razen-teknologi.landing-page.layanan.index') ||

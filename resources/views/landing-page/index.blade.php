@@ -2,6 +2,16 @@
 @section('title', 'Razen Teknologi | Beranda')
 
 @section('content')
+    @php
+        use App\Models\LandingPageBeranda;
+
+        $beranda = LandingPageBeranda::first();
+
+        $section_1 = json_decode($beranda->section_1, true);
+        $section_2 = json_decode($beranda->section_2, true);
+        $section_3 = json_decode($beranda->section_3, true);
+        $section_4 = json_decode($beranda->section_4, true);
+    @endphp
     <!-- banner area start -->
     <section class="banner__area pt-135 pb-135 bg_img" data-background="{{ asset('techbuzz/assets/images/bg/banner-bg-1.jpg') }}">
         <div class="banner-wrap">
@@ -9,9 +19,9 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12">
                         <div class="bannertext">
-                            <h5 class="subheading mb-10"><span class="mr-10">//</span>Best IT Solution provider</h5>
-                            <h1 class="heading">Advanced <br>Innovative <br>IT Solutions<span>.</span></h1>
-                            <p>We run all kinds of IT services that vowsuccess</p>
+                            <h5 class="subheading mb-10"><span class="mr-10">//</span>{{$section_1?$section_1['sub_judul']:'' }}</h5>
+                            <h1 class="heading">{!!$section_1?$section_1['judul']:'' !!}</h1>
+                            {!!$section_1?$section_1['deskripsi']:'' !!}
                             <div class="buttons mt-35">
                                 <a href="{{ route('kontak') }}" class="site-btn">Kontak Kami <span>+</span></a>
                                 <a href="{{ route('perusahaan') }}" class="site-btn transparent">Pelajari Lebih Banyak <span>+</span></a>
@@ -22,7 +32,7 @@
             </div>
         </div>
         <div class="banner-img">
-            <img src="{{ asset('techbuzz/assets/images/banner/banner-1.png') }}" alt="">
+            <img src="{{ asset('images/landing-page/beranda/'.$section_1['gambar']) }}" alt="">
         </div>
     </section>
     <!-- banner area end -->
@@ -4190,12 +4200,11 @@
             <div class="row justify-content-center">
                 <div class="col-xl-7 text-center">
                     <div class="section__heading white mb-60">
-                        <h4 class="section__heading--title-small"><span class="mr-10">//</span>Our Journey<span
+                        <h4 class="section__heading--title-small"><span class="mr-10">//</span>{{$section_2?$section_2['sub_judul']:'' }}<span
                                 class="ml-10">//</span>
                         </h4>
                         <h1 class="section__heading--transparent">Timeline</h1>
-                        <h2 class="section__heading--title">Having Someone With a Deep
-                            &amp; Broad Understanding<span>.</span></h2>
+                        <h2 class="section__heading--title">{{$section_2?$section_2['judul']:'' }}</h2>
                     </div>
                 </div>
             </div>
@@ -4204,62 +4213,24 @@
                     <div class="timeline">
                         <span class="shape"></span>
                         <span class="shape shape--2"></span>
-                        <div class="timeline__box">
-                            <span class="year">1990</span>
-                            <div class="timeline__box--inner">
-                                <div class="thumb">
-                                    <img src="{{ asset('techbuzz/assets/images/others/timeline-1.jpeg') }}" alt="">
-                                </div>
-                                <div class="content">
-                                    <h4 class="title">Founded Company</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore.</p>
-                                    <span class="number">01</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline__box">
-                            <span class="year">2001</span>
-                            <div class="timeline__box--inner">
-                                <div class="thumb">
-                                    <img src="{{ asset('techbuzz/assets/images/others/timeline-2.jpeg') }}" alt="">
-                                </div>
-                                <div class="content">
-                                    <h4 class="title">Design Award Winning</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore.</p>
-                                    <span class="number">02</span>
+                        @php
+                            $i = 1;
+                        @endphp
+                        @foreach ($timelines as $timeline)
+                            <div class="timeline__box">
+                                <span class="year">{{$i}}</span>
+                                <div class="timeline__box--inner">
+                                    <div class="thumb">
+                                        <img src="{{ asset('images/razen-teknologi/timeline/'.$timeline->gambar) }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h4 class="title">{{$timeline->judul}}</h4>
+                                        <p>{{$timeline->deskripsi}}</p>
+                                        <span class="number">{{$i++}}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="timeline__box">
-                            <span class="year">2008</span>
-                            <div class="timeline__box--inner">
-                                <div class="thumb">
-                                    <img src="{{ asset('techbuzz/assets/images/others/timeline-3.jpeg') }}" alt="">
-                                </div>
-                                <div class="content">
-                                    <h4 class="title">200+ Emploee Join</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore.</p>
-                                    <span class="number">03</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline__box">
-                            <span class="year">2020</span>
-                            <div class="timeline__box--inner">
-                                <div class="thumb">
-                                    <img src="{{ asset('techbuzz/assets/images/others/timeline-4.jpeg') }}" alt="">
-                                </div>
-                                <div class="content">
-                                    <h4 class="title">100+ Project Done</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore.</p>
-                                    <span class="number">04</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
