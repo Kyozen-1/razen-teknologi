@@ -13,9 +13,9 @@ use Validator;
 use DataTables;
 use Carbon\Carbon;
 use Auth;
-use App\Models\Timeline;
+use App\Models\Testimoni;
 
-class TimelineController extends Controller
+class TestimoniController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class TimelineController extends Controller
     {
         if(request()->ajax())
         {
-            $data = Timeline::latest()->get();
+            $data = Testimoni::latest()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('aksi', function($data){
@@ -37,16 +37,16 @@ class TimelineController extends Controller
                     $button = $button_show . ' ' . $button_edit . ' ' . $button_delete;
                     return $button;
                 })
-                ->editColumn('gambar', function($data) {
-                    return '<img src="'.asset('images/razen-teknologi/timeline/'.$data->gambar).'" style="height:5rem;">';
+                ->editColumn('foto', function($data) {
+                    return '<img src="'.asset('images/razen-teknologi/testimoni/'.$data->foto).'" style="height:5rem;">';
                 })
-                ->editColumn('deskripsi', function($data) {
-                    return strip_tags(substr($data->deskripsi,0, 30)) . '...';
+                ->editColumn('testimoni', function($data) {
+                    return strip_tags(substr($data->testimoni,0, 20)) . '...';
                 })
-                ->rawColumns(['aksi', 'gambar'])
+                ->rawColumns(['aksi', 'foto'])
                 ->make(true);
         }
-        return view('razen-teknologi.admin.timeline.index');
+        return view('razen-teknologi.admin.testimoni.index');
     }
 
     /**
@@ -68,9 +68,11 @@ class TimelineController extends Controller
     public function store(Request $request)
     {
         $errors = Validator::make($request->all(), [
-            'judul' => 'required | max:255',
-            'gambar' => 'required | mimes:png,jpg,jpeg,webp',
-            'deskripsi' => 'required'
+            'nama' => 'required | max:255',
+            'jabatan' => 'required | max:255',
+            'judul_testimoni' => 'required | max:255',
+            'foto' => 'required | mimes:png,jpg,jpeg,webp',
+            'testimoni' => 'required'
         ]);
 
         if($errors -> fails())
@@ -78,19 +80,21 @@ class TimelineController extends Controller
             return response()->json(['errors' => $errors->errors()->all()]);
         }
 
-        $gambarExtension = $request->gambar->extension();
-        $gambarName =  uniqid().'-'.date("ymd").'.'.$gambarExtension;
-        $gambar = Image::make($request->gambar);
-        $gambarSize = public_path('images/razen-teknologi/timeline/'.$gambarName);
-        $gambar->save($gambarSize, 60);
+        $fotoExtension = $request->foto->extension();
+        $fotoName =  uniqid().'-'.date("ymd").'.'.$fotoExtension;
+        $foto = Image::make($request->foto);
+        $fotoSize = public_path('images/razen-teknologi/testimoni/'.$fotoName);
+        $foto->save($fotoSize, 60);
 
-        $timeline = new Timeline;
-        $timeline->judul = $request->judul;
-        $timeline->deskripsi = $request->deskripsi;
-        $timeline->gambar = $gambarName;
-        $timeline->save();
+        $testimoni = new Testimoni;
+        $testimoni->nama = $request->nama;
+        $testimoni->jabatan = $request->jabatan;
+        $testimoni->judul_testimoni = $request->judul_testimoni;
+        $testimoni->testimoni = $request->testimoni;
+        $testimoni->foto = $fotoName;
+        $testimoni->save();
 
-        return response()->json(['success' => 'Berhasil menambahkan Timeline']);
+        return response()->json(['success' => 'Berhasil menambahkan Testimoni']);
     }
 
     /**
@@ -101,7 +105,7 @@ class TimelineController extends Controller
      */
     public function show($id)
     {
-        return response()->json(['result' => Timeline::find($id)]);
+        return response()->json(['result' => Testimoni::find($id)]);
     }
 
     /**
@@ -112,7 +116,7 @@ class TimelineController extends Controller
      */
     public function edit($id)
     {
-        return response()->json(['result' => Timeline::find($id)]);
+        return response()->json(['result' => Testimoni::find($id)]);
     }
 
     /**
@@ -125,8 +129,10 @@ class TimelineController extends Controller
     public function update(Request $request)
     {
         $errors = Validator::make($request->all(), [
-            'judul' => 'required | max:255',
-            'deskripsi' => 'required'
+            'nama' => 'required | max:255',
+            'jabatan' => 'required | max:255',
+            'judul_testimoni' => 'required | max:255',
+            'testimoni' => 'required'
         ]);
 
         if($errors -> fails())
@@ -134,24 +140,26 @@ class TimelineController extends Controller
             return response()->json(['errors' => $errors->errors()->all()]);
         }
 
-        $timeline = Timeline::find($request->hidden_id);
-        $timeline->judul = $request->judul;
-        $timeline->deskripsi = $request->deskripsi;
-        if($request->gambar)
+        $testimoni = Testimoni::find($request->hidden_id);
+        $testimoni->nama = $request->nama;
+        $testimoni->jabatan = $request->jabatan;
+        $testimoni->judul_testimoni = $request->judul_testimoni;
+        $testimoni->testimoni = $request->testimoni;
+        if($request->foto)
         {
-            File::delete(public_path('images/razen-teknologi/timeline/'.$timeline->gambar));
+            File::delete(public_path('images/razen-teknologi/testimoni/'.$testimoni->foto));
 
-            $gambarExtension = $request->gambar->extension();
-            $gambarName =  uniqid().'-'.date("ymd").'.'.$gambarExtension;
-            $gambar = Image::make($request->gambar);
-            $gambarSize = public_path('images/razen-teknologi/timeline/'.$gambarName);
-            $gambar->save($gambarSize, 60);
+            $fotoExtension = $request->foto->extension();
+            $fotoName =  uniqid().'-'.date("ymd").'.'.$fotoExtension;
+            $foto = Image::make($request->foto);
+            $fotoSize = public_path('images/razen-teknologi/testimoni/'.$fotoName);
+            $foto->save($fotoSize, 60);
 
-            $timeline->gambar = $gambarName;
+            $testimoni->foto = $fotoName;
         }
-        $timeline->save();
+        $testimoni->save();
 
-        return response()->json(['success' => 'Berhasil menambahkan Timeline']);
+        return response()->json(['success' => 'Berhasil menambahkan Testimoni']);
     }
 
     /**
@@ -162,10 +170,10 @@ class TimelineController extends Controller
      */
     public function destroy($id)
     {
-        $timeline = Timeline::find($id);
+        $testimoni = Testimoni::find($id);
 
-        File::delete(public_path('images/razen-teknologi/timeline/'.$timeline->gambar));
+        File::delete(public_path('images/razen-teknologi/testimoni/'.$testimoni->foto));
 
-        $timeline->delete();
+        $testimoni->delete();
     }
 }

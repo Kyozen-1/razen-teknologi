@@ -79,6 +79,26 @@
                     </a>
                 </li>
                 <li>
+                    @if (request()->routeIs('razen-teknologi.admin.testimoni.index'))
+                        <a href="{{ route('razen-teknologi.admin.testimoni.index') }}" class="active">
+                    @else
+                        <a href="{{ route('razen-teknologi.admin.testimoni.index') }}">
+                    @endif
+                        <i data-acorn-icon="home-garage" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Testimoni</span>
+                    </a>
+                </li>
+                <li>
+                    @if (request()->routeIs('razen-teknologi.admin.layanan-perusahaan.index'))
+                        <a href="{{ route('razen-teknologi.admin.layanan-perusahaan.index') }}" class="active">
+                    @else
+                        <a href="{{ route('razen-teknologi.admin.layanan-perusahaan.index') }}">
+                    @endif
+                        <i data-acorn-icon="home-garage" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Layanan Perusahaan</span>
+                    </a>
+                </li>
+                <li>
                     @if (request()->routeIs('razen-teknologi.landing-page.beranda.index') ||
                     request()->routeIs('razen-teknologi.landing-page.perusahaan.index') ||
                     request()->routeIs('razen-teknologi.landing-page.layanan.index') ||

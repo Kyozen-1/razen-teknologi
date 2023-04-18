@@ -15,6 +15,24 @@ Route::prefix('razen-teknologi')->group(function(){
             Route::post('/update','RazenTeknologi\Admin\TimelineController@update')->name('razen-teknologi.admin.timeline.update');
             Route::get('/destroy/{id}','RazenTeknologi\Admin\TimelineController@destroy')->name('razen-teknologi.admin.timeline.destroy');
         });
+
+        Route::prefix('testimoni')->group(function(){
+            Route::get('/', 'RazenTeknologi\Admin\TestimoniController@index')->name('razen-teknologi.admin.testimoni.index');
+            Route::get('/detail/{id}', 'RazenTeknologi\Admin\TestimoniController@show')->name('razen-teknologi.admin.testimoni.show');
+            Route::post('/','RazenTeknologi\Admin\TestimoniController@store')->name('razen-teknologi.admin.testimoni.store');
+            Route::get('/edit/{id}','RazenTeknologi\Admin\TestimoniController@edit')->name('razen-teknologi.admin.testimoni.edit');
+            Route::post('/update','RazenTeknologi\Admin\TestimoniController@update')->name('razen-teknologi.admin.testimoni.update');
+            Route::get('/destroy/{id}','RazenTeknologi\Admin\TestimoniController@destroy')->name('razen-teknologi.admin.testimoni.destroy');
+        });
+
+        Route::prefix('layanan-perusahaan')->group(function(){
+            Route::get('/', 'RazenTeknologi\Admin\LayananPerusahaanController@index')->name('razen-teknologi.admin.layanan-perusahaan.index');
+            Route::get('/detail/{id}', 'RazenTeknologi\Admin\LayananPerusahaanController@show')->name('razen-teknologi.admin.layanan-perusahaan.show');
+            Route::post('/','RazenTeknologi\Admin\LayananPerusahaanController@store')->name('razen-teknologi.admin.layanan-perusahaan.store');
+            Route::get('/edit/{id}','RazenTeknologi\Admin\LayananPerusahaanController@edit')->name('razen-teknologi.admin.layanan-perusahaan.edit');
+            Route::post('/update','RazenTeknologi\Admin\LayananPerusahaanController@update')->name('razen-teknologi.admin.layanan-perusahaan.update');
+            Route::get('/destroy/{id}','RazenTeknologi\Admin\LayananPerusahaanController@destroy')->name('razen-teknologi.admin.layanan-perusahaan.destroy');
+        });
     });
 
     Route::prefix('landing-page')->group(function(){

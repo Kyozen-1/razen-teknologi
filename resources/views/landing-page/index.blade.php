@@ -4239,31 +4239,24 @@
     <!-- timeline area end -->
 
     <!-- video section area start -->
-    <section class="video__area bg_img pt-100 pb-130" data-background="{{ asset('techbuzz/assets/images/bg/video-bg.jpeg') }}">
+    <section class="video__area bg_img pt-100 pb-130" data-background="{{ asset('images/landing-page/beranda/'.$section_3['gambar']) }}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-8">
                     <div class="video-content-wrap">
                         <div class="section__heading mb-35">
-                            <h4 class="section__heading--title-small"><span class="mr-10">//</span>Intro video</h4>
-                            <h2 class="section__heading--title">Just Make An Awesome <br>
-                            Tour Here<span>.</span></h2>
+                            <h4 class="section__heading--title-small"><span class="mr-10">//</span>{{$section_3?$section_3['sub_judul'] : ''}}</h4>
+                            <h2 class="section__heading--title">{{$section_3?$section_3['judul'] : ''}}</h2>
                             <div class="section__heading--content mt-20">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                                {!! $section_3?$section_3['deskripsi'] : '' !!}
                             </div>
                         </div>
                         <div class="row mt-none-20">
-                            <div class="col-xl-6 mt-20">
+                            <div class="col-xl-12 mt-20">
                                 <ul class="service__box--lists">
-                                    <li><span class="icon"><i class="fal fa-check"></i></span> Easy To Edit</li>
-                                    <li><span class="icon"><i class="fal fa-check"></i></span> 24/ Online Support</li>
-                                </ul>
-                            </div>
-                            <div class="col-xl-6 mt-20">
-                                <ul class="service__box--lists">
-                                    <li><span class="icon"><i class="fal fa-check"></i></span> Easy To Edit</li>
-                                    <li><span class="icon"><i class="fal fa-check"></i></span> 24/ Online Support</li>
+                                    @foreach ($section_3['konten'] as $item)
+                                        <li><span class="icon"><i class="fal fa-check"></i></span> {{$item['item']}}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -4271,7 +4264,7 @@
                     </div>
                 </div>
                 <div class="col-xl-2 offset-xl-2 offset-lg-1 col-lg-3 align-self-center video-btn-wrap">
-                    <a href="//www.youtube.com/embed/4xe72U7mXNg?rel=0&amp;controls=0&amp;showinfo=0" data-rel="lightcase:myCollection"
+                    <a href="{{$section_3?$section_3['tautan'] : ''}}" data-rel="lightcase:myCollection"
                         data-animation="fadeInLeft" data-delay=".1s" class="video-link">
                         <div class="video-play-wrap">
                             <div class="video-mark">
@@ -4295,82 +4288,29 @@
             <div class="row">
                 <div class="col-xl-6">
                     <div class="testimonials owl-carousel">
-                        <div class="testimonial">
-                            <h4 class="title mb-20">Great Quality Software</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore to magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud a exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in the voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident.</p>
-                            <div class="authore mt-25 d-flex align-items-center">
-                                <div class="authore--thumb mr-20">
-                                    <img src="{{ asset('techbuzz/assets/images/others/testimonial-authore-1.png') }}" alt="">
+                        @foreach ($testimonis as $testimoni)
+                            <div class="testimonial">
+                                <h4 class="title mb-20">{{$testimoni->judul_testimoni}}</h4>
+                                <p>{{$testimoni->testimoni}}</p>
+                                <div class="authore mt-25 d-flex align-items-center">
+                                    <div class="authore--thumb mr-20">
+                                        <img src="{{ asset('images/razen-teknologi/testimoni/'.$testimoni->foto) }}" alt="">
+                                    </div>
+                                    <div class="authore--content">
+                                        <h5 class="name">{{$testimoni->nama}}</h5>
+                                        <span class="designatin">{{$testimoni->jabatan}}</span>
+                                    </div>
                                 </div>
-                                <div class="authore--content">
-                                    <h5 class="name">Rosalina D. William</h5>
-                                    <span class="designatin">Founder, Romada Co.</span>
-                                </div>
+                                <img src="{{ asset('techbuzz/assets/images/icons/quote.png') }}" alt="" class="quote-icon">
                             </div>
-                            <img src="{{ asset('techbuzz/assets/images/icons/quote.png') }}" alt="" class="quote-icon">
-                        </div>
-                        <div class="testimonial">
-                            <h4 class="title mb-20">Great Quality Software</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore to magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud a exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in the voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident.</p>
-                            <div class="authore mt-25 d-flex align-items-center">
-                                <div class="authore--thumb mr-20">
-                                    <img src="{{ asset('techbuzz/assets/images/others/testimonial-authore-1.png') }}" alt="">
-                                </div>
-                                <div class="authore--content">
-                                    <h5 class="name">Rosalina D. William</h5>
-                                    <span class="designatin">Founder, Romada Co.</span>
-                                </div>
-                            </div>
-                            <img src="{{ asset('techbuzz/assets/images/icons/quote.png') }}" alt="" class="quote-icon">
-                        </div>
-                        <div class="testimonial">
-                            <h4 class="title mb-20">Great Quality Software</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore to magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud a exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in the voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident.</p>
-                            <div class="authore mt-25 d-flex align-items-center">
-                                <div class="authore--thumb mr-20">
-                                    <img src="{{ asset('techbuzz/assets/images/others/testimonial-authore-1.png') }}" alt="">
-                                </div>
-                                <div class="authore--content">
-                                    <h5 class="name">Rosalina D. William</h5>
-                                    <span class="designatin">Founder, Romada Co.</span>
-                                </div>
-                            </div>
-                            <img src="{{ asset('techbuzz/assets/images/icons/quote.png') }}" alt="" class="quote-icon">
-                        </div>
-                        <div class="testimonial">
-                            <h4 class="title mb-20">Great Quality Software</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore to magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud a exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in the voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident.</p>
-                            <div class="authore mt-25 d-flex align-items-center">
-                                <div class="authore--thumb mr-20">
-                                    <img src="{{ asset('techbuzz/assets/images/others/testimonial-authore-1.png') }}" alt="">
-                                </div>
-                                <div class="testimonial__authore--content">
-                                    <h5 class="name">Rosalina D. William</h5>
-                                    <span class="designatin">Founder, Romada Co.</span>
-                                </div>
-                            </div>
-                            <img src="{{ asset('techbuzz/assets/images/icons/quote.png') }}" alt="" class="quote-icon">
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="newsfeedwrap">
                         <div class="section__heading mb-30">
-                            <h4 class="section__heading--title-small"> <span class="mr-10">//</span>news Feeds</h4>
-                            <h2 class="section__heading--title">Get Every Single <br>
-                            Update Here<span>.</span></h2>
+                            <h4 class="section__heading--title-small"> <span class="mr-10">//</span>{{$section_4?$section_4['sub_judul']:'' }}</h4>
+                            <h2 class="section__heading--title">{{$section_4?$section_4['judul']:'' }}</h2>
                         </div>
                         <div class="row">
                             <div class="col-xl-12">

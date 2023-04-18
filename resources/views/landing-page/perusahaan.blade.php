@@ -2,19 +2,30 @@
 @section('title', 'Razen Teknologi | Perusahaan')
 
 @section('content')
+    @php
+        use App\Models\LandingPagePerusahaan;
+
+        $perusahaan = LandingPagePerusahaan::first();
+
+        $section_1 = json_decode($perusahaan->section_1, true);
+        $section_2 = json_decode($perusahaan->section_2, true);
+        $section_3 = json_decode($perusahaan->section_3, true);
+        $section_4 = json_decode($perusahaan->section_4, true);
+        $section_5 = json_decode($perusahaan->section_5, true);
+    @endphp
     <!-- breadcrumb area start -->
-    <section class="breadcrumb pt-150 pb-150 bg_img" data-background="{{ asset('techbuzz/assets/images/bg/breadcrumb-bg-1.jpeg') }}" data-overlay="dark" data-opacity="5">
+    <section class="breadcrumb pt-150 pb-150 bg_img" data-background="{{ asset('images/landing-page/perusahaan/'.$section_1['gambar']) }}" data-overlay="dark" data-opacity="5">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="breadcrumb__wrap">
-                        <h2 class="title">About Us.</h2>
+                        <h2 class="title">Perusahaan Kami.</h2>
                         <div class="breadcrumb__nav">
                             <ul>
                                 <li><span>//</span></li>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="{{ route('beranda') }}">Beranda</a></li>
                                 <li>|</li>
-                                <li>about us</li>
+                                <li>perusahaan</li>
                             </ul>
                         </div>
                     </div>
@@ -70,12 +81,12 @@
     <!-- counter area end -->
 
     <!-- cta area start -->
-    <div class="cta__area cta__area--4 bg_img" data-background="{{ asset('techbuzz/assets/images/bg/cta-bg-4.jpeg') }}" data-overlay="dark"
+    <div class="cta__area cta__area--4 bg_img" data-background="{{ asset('images/landing-page/beranda/'.$section_2['gambar']) }}" data-overlay="dark"
         data-opacity="5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-6 text-center">
-                    <a href="//www.youtube.com/embed/4xe72U7mXNg?rel=0&amp;controls=0&amp;showinfo=0" data-rel="lightcase:myCollection"
+                    <a href="{{$section_2?$section_2['tautan'] : ''}}" data-rel="lightcase:myCollection"
                         data-animation="fadeInLeft" data-delay=".1s" class="video-link">
                         <div class="video-play-wrap">
                             <div class="video-mark">
@@ -99,26 +110,20 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="about__bg about__bg--4">
-                        <img src="{{ asset('techbuzz/assets/images/bg/about-bg-3.jpeg') }}" data-tilt data-tilt-perspective="3000" alt="">
-                        <img class="f-right" src="{{ asset('techbuzz/assets/images/bg/about-bg-4.jpeg') }}" data-tilt data-tilt-perspective="3000" alt="">
+                        <img src="{{ asset('images/landing-page/beranda/'.$section_3['gambar_kecil']) }}" data-tilt data-tilt-perspective="3000" alt="">
+                        <img class="f-right" src="{{ asset('images/landing-page/beranda/'.$section_3['gambar_besar']) }}" data-tilt data-tilt-perspective="3000" alt="">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 pl-20 mt-70">
                     <div class="section__heading mb-30">
-                        <h4 class="section__heading--title-small"><span class="mr-10">//</span>about us</h4>
-                        <h2 class="section__heading--title">We’ve Been Thriving In <br>
-                            38 Years<span>.</span></h2>
+                        <h4 class="section__heading--title-small"><span class="mr-10">//</span>{{$section_3?$section_3['sub_judul'] : ''}}</h4>
+                        <h2 class="section__heading--title">{{$section_3?$section_3['judul'] : ''}}</h2>
                         <div class="section__heading--content mt-20">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore
-                                et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                            {!!$section_3?$section_3['deskripsi_judul'] : ''!!}
                         </div>
                     </div>
                     <div class="about__box about__box--2">
-                        <p>Labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat ion ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        {!! $section_3?$section_3['deskripsi'] : '' !!}
                     </div>
                 </div>
             </div>
@@ -126,7 +131,7 @@
     </section>
     <!-- about area end -->
 
-    <!-- department area start -->
+    {{-- <!-- department area start -->
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
@@ -165,7 +170,7 @@
             </div>
         </div>
     </div>
-    <!-- department area end -->
+    <!-- department area end --> --}}
 
     <!-- support area start -->
     <section class="support__area support__area--2 pt-95 pb-100">
@@ -175,73 +180,26 @@
                     <div class="section__heading white mb-60">
                         <h4 class="section__heading--title-small"><span class="mr-10">//</span>services<span
                                 class="ml-10">//</span></h4>
-                        <h1 class="section__heading--transparent">Hire Us</h1>
-                        <h2 class="section__heading--title">IT Services & Support
-                            For Business<span>.</span></h2>
+                        <h1 class="section__heading--transparent">{{$section_4?$section_4['sub_judul']:'' }}</h1>
+                        <h2 class="section__heading--title">{{$section_4?$section_4['judul']:'' }}</h2>
                     </div>
                 </div>
             </div>
             <div class="row custom-row mt-none-30">
-                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 mt-30">
-                    <div class="support__box">
-                        <div class="icon">
-                            <img src="{{ asset('techbuzz/assets/images/icons/support-icon-1.png') }}" class="default" alt="">
-                            <img src="{{ asset('techbuzz/assets/images/icons/support-icon-h-1.png') }}" class="hover" alt="">
-                        </div>
-                        <div class="content">
-                            <h2 class="title mb-15">Our Approach</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 mt-30">
-                    <div class="support__box">
-                        <div class="icon">
-                            <img src="{{ asset('techbuzz/assets/images/icons/support-icon-2.png') }}" class="default" alt="">
-                            <img src="{{ asset('techbuzz/assets/images/icons/support-icon-h-2.png') }}" class="hover" alt="">
-                        </div>
-                        <div class="content">
-                            <h2 class="title mb-15">Our Values</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed.</p>
+                @foreach ($layanan_perusahaans as $layanan_perusahaan)
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 mt-30">
+                        <div class="support__box">
+                            <div class="icon">
+                                <img src="{{ asset('images/razen-teknologi/layanan-perusahaan/'.$layanan_perusahaan->gambar_default) }}" class="default" alt="">
+                                <img src="{{ asset('images/razen-teknologi/layanan-perusahaan/'.$layanan_perusahaan->gambar_hover) }}" class="hover" alt="">
+                            </div>
+                            <div class="content">
+                                <h2 class="title mb-15">{{$layanan_perusahaan->judul}}</h2>
+                                <p>{{$layanan_perusahaan->deskripsi}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 mt-30">
-                    <div class="support__box">
-                        <div class="icon">
-                            <img src="{{ asset('techbuzz/assets/images/icons/support-icon-3.png') }}" class="default" alt="">
-                            <img src="{{ asset('techbuzz/assets/images/icons/support-icon-h-3.png') }}" class="hover" alt="">
-                        </div>
-                        <div class="content">
-                            <h2 class="title mb-15">Our Resources</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 mt-30">
-                    <div class="support__box">
-                        <div class="icon">
-                            <img src="{{ asset('techbuzz/assets/images/icons/support-icon-4.png') }}" class="default" alt="">
-                            <img src="{{ asset('techbuzz/assets/images/icons/support-icon-h-4.png') }}" class="hover" alt="">
-                        </div>
-                        <div class="content">
-                            <h2 class="title mb-15">Growth Process</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 mt-30">
-                    <div class="support__box">
-                        <div class="icon">
-                            <img src="{{ asset('techbuzz/assets/images/icons/support-icon-5.png') }}" class="default" alt="">
-                            <img src="{{ asset('techbuzz/assets/images/icons/support-icon-h-5.png') }}" class="hover" alt="">
-                        </div>
-                        <div class="content">
-                            <h2 class="title mb-15">Our Support</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

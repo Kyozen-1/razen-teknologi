@@ -5,20 +5,27 @@ namespace App\Http\Controllers\LandingPage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Timeline;
+use App\Models\Testimoni;
+use App\Models\LayananPerusahaan;
 
 class HomeController extends Controller
 {
     public function beranda()
     {
         $timelines = Timeline::all();
+        $testimonis = Testimoni::all();
         return view('landing-page.index', [
-            'timelines' => $timelines
+            'timelines' => $timelines,
+            'testimonis' => $testimonis
         ]);
     }
 
     public function perusahaan()
     {
-        return view('landing-page.perusahaan');
+        $layanan_perusahaans = LayananPerusahaan::all();
+        return view('landing-page.perusahaan', [
+            'layanan_perusahaans' => $layanan_perusahaans
+        ]);
     }
 
     public function layanan()
