@@ -33,6 +33,16 @@ Route::prefix('razen-teknologi')->group(function(){
             Route::post('/update','RazenTeknologi\Admin\LayananPerusahaanController@update')->name('razen-teknologi.admin.layanan-perusahaan.update');
             Route::get('/destroy/{id}','RazenTeknologi\Admin\LayananPerusahaanController@destroy')->name('razen-teknologi.admin.layanan-perusahaan.destroy');
         });
+
+        Route::prefix('tim')->group(function(){
+            Route::get('/', 'RazenTeknologi\Admin\TimController@index')->name('razen-teknologi.admin.tim.index');
+            Route::get('/create', 'RazenTeknologi\Admin\TimController@create')->name('razen-teknologi.admin.tim.create');
+            Route::get('/detail/{id}', 'RazenTeknologi\Admin\TimController@show')->name('razen-teknologi.admin.tim.show');
+            Route::post('/','RazenTeknologi\Admin\TimController@store')->name('razen-teknologi.admin.tim.store');
+            Route::get('/edit/{id}','RazenTeknologi\Admin\TimController@edit')->name('razen-teknologi.admin.tim.edit');
+            Route::post('/update/{id}','RazenTeknologi\Admin\TimController@update')->name('razen-teknologi.admin.tim.update');
+            Route::get('/destroy/{id}','RazenTeknologi\Admin\TimController@destroy')->name('razen-teknologi.admin.tim.destroy');
+        });
     });
 
     Route::prefix('landing-page')->group(function(){
@@ -74,6 +84,17 @@ Route::prefix('razen-teknologi')->group(function(){
             Route::get('/', 'RazenTeknologi\LandingPage\KontakController@index')->name('razen-teknologi.landing-page.kontak.index');
 
             Route::post('/store/section-1', 'RazenTeknologi\LandingPage\KontakController@store_section_1')->name('razen-teknologi.landing-page.kontak.store.section-1');
+        });
+    });
+
+    Route::prefix('master-data')->group(function(){
+        Route::prefix('media-sosial')->group(function(){
+            Route::get('/', 'RazenTeknologi\MasterData\MediaSosialController@index')->name('razen-teknologi.master-data.media-sosial.index');
+            Route::get('/detail/{id}', 'RazenTeknologi\MasterData\MediaSosialController@show')->name('razen-teknologi.master-data.media-sosial.show');
+            Route::post('/','RazenTeknologi\MasterData\MediaSosialController@store')->name('razen-teknologi.master-data.media-sosial.store');
+            Route::get('/edit/{id}','RazenTeknologi\MasterData\MediaSosialController@edit')->name('razen-teknologi.master-data.media-sosial.edit');
+            Route::post('/update','RazenTeknologi\MasterData\MediaSosialController@update')->name('razen-teknologi.master-data.media-sosial.update');
+            Route::get('/destroy/{id}','RazenTeknologi\MasterData\MediaSosialController@destroy')->name('razen-teknologi.master-data.media-sosial.destroy');
         });
     });
 });

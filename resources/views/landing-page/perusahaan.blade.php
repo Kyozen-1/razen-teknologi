@@ -211,9 +211,8 @@
             <div class="row">
                 <div class="col-xl-7">
                     <div class="section__heading mb-50">
-                        <h4 class="section__heading--title-small"><span class="mr-10">//</span>Team</h4>
-                        <h2 class="section__heading--title">Our Buddys Always Ready <br>
-                            To Solve Your Issues<span>.</span></h2>
+                        <h4 class="section__heading--title-small"><span class="mr-10">//</span>{{$section_5?$section_5['sub_judul']:'' }}</h4>
+                        <h2 class="section__heading--title">{{$section_5?$section_5['judul']:'' }}</h2>
                     </div>
                 </div>
             </div>

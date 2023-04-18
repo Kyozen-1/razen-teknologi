@@ -99,6 +99,37 @@
                     </a>
                 </li>
                 <li>
+                    @if (request()->routeIs('razen-teknologi.admin.tim.index'))
+                        <a href="{{ route('razen-teknologi.admin.tim.index') }}" class="active">
+                    @else
+                        <a href="{{ route('razen-teknologi.admin.tim.index') }}">
+                    @endif
+                        <i data-acorn-icon="home-garage" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Tim</span>
+                    </a>
+                </li>
+                <li>
+                    @if (request()->routeIs('razen-teknologi.master-data.media-sosial.index'))
+                    <a href="#master_data" class="active">
+                    @else
+                    <a href="#master_data">
+                    @endif
+                        <i data-acorn-icon="notebook-1" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Master Data</span>
+                    </a>
+                    <ul id="master_data">
+                        <li>
+                            @if (request()->routeIs('razen-teknologi.master-data.media-sosial.index'))
+                                <a href="{{ route('razen-teknologi.master-data.media-sosial.index') }}" class="active">
+                            @else
+                                <a href="{{ route('razen-teknologi.master-data.media-sosial.index') }}">
+                            @endif
+                                <span class="label">Media Sosial</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     @if (request()->routeIs('razen-teknologi.landing-page.beranda.index') ||
                     request()->routeIs('razen-teknologi.landing-page.perusahaan.index') ||
                     request()->routeIs('razen-teknologi.landing-page.layanan.index') ||
