@@ -219,86 +219,22 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="team-carousel owl-carousel">
-                        <div class="team__box">
-                            <div class="thumb">
-                                <img src="{{ asset('techbuzz/assets/images/team/team-1.jpeg') }}" alt="">
-                                <div class="social__icons">
-                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#0"><i class="fab fa-twitter"></i></a>
-                                    <a href="#0"><i class="fab fa-behance"></i></a>
-                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#0"><i class="fab fa-youtube"></i></a>
+                        @foreach ($tims as $tim)
+                            <div class="team__box">
+                                <div class="thumb">
+                                    <img src="{{ asset('images/razen-teknologi/tim/'.$tim['foto']) }}" alt="">
+                                    <div class="social__icons">
+                                        @foreach ($tim['pivot'] as $item)
+                                        <a href="{{$item['tautan']}}"><i class="{{$item['kode_ikon']}}"></i></a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <span class="designation">{{$tim['jabatan']}}</span>
+                                    <h4 class="name">{{$tim['nama']}}</h4>
                                 </div>
                             </div>
-                            <div class="content">
-                                <span class="designation">Founder</span>
-                                <h4 class="name">Rosalina D. William</h4>
-                            </div>
-                        </div>
-                        <div class="team__box">
-                            <div class="thumb">
-                                <img src="{{ asset('techbuzz/assets/images/team/team-2.jpeg') }}" alt="">
-                                <div class="social__icons">
-                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#0"><i class="fab fa-twitter"></i></a>
-                                    <a href="#0"><i class="fab fa-behance"></i></a>
-                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#0"><i class="fab fa-youtube"></i></a>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <span class="designation">CEO</span>
-                                <h4 class="name">Miranda H. Halim</h4>
-                            </div>
-                        </div>
-                        <div class="team__box">
-                            <div class="thumb">
-                                <img src="{{ asset('techbuzz/assets/images/team/team-3.jpeg') }}" alt="">
-                                <div class="social__icons">
-                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#0"><i class="fab fa-twitter"></i></a>
-                                    <a href="#0"><i class="fab fa-behance"></i></a>
-                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#0"><i class="fab fa-youtube"></i></a>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <span class="designation">Designer</span>
-                                <h4 class="name">Alim D. Dhario</h4>
-                            </div>
-                        </div>
-                        <div class="team__box">
-                            <div class="thumb">
-                                <img src="{{ asset('techbuzz/assets/images/team/team-4.jpeg') }}" alt="">
-                                <div class="social__icons">
-                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#0"><i class="fab fa-twitter"></i></a>
-                                    <a href="#0"><i class="fab fa-behance"></i></a>
-                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#0"><i class="fab fa-youtube"></i></a>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <span class="designation">Developer</span>
-                                <h4 class="name">Rosalina D. William</h4>
-                            </div>
-                        </div>
-                        <div class="team__box">
-                            <div class="thumb">
-                                <img src="{{ asset('techbuzz/assets/images/team/team-1.jpeg') }}" alt="">
-                                <div class="social__icons">
-                                    <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#0"><i class="fab fa-twitter"></i></a>
-                                    <a href="#0"><i class="fab fa-behance"></i></a>
-                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#0"><i class="fab fa-youtube"></i></a>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <span class="designation">Founder</span>
-                                <h4 class="name">Rosalina D. William</h4>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

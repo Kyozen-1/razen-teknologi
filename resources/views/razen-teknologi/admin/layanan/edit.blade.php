@@ -1,5 +1,5 @@
 @extends('razen-teknologi.layouts.app')
-@section('title', 'Razen Teknologi | Tim')
+@section('title', 'Razen Teknologi | Layanan')
 
 @section('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -35,11 +35,11 @@
         <div class="row">
         <!-- Title Start -->
         <div class="col-12 col-md-7">
-            <h1 class="mb-0 pb-0 display-4" id="title">Tim | Edit</h1>
+            <h1 class="mb-0 pb-0 display-4" id="title">Layanan | Edit</h1>
             <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
                 <ul class="breadcrumb pt-0">
                     <li class="breadcrumb-item"><a href="{{ route('razen-teknologi.admin.dashboard.index') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('razen-teknologi.admin.tim.index') }}">Tim</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('razen-teknologi.admin.layanan.index') }}">Layanan</a></li>
                     <li class="breadcrumb-item"><a href="#">Edit</a></li>
                 </ul>
             </nav>
@@ -48,29 +48,37 @@
         </div>
     </div>
     <!-- Title and Top Buttons End -->
-    <form action="{{ route('razen-teknologi.admin.tim.update',['id' => $tim->id]) }}" novalidate="novalidate" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('razen-teknologi.admin.layanan.update',['id' => $layanan->id]) }}" novalidate="novalidate" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="card">
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-6" style="justify-content: center; align-self: center;">
-                        <label for="" class="small-title">Edit Data Tim</label>
+                        <label for="" class="small-title">Edit Data Layanan</label>
                     </div>
                     <div class="col-6" style="text-align:right">
-                        <a href="{{ route('razen-teknologi.admin.tim.index') }}" class="btn btn-danger btn-icon waves-effect waves-light"><i class="fas fa-arrow-left"></i></a>
+                        <a href="{{ route('razen-teknologi.admin.layanan.index') }}" class="btn btn-danger btn-icon waves-effect waves-light"><i class="fas fa-arrow-left"></i></a>
                     </div>
                 </div>
                 <div class="mb-3 position-relative form-group">
-                    <label for="nama" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="nama" name="nama" value="{{$tim->nama}}" required>
+                    <label for="judul_kecil" class="form-label">Judul Kecil</label>
+                    <input type="text" class="form-control" id="judul_kecil" name="judul_kecil" value="{{$layanan->judul_kecil}}" required>
                 </div>
                 <div class="mb-3 position-relative form-group">
-                    <label for="jabatan" class="form-label">Jabatan</label>
-                    <input type="text" class="form-control" id="jabatan" name="jabatan" value="{{$tim->jabatan}}" required>
+                    <label for="judul" class="form-label">Judul</label>
+                    <input type="text" class="form-control" id="judul" name="judul" value="{{$layanan->judul}}" required>
                 </div>
                 <div class="mb-3 position-relative form-group">
-                    <label for="foto" class="form-label">Foto</label>
-                    <input type="file" class="dropify" name="foto" data-height="150" data-allowed-file-extensions="png jpg jpeg webp" data-show-errors="true" data-default-file="{{ asset('images/razen-teknologi/tim/'.$tim->foto) }}" required>
+                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                    <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" required>{{$layanan->deskripsi}}</textarea>
+                </div>
+                <div class="mb-3 position-relative form-group">
+                    <label for="ikon" class="form-label">Ikon</label>
+                    <input type="file" class="dropify" name="ikon" data-height="150" data-allowed-file-extensions="png jpg jpeg webp" data-show-errors="true" data-default-file="{{ asset('images/razen-teknologi/layanan/'.$layanan->ikon) }}" required>
+                </div>
+                <div class="mb-3 position-relative form-group">
+                    <label for="gambar" class="form-label">Gambar</label>
+                    <input type="file" class="dropify" name="gambar" data-height="150" data-allowed-file-extensions="png jpg jpeg webp" data-show-errors="true" data-default-file="{{ asset('images/razen-teknologi/layanan/'.$layanan->gambar) }}" required>
                 </div>
             </div>
         </div>
@@ -84,8 +92,7 @@
                                     <thead>
                                         <tr>
                                             <th width="5%">No</th>
-                                            <th width="30%">Media Sosial</th>
-                                            <th width="50%">Tautan</th>
+                                            <th width="80%">Item</th>
                                             <th width="15%">Aksi</th>
                                         </tr>
                                     </thead>
@@ -97,20 +104,13 @@
                                             <tr>
                                                 <td class="text-left">
                                                     {{$a++}}
-                                                    <input type="hidden" name="edit_data_tim[{{$a}}][pivot_tim_media_sosial_id]" value="{{$item->id}}">
+                                                    <input type="hidden" name="edit_data_daftar_layanan[{{$a}}][pivot_daftar_layanan_id]" value="{{$item->id}}">
                                                 </td>
                                                 <td class="text-left">
-                                                    <select name="edit_data_tim[{{$a}}][master_media_sosial_id]" class="form-control" required>
-                                                        @foreach ($media_sosial as $id => $nama)
-                                                            <option value="{{$id}}" @if($item->media_sosial_id == $id) selected @endif>{{$nama}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </td>
-                                                <td class="text-left">
-                                                    <input type="text" class="form-control" name="edit_data_tim[{{$a}}][tautan]" value="{{$item->tautan}}">
+                                                    <input type="text" class="form-control" name="edit_data_daftar_layanan[{{$a}}][judul]" value="{{$item->judul}}">
                                                 </td>
                                                 <td class="text-center">
-                                                    <button class="btn btn-danger hapus-data-tim" type="button" aria-hidden="true" data-id="{{$item->id}}" title="Hapus">Hapus</button>
+                                                    <button class="btn btn-danger hapus-data-daftar-layanan" type="button" aria-hidden="true" data-id="{{$item->id}}" title="Hapus">Hapus</button>
                                                 </td>
                                             </tr>
                                             @php
@@ -123,14 +123,14 @@
                         </div>
                     </div>
                     <input type="hidden" name="hapus_id_pivot" id="hapus_id_pivot">
-                    <div class="form-group" id="form_tambah_media_sosial_profil">
+                    <div class="form-group" id="form_tambah_daftar_layanan">
                         <div class="row mb-3">
                             <div class="col-6 justify-content-center align-self-center text-left">
-                                <label for="" class="control-label">Tambah Media Sosial</label>
+                                <label for="" class="control-label">Tambah Daftar Layanan</label>
                             </div>
                             <div class="col-6" style="text-align:right;">
-                                <button class="btn btn-icon waves-effect waves-light btn-primary mr-2" type="button" id="btn_tambah_media_sosial_tim"><i class="fas fa-user-plus"></i></button>
-                                <button class="btn btn-icon waves-effect waves-light btn-danger" type="button" id="btn_hapus_media_sosial_tim"><i class="fas fa-user-minus"></i></button>
+                                <button class="btn btn-icon waves-effect waves-light btn-primary mr-2" type="button" id="btn_tambah_daftar_layanan"><i class="fas fa-user-plus"></i></button>
+                                <button class="btn btn-icon waves-effect waves-light btn-danger" type="button" id="btn_hapus_daftar_layanan"><i class="fas fa-user-minus"></i></button>
                             </div>
                         </div>
                     </div>
@@ -168,14 +168,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/fontawesome.min.js" integrity="sha512-j3gF1rYV2kvAKJ0Jo5CdgLgSYS7QYmBVVUjduXdoeBkc4NFV4aSRTi+Rodkiy9ht7ZYEwF+s09S43Z1Y+ujUkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        var mediaSosialOption = '@foreach ($media_sosial as $id => $nama) <option value="{{$id}}">{{$nama}}</option> @endforeach';
         $(document).ready(function(){
             $('.dropify').dropify();
         });
 
         var ID_PIVOT = [];
 
-        $('.hapus-data-tim').click(function() {
+        $('.hapus-data-daftar-layanan').click(function() {
             var id = $(this).attr('data-id');
             var _t = $(this);
             ID_PIVOT.push(id);
@@ -183,55 +182,46 @@
             _t.parent().parent().remove();
         });
 
-        var count_media_sosial = 0;
-        dynamic_field_media_sosial();
+        var count_daftar_layanan = 0;
+        dynamic_field_daftar_layanan();
 
-        function dynamic_field_media_sosial(number_media_sosial)
+        function dynamic_field_daftar_layanan(number_daftar_layanan)
         {
-            var index_media_sosial = number_media_sosial - 1;
+            var index_daftar_layanan = number_daftar_layanan - 1;
             html = '<div class="border shadow p-3 mb-3">'
             html += '<div class="form-group row">';
             html += '<div class="col-12">';
             html += '<h3>';
-            html += '<span class="sw-4 sh-4 me-1 mb-1 d-inline-block bg-info d-flex justify-content-center align-items-center rounded-xl">'+number_media_sosial+'</span>';
+            html += '<span class="sw-4 sh-4 me-1 mb-1 d-inline-block bg-info d-flex justify-content-center align-items-center rounded-xl">'+number_daftar_layanan+'</span>';
             html += '</h3>';
             html += '</div>';
             html += '</div>';
             html += '<div class="position-relative mb-3 form-group row">';
-            html += '<label class="col-md-3 col-form-label">Media Sosial</label>';
+            html += '<label class="col-md-3 form-label">Item</label>';
             html += '<div class="col-md-9">';
-            html += '<select name="data_media_sosial['+index_media_sosial+'][master_media_sosial_id]" class="form-control select-media-sosial" id="select-media-sosial_'+number_media_sosial+'">';
-            html += mediaSosialOption;
-            html += '</select>';
-            html += '</div>';
-            html += '</div>';
-            html += '<div class="position-relative mb-3 form-group row">';
-            html += '<label class="col-md-3 form-label">Tautan</label>';
-            html += '<div class="col-md-9">';
-            html += '<input type="text" name="data_media_sosial['+index_media_sosial+'][tautan]" class="form-control" required>';
+            html += '<input type="text" name="data_daftar_layanan['+index_daftar_layanan+'][judul]" class="form-control" required>';
             html += '</div>';
             html += '</div>';
             html += '</div>';
 
-            if(number_media_sosial >= 1)
+            if(number_daftar_layanan >= 1)
             {
-                $('#form_tambah_media_sosial_profil').after(html);
-                $('.select-media-sosial').select2();
+                $('#form_tambah_daftar_layanan').after(html);
             }
         }
 
-        $(document).on('click', '#btn_tambah_media_sosial_tim', function(){
-            count_media_sosial++;
-            dynamic_field_media_sosial(count_media_sosial);
+        $(document).on('click', '#btn_tambah_daftar_layanan', function(){
+            count_daftar_layanan++;
+            dynamic_field_daftar_layanan(count_daftar_layanan);
         });
 
-        $(document).on('click', '#btn_hapus_media_sosial_tim', function(){
-            count_media_sosial--;
-            if(count_media_sosial < 0)
+        $(document).on('click', '#btn_hapus_daftar_layanan', function(){
+            count_daftar_layanan--;
+            if(count_daftar_layanan < 0)
             {
-                count_media_sosial = 0;
+                count_daftar_layanan = 0;
             }
-            $('#form_tambah_media_sosial_profil').next('div').remove();
+            $('#form_tambah_daftar_layanan').next('div').remove();
         });
     </script>
 @endsection

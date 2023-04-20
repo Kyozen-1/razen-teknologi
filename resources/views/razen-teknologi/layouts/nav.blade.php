@@ -109,6 +109,37 @@
                     </a>
                 </li>
                 <li>
+                    @if (request()->routeIs('razen-teknologi.admin.layanan.index') ||
+                    request()->routeIs('razen-teknologi.admin.fitur-layanan.index'))
+                    <a href="#layanan" class="active">
+                    @else
+                    <a href="#layanan">
+                    @endif
+                        <i data-acorn-icon="notebook-1" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Layanan</span>
+                    </a>
+                    <ul id="layanan">
+                        <li>
+                            @if (request()->routeIs('razen-teknologi.admin.layanan.index'))
+                                <a href="{{ route('razen-teknologi.admin.layanan.index') }}" class="active">
+                            @else
+                                <a href="{{ route('razen-teknologi.admin.layanan.index') }}">
+                            @endif
+                                <span class="label">Layanan</span>
+                            </a>
+                        </li>
+                        <li>
+                            @if (request()->routeIs('razen-teknologi.admin.fitur-layanan.index'))
+                                <a href="{{ route('razen-teknologi.admin.fitur-layanan.index') }}" class="active">
+                            @else
+                                <a href="{{ route('razen-teknologi.admin.fitur-layanan.index') }}">
+                            @endif
+                                <span class="label">Fitur Layanan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     @if (request()->routeIs('razen-teknologi.master-data.media-sosial.index'))
                     <a href="#master_data" class="active">
                     @else

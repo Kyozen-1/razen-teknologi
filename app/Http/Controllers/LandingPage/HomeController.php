@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Timeline;
 use App\Models\Testimoni;
 use App\Models\LayananPerusahaan;
+use App\Models\Tim;
+use App\Models\Layanan;
+use App\Models\FiturLayanan;
+use App\Models\PivotItemFiturLayanan;
 
 class HomeController extends Controller
 {
@@ -23,19 +27,105 @@ class HomeController extends Controller
     public function perusahaan()
     {
         $layanan_perusahaans = LayananPerusahaan::all();
+        $tims = Tim::all()->map(function($data){
+            return [
+                'nama' => $data->nama,
+                'jabatan' => $data->jabatan,
+                'foto' => $data->foto,
+                'pivot' => $data->pivot_tim_media_sosial->map(
+                    function($data){
+                        return [
+                            'nama_media_sosial' => $data->media_sosial->nama,
+                            'kode_ikon' => $data->media_sosial->kode_ikon,
+                            'tautan' => $data->tautan
+                        ];
+                    }
+                )
+            ];
+        });
         return view('landing-page.perusahaan', [
-            'layanan_perusahaans' => $layanan_perusahaans
+            'layanan_perusahaans' => $layanan_perusahaans,
+            'tims' => $tims
         ]);
     }
 
     public function layanan()
     {
-        return view('landing-page.layanan');
+        $layanans = Layanan::all();
+        return view('landing-page.layanan', [
+            'layanans' => $layanans
+        ]);
     }
 
     public function layanan_detail($id)
     {
-        return view('landing-page.layanan-detail');
+        // $layanan = Layanan::where('id', $id)->first()->map(function($data){
+        //     return [
+        //         'id' => $data->id,
+        //         'judul_kecil' => $data->judul_kecil,
+        //         'judul' => $data->judul,
+        //         'deskripsi' => $data->deskripsi,
+        //         'ikon' => $data->ikon,
+        //         'gambar' => $data->gambar,
+        //         'daftar_layanan' => $data->pivot_daftar_layanan->map(
+        //             function($data){
+        //                 return [
+        //                     'judul' => $data->judul,
+        //                 ];
+        //             }
+        //         ),
+        //         'fitur_layanan' => $data->fitur_layanan->map(
+        //             function($data){
+        //                 return [
+        //                     'judul' => $data->judul,
+        //                     'item' => $data->pivot_item_fitur_layanan->map(
+        //                         function($data)
+        //                         {
+        //                             return [
+        //                                 'judul' => $data->judul,
+        //                                 'deskripsi' => $data->deskripsi
+        //                             ];
+        //                         }
+        //                     )
+        //                 ];
+        //             }
+        //         )
+        //     ];
+        // });
+
+        $data_layanan = Layanan::find($id);
+
+        $data_layanan['daftar_layanan'] = $data_layanan->pivot_daftar_layanan->map(
+            function($data)
+            {
+                return [
+                    'judul' => $data->judul,
+                ];
+            }
+        );
+
+        $data_layanan['fitur_layanan'] = $data_layanan->fitur_layanan->map(
+            function($data){
+                return [
+                    'judul' => $data->judul,
+                    'item' => $data->pivot_item_fitur_layanan->map(
+                        function($data)
+                        {
+                            return [
+                                'judul' => $data->judul,
+                                'deskripsi' => $data->deskripsi
+                            ];
+                        }
+                    )
+                ];
+            }
+        );
+
+        // dd($data_layanan->fitur_layanan[0]['judul']);
+
+        return view('landing-page.layanan-detail', [
+            'data_layanan' => $data_layanan
+        ]);
     }
 
     public function aplikasi()

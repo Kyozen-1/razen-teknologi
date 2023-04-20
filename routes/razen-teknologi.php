@@ -43,6 +43,26 @@ Route::prefix('razen-teknologi')->group(function(){
             Route::post('/update/{id}','RazenTeknologi\Admin\TimController@update')->name('razen-teknologi.admin.tim.update');
             Route::get('/destroy/{id}','RazenTeknologi\Admin\TimController@destroy')->name('razen-teknologi.admin.tim.destroy');
         });
+
+        Route::prefix('layanan')->group(function(){
+            Route::get('/', 'RazenTeknologi\Admin\LayananController@index')->name('razen-teknologi.admin.layanan.index');
+            Route::get('/create', 'RazenTeknologi\Admin\LayananController@create')->name('razen-teknologi.admin.layanan.create');
+            Route::get('/detail/{id}', 'RazenTeknologi\Admin\LayananController@show')->name('razen-teknologi.admin.layanan.show');
+            Route::post('/','RazenTeknologi\Admin\LayananController@store')->name('razen-teknologi.admin.layanan.store');
+            Route::get('/edit/{id}','RazenTeknologi\Admin\LayananController@edit')->name('razen-teknologi.admin.layanan.edit');
+            Route::post('/update/{id}','RazenTeknologi\Admin\LayananController@update')->name('razen-teknologi.admin.layanan.update');
+            Route::get('/destroy/{id}','RazenTeknologi\Admin\LayananController@destroy')->name('razen-teknologi.admin.layanan.destroy');
+        });
+
+        Route::prefix('fitur-layanan')->group(function(){
+            Route::get('/', 'RazenTeknologi\Admin\FiturLayananController@index')->name('razen-teknologi.admin.fitur-layanan.index');
+            Route::get('/create', 'RazenTeknologi\Admin\FiturLayananController@create')->name('razen-teknologi.admin.fitur-layanan.create');
+            Route::get('/detail/{id}', 'RazenTeknologi\Admin\FiturLayananController@show')->name('razen-teknologi.admin.fitur-layanan.show');
+            Route::post('/','RazenTeknologi\Admin\FiturLayananController@store')->name('razen-teknologi.admin.fitur-layanan.store');
+            Route::get('/edit/{id}','RazenTeknologi\Admin\FiturLayananController@edit')->name('razen-teknologi.admin.fitur-layanan.edit');
+            Route::post('/update/{id}','RazenTeknologi\Admin\FiturLayananController@update')->name('razen-teknologi.admin.fitur-layanan.update');
+            Route::get('/destroy/{id}','RazenTeknologi\Admin\FiturLayananController@destroy')->name('razen-teknologi.admin.fitur-layanan.destroy');
+        });
     });
 
     Route::prefix('landing-page')->group(function(){
