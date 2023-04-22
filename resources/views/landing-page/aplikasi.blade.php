@@ -2,20 +2,27 @@
 @section('title', 'Razen Teknologi | Aplikasi')
 
 @section('content')
+    @php
+        use App\Models\LandingPageAplikasi;
+
+        $aplikasi = LandingPageAplikasi::first();
+
+        $section_1 = json_decode($aplikasi->section_1, true);
+    @endphp
     <!-- breadcrumb area start -->
-    <section class="breadcrumb pt-150 pb-150 bg_img" data-background="assets/images/bg/breadcrumb-bg-1.jpeg"
+    <section class="breadcrumb pt-150 pb-150 bg_img" data-background="{{ asset('images/landing-page/aplikasi/'.$section_1['gambar']) }}"
         data-overlay="dark" data-opacity="5">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="breadcrumb__wrap">
-                        <h2 class="title">Our Application.</h2>
+                        <h2 class="title">Aplikasi Kami.</h2>
                         <div class="breadcrumb__nav">
                             <ul>
                                 <li><span>//</span></li>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="{{ route('beranda') }}">Beranda</a></li>
                                 <li>|</li>
-                                <li>Application</li>
+                                <li>Aplikasi</li>
                             </ul>
                         </div>
                     </div>

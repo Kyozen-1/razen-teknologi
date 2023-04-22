@@ -4,6 +4,8 @@ namespace App\Http\Controllers\LandingPage;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client as GuzzleHttpClient;
+use Carbon\Carbon;
 use App\Models\Timeline;
 use App\Models\Testimoni;
 use App\Models\LayananPerusahaan;
@@ -18,9 +20,15 @@ class HomeController extends Controller
     {
         $timelines = Timeline::all();
         $testimonis = Testimoni::all();
+        $guzzleClient = new GuzzleHttpClient();
+
+        $get_kategoris = $guzzleClient->get(env('RAZEN_URL').'api/product/category/razen-teknologi');
+        $kategoris = json_decode($get_kategoris->getBody())->data;
+
         return view('landing-page.index', [
             'timelines' => $timelines,
-            'testimonis' => $testimonis
+            'testimonis' => $testimonis,
+            'kategoris' => $kategoris
         ]);
     }
 
@@ -140,7 +148,14 @@ class HomeController extends Controller
 
     public function aplikasi_kategori($id)
     {
-        return view('landing-page.aplikasi-kategori');
+        $guzzleClient = new GuzzleHttpClient();
+
+        $get_kategori_razen_teknologis = $guzzleClient->get(env('RAZEN_URL').'api/product/razen-teknologi/product/kategori/'.$id);
+        $kategori_razen_teknologis = json_decode($get_kategori_razen_teknologis->getBody())->data;
+        // dd($kategori_razen_teknologis);
+        return view('landing-page.aplikasi-kategori',[
+            'kategori_razen_teknologis' => $kategori_razen_teknologis
+        ]);
     }
 
     public function kontak()
