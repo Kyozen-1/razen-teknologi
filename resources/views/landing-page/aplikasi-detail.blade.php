@@ -104,7 +104,7 @@
                                                     Please Wait
                                                 </button>
                                                 <div class="tab-pane fade  show active text-center" id="user-app_mobile" role="tabpanel" aria-labelledby="user-app_tab">
-                                                    <iframe id="frame-0" src="https://template.opuslab.works/templates/MarvelPrototype_cedbiig_19012022040506_v1?emb=1&amp;iosapp=false&amp;frameless=false" allowtransparency="true" frameborder="0" height="600px" onload="onFrameLoad()">
+                                                    <iframe id="frame-0" src="https://www.figma.com/embed?embed_host=share&hide-ui=1&show-proto-sidebar=0&url={{$produk->url_figma}}" allowtransparency="true" frameborder="0" height="600px">
                                                     </iframe>
                                                 </div>
                                             </div>
@@ -128,28 +128,13 @@
                                             <div class="row no-gutters">
                                                 <div class="col-12 col-md-8 px-0">
                                                     <h4 class="text-center text-md-left pb-2 pb-md-0 pl-md-3">
-                                                        <strong>Download app</strong> on your phone
+                                                        Beli Sekarang
                                                     </h4>
                                                 </div>
                                                 <div class="col-12 col-md-4">
-                                                    <button type="button" class="btn primary_button  rounded d-flex align-items-center mx-auto ml-md-auto mr-md-0" id="GooglePlay">
-                                                        <img src="https://opuslab.works/images/playstore.png" class="img-fluid" alt="">
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="btn_box get_it_app2 w-100 wow fadeInUp  col-11 col-md-12 mx-auto" data-wow-duration=".5s" style="visibility: visible; animation-duration: 0.5s; animation-name: fadeInUp;">
-                                            <div class="row no-gutters">
-                                                <div class="col-12 col-md-8 px-0">
-                                                    <h4 class="text-center text-md-left pb-2 pb-md-0 pl-md-3">
-                                                        <strong>Buy</strong> this Product now
-                                                    </h4>
-                                                </div>
-                                                <div class="col-12 col-md-4">
-                                                    <button type="button" class="btn primary_button rounded d-flex align-items-center mx-auto ml-md-auto mr-md-0" id="codecanyon">
-                                                        <img src="https://opuslab.works/images/Codecanyon.png" class="img-fluid" alt="">
-                                                    </button>
+                                                    <a href="{{preg_replace('#/+#','/',env('RAZEN_URL').$produk->link)}}" target="blank" class="btn btn-light rounded d-flex align-items-center mx-auto ml-md-auto mr-md-0">
+                                                        <img src="{{ asset('images/razen-teknologi/logo/'.$profil->logo) }}" class="img-fluid" alt="">
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -157,14 +142,12 @@
                                         <div class="btn_box   get_it_app2 w-100 wow fadeInUp  col-11 col-md-12 mx-auto" data-wow-duration=".5s" style="visibility: visible; animation-duration: 0.5s; animation-name: fadeInUp;">
                                             <div class="row no-gutters">
                                                 <div class="col-12 col-md-8 px-0">
-                                                    <h4 class="text-center text-md-left pb-2 pb-md-0 pl-md-3">Watch App
-                                                        <strong>Demo Video</strong>
-                                                    </h4>
+                                                    <h4 class="text-center text-md-left pb-2 pb-md-0 pl-md-3">Lihat Demo</h4>
                                                 </div>
                                                 <div class="col-12 col-md-4">
-                                                    <button type="button" class="btn primary_button  youtube_btn rounded d-flex align-items-center mx-auto ml-md-auto mr-md-0">
-                                                        <a href="https://youtu.be/eeqpGYwfvcg" target="_blank"></a><img src="https://opuslab.works/images/Youtube.png" class="img-fluid" alt="">
-                                                    </button>
+                                                    <a href="{{$produk->url_demo_app}}" target="blank" class="btn btn-light rounded d-flex align-items-center mx-auto ml-md-auto mr-md-0">
+                                                        <img src="{{ asset('images/razen-teknologi/logo/'.$profil->logo) }}" class="img-fluid" alt="">
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -177,7 +160,7 @@
                                                     <div class="row align-items-center">
                                                         <div class="col-12 col-md-6 pb-2">
                                                             <button type="button" class="btn WhatsAppBtn">
-                                                                <a class="d-flex align-items-center" type="button" data-toggle="modal" data-target="#whatsappModal">
+                                                                <a class="d-flex align-items-center" href="//api.whatsapp.com/send?phone={{$profil->no_hp}}&text=Permisi, saya mau diskusi tentang aplikasi">
                                                                     <img src="https://opuslab.works/images/ic_whatsapp2.png" class="img-fluid" alt="">
                                                                     <span class="text-white"> Whatsapp</span>
                                                                 </a>
@@ -185,7 +168,7 @@
                                                         </div>
                                                         <div class="col-12 col-md-6 pb-2">
                                                             <button type="button" class="btn messageUs">
-                                                                <a class="d-flex align-items-center" id="contactUS_btn">
+                                                                <a class="d-flex align-items-center" href="{{ route('kontak') }}">
                                                                     <img src="https://opuslab.works/images/ic_email.png" class="img-fluid" alt="">
                                                                     <span class="text-white"> Message</span>
                                                                 </a>
@@ -233,7 +216,7 @@
                             <div class="tabContentBg">
                                 <img src="https://opuslab.works/images/phone_bg.jpg">
                             </div>
-                            <div class="right_row_header px-sm-0 px-md-0 px-lg-0 px-0 pb-5 pt-2">
+                            <div class="right_row_header px-sm-0 px-md-0 px-lg-0 px-0 pt-2">
                                 <div class="row align-items-center position-relative mt-4">
                                     <h2 class="px-sm-0 text-center col-12 pb-3 mb-0">{{$produk->nama}}</h2>
                                 </div>
@@ -246,7 +229,7 @@
                                 </button>
 
                                 <div class="tab-pane fade show active text-center" id="user" role="tabpanel" aria-labelledby="user_tab">
-                                    <iframe id="frame-0" src="https://template.opuslab.works/templates/MarvelPrototype_aiej30d_27042022113247_v1?emb=1&amp;iosapp=false&amp;frameless=false" allowtransparency="true" frameborder="0" height="600px">
+                                    <iframe id="frame-0" src="https://www.figma.com/embed?embed_host=share&hide-ui=1&show-proto-sidebar=0&url={{$produk->url_figma}}" allowtransparency="true" frameborder="0" height="600px">
                                     </iframe>
                                 </div>
                             </div>
