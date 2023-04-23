@@ -53,40 +53,21 @@
         <div class="row mt-none-30">
             <div class="col-xl-4 col-lg-6 col-md-12 mt-30">
                 <div class="footer__widget">
-                    <h4 class="title mb-30">Services</h4>
+                    <h4 class="title mb-30">Halaman</h4>
                     <div class="row no-gutters">
                         <div class="col">
                             <ul>
-                                <li><a href="service-details.html">IT Software</a></li>
-                                <li><a href="service-details.html">IT Support</a></li>
-                                <li><a href="service-details.html">IT Platforms</a></li>
-                                <li><a href="service-details.html">Cloud Computing</a></li>
-                                <li><a href="service-details.html">Cyber Security</a></li>
-                            </ul>
-                        </div>
-                        <div class="col">
-                            <ul>
-                                <li><a href="service-details.html">IT Software</a></li>
-                                <li><a href="service-details.html">IT Support</a></li>
-                                <li><a href="service-details.html">IT Platforms</a></li>
-                                <li><a href="service-details.html">Cloud Computing</a></li>
+                                <li><a href="{{ route('beranda') }}">Beranda</a></li>
+                                <li><a href="{{ route('perusahaan') }}">Perusahaan</a></li>
+                                <li><a href="{{ route('layanan') }}">Layanan</a></li>
+                                <li><a href="https://shop.razen.co.id/">E-Commerce</a></li>
+                                <li><a href="{{ route('aplikasi') }}">Aplikasi</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-6 col-sm-6 col-6 mt-30">
-                <div class="footer__widget">
-                    <h4 class="title mb-30">More Link</h4>
-                    <ul>
-                        <li><a href="#0">Pick up locations</a></li>
-                        <li><a href="#0">Terms of Payment</a></li>
-                        <li><a href="#0">Privacy Policy</a></li>
-                        <li><a href="#0">Where to Find Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xl-2 col-lg-6 col-sm-6 col-6 mt-30">
+            <div class="col-xl-4 col-lg-6 col-sm-6 col-6 mt-30">
                 <div class="footer__widget">
                     <h4 class="title mb-30">Bantuan</h4>
                     <ul>
