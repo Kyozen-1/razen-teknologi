@@ -63,6 +63,17 @@ Route::prefix('razen-teknologi')->group(function(){
             Route::post('/update/{id}','RazenTeknologi\Admin\FiturLayananController@update')->name('razen-teknologi.admin.fitur-layanan.update');
             Route::get('/destroy/{id}','RazenTeknologi\Admin\FiturLayananController@destroy')->name('razen-teknologi.admin.fitur-layanan.destroy');
         });
+
+        Route::prefix('profil')->group(function(){
+            Route::get('/', 'RazenTeknologi\Admin\ProfilController@index')->name('razen-teknologi.admin.profil.index');
+            Route::get('/detail/{id}', 'RazenTeknologi\Admin\ProfilController@show');
+            Route::post('/','RazenTeknologi\Admin\ProfilController@store')->name('razen-teknologi.admin.profil.store');
+            Route::get('/edit/{id}','RazenTeknologi\Admin\ProfilController@edit');
+            Route::post('/update','RazenTeknologi\Admin\ProfilController@update')->name('razen-teknologi.admin.profil.update');
+            Route::get('/destroy/{id}','RazenTeknologi\Admin\ProfilController@destroy');
+            Route::post('/edit-media-sosial-profil', 'RazenTeknologi\Admin\ProfilController@edit_media_sosial_profil')->name('razen-teknologi.admin.profil.edit-media-sosial-profil');
+            Route::post('/tambah-media-sosial-profil', 'RazenTeknologi\Admin\ProfilController@tambah_media_sosial_profil')->name('razen-teknologi.admin.profil.tambah-media-sosial-profil');
+        });
     });
 
     Route::prefix('landing-page')->group(function(){

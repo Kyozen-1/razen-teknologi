@@ -109,6 +109,16 @@
                     </a>
                 </li>
                 <li>
+                    @if (request()->routeIs('razen-teknologi.admin.profil.index'))
+                        <a href="{{ route('razen-teknologi.admin.profil.index') }}" class="active">
+                    @else
+                        <a href="{{ route('razen-teknologi.admin.profil.index') }}">
+                    @endif
+                        <i data-acorn-icon="home-garage" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Profil</span>
+                    </a>
+                </li>
+                <li>
                     @if (request()->routeIs('razen-teknologi.admin.layanan.index') ||
                     request()->routeIs('razen-teknologi.admin.fitur-layanan.index'))
                     <a href="#layanan" class="active">

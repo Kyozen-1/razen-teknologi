@@ -143,7 +143,14 @@ class HomeController extends Controller
 
     public function aplikasi_detail($id)
     {
-        return view('landing-page.aplikasi-detail');
+        $guzzleClient = new GuzzleHttpClient();
+
+        $get_produk = $guzzleClient->get(env('RAZEN_URL').'api/product/razen-teknologi/detail/'.$id);
+        $produk = json_decode($get_produk->getBody())->data;
+        // dd($produk);
+        return view('landing-page.aplikasi-detail',[
+            'produk' => $produk
+        ]);
     }
 
     public function aplikasi_kategori($id)
@@ -152,7 +159,6 @@ class HomeController extends Controller
 
         $get_kategori_razen_teknologis = $guzzleClient->get(env('RAZEN_URL').'api/product/razen-teknologi/product/kategori/'.$id);
         $kategori_razen_teknologis = json_decode($get_kategori_razen_teknologis->getBody())->data;
-        // dd($kategori_razen_teknologis);
         return view('landing-page.aplikasi-kategori',[
             'kategori_razen_teknologis' => $kategori_razen_teknologis
         ]);
