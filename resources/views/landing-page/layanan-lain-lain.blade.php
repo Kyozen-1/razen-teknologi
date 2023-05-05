@@ -1,5 +1,5 @@
 @extends('landing-page.layouts.app')
-@section('title', 'Razen Teknologi | Layanan')
+@section('title', 'Razen Teknologi | Layanan | Lain - Lain')
 
 @section('content')
     @php
@@ -23,7 +23,9 @@
                                 <li><span>//</span></li>
                                 <li><a href="{{ route('beranda') }}">Beranda</a></li>
                                 <li>|</li>
-                                <li>Layanan - Layanan</li>
+                                <li>Layanan</li>
+                                <li>|</li>
+                                <li>Lain - Lain</li>
                             </ul>
                         </div>
                     </div>

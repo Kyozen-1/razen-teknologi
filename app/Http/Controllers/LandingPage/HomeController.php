@@ -57,10 +57,25 @@ class HomeController extends Controller
         ]);
     }
 
-    public function layanan()
+    public function layanan_pemerintahan()
+    {
+        return view('landing-page.layanan-pemerintahan');
+    }
+
+    public function layanan_swasta()
+    {
+        return view('landing-page.layanan-swasta');
+    }
+
+    public function layanan_startup()
+    {
+        return view('landing-page.layanan-startup');
+    }
+
+    public function layanan_lain_lain()
     {
         $layanans = Layanan::all();
-        return view('landing-page.layanan', [
+        return view('landing-page.layanan-lain-lain', [
             'layanans' => $layanans
         ]);
     }
@@ -138,7 +153,14 @@ class HomeController extends Controller
 
     public function aplikasi()
     {
-        return view('landing-page.aplikasi');
+        $guzzleClient = new GuzzleHttpClient();
+
+        $get_kategoris = $guzzleClient->get(env('RAZEN_URL').'api/product/category/razen-teknologi');
+        $kategoris = json_decode($get_kategoris->getBody())->data;
+
+        return view('landing-page.aplikasi', [
+            'kategoris' => $kategoris
+        ]);
     }
 
     public function aplikasi_detail($id)

@@ -85,7 +85,14 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
-                        <input type="file" class="dropify" name="logo" data-height="300" data-allowed-file-extensions="png jpg jpeg webp" data-default-file="{{ asset('images/razen-teknologi/logo/'.$profil->logo) }}" data-show-errors="true" required>
+                        <div class="mb-3 position-relative form-group">
+                            <label for="logo" class="form-label">Logo</label>
+                            <input type="file" class="dropify" name="logo" data-height="300" data-allowed-file-extensions="png jpg jpeg webp" data-default-file="{{ asset('images/razen-teknologi/logo/'.$profil->logo) }}" data-show-errors="true" required>
+                        </div>
+                        <div class="mb-3 position-relative form-group">
+                            <label for="logo_kecil" class="form-label">Logo Kecil</label>
+                            <input type="file" name="logo_kecil" class="dropify" data-height="300" data-allowed-file-extensions="png jpg jpeg webp" data-default-file="{{ asset('images/razen-teknologi/logo/'.$profil->logo_kecil) }}" data-show-errors="true" required>
+                        </div>
                     </div>
                 </div>
             </form>

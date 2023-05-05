@@ -91,6 +91,18 @@ class ProfilController extends Controller
                 return back()->withErrors($errors)->withInput();
             }
         }
+
+        if($request->logo_kecil)
+        {
+            $errors = Validator::make($request->all(), [
+                'logo_kecil' => 'mimes:png,jpeg,jpg,webp',
+            ]);
+            if($errors -> fails())
+            {
+                return back()->withErrors($errors)->withInput();
+            }
+        }
+
         $get_profil = Profil::first();
         if($get_profil)
         {
@@ -116,6 +128,19 @@ class ProfilController extends Controller
             $logo->save($logoSize, 60);
 
             $profil->logo = $logoName;
+        }
+
+        if($request->logo_kecil)
+        {
+            File::delete(public_path('images/razen-teknologi/logo/'.$profil->logo_kecil));
+
+            $logoKecilExtension = $request->logo_kecil->extension();
+            $logoKecilName =  uniqid().'-'.date("ymd").'.'.$logoKecilExtension;
+            $logoKecil = Image::make($request->logo_kecil);
+            $logoKecilSize = public_path('images/razen-teknologi/logo/'.$logoKecilName);
+            $logoKecil->save($logoKecilSize, 60);
+
+            $profil->logo_kecil = $logoKecilName;
         }
 
         $profil->save();

@@ -1,0 +1,2 @@
+setTimeout(function(){var header=document.querySelector('.header');if(header){if(!header.classList.contains('is-ready')){var headermain=header.querySelector('.header__main');if(headermain){if(!headermain.classList.contains('is-ready')){headermain.classList.add('is-ready');header.classList.add('is-ready')}}}}
+var tbs=document.querySelector('.tbs');if(tbs){if(!tbs.classList.contains('is-ready')){tbs.classList.add('is-ready')}}},500)

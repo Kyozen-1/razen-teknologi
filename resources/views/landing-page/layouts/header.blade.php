@@ -49,28 +49,56 @@
                     <div class="header__menu">
                         <nav id="mobile-menu">
                             <ul>
+                                @if (request()->routeIs('beranda'))
+                                <li class="active">
+                                @else
                                 <li>
+                                @endif
                                     <a href="{{ route('beranda') }}">Beranda</a>
                                 </li>
+
+                                @if (request()->routeIs('perusahaan'))
+                                <li class="active">
+                                @else
                                 <li>
+                                @endif
                                     <a href="{{ route('perusahaan') }}">Perusahaan</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('layanan') }}">Layanan</a>
+
+                                <li><a href="#">Layanan<span>+</span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{{ route('layanan.pemerintahan') }}">Pemerintahan</a></li>
+                                        <li><a href="{{route('layanan.swasta')}}">Swasta</a></li>
+                                        <li><a href="{{route('layanan.startup')}}">Startup</a></li>
+                                        <li><a href="{{route('layanan.lain-lain')}}">Lain - Lain</a></li>
+                                    </ul>
                                 </li>
+
                                 <li>
                                     <a href="https://shop.razen.co.id/stores/razen-teknologi">E - Commerce</a>
                                 </li>
+
                                 <li>
                                     <a href="#">E - Learning</a>
                                 </li>
+
+                                @if (request()->routeIs('aplikasi'))
+                                <li class="active">
+                                @else
                                 <li>
+                                @endif
                                     <a href="{{ route('aplikasi') }}">Aplikasi</a>
                                 </li>
+
                                 <li>
                                     <a href="#">Blog</a>
                                 </li>
+
+                                @if (request()->routeIs('kontak'))
+                                <li class="active">
+                                @else
                                 <li>
+                                @endif
                                     <a href="{{ route('kontak') }}">Kontak</a>
                                 </li>
                             </ul>
