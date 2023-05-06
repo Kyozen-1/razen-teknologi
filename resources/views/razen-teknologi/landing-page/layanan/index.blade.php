@@ -1,5 +1,5 @@
 @extends('razen-teknologi.layouts.app')
-@section('title', 'Razen Teknologi | Landing Page | Layanan')
+@section('title', 'Razen Teknologi | Landing Page | Layanan | Lain - Lain')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('acorn/acorn-elearning-portal/font/CS-Interface/style.css') }}">
@@ -26,11 +26,12 @@
         <div class="row">
         <!-- Title Start -->
         <div class="col-12 col-md-7">
-            <h1 class="mb-0 pb-0 display-4" id="title">Razen Teknologi | Landing Page | Layanan</h1>
+            <h1 class="mb-0 pb-0 display-4" id="title">Razen Teknologi | Landing Page | Layanan | Lain - Lain</h1>
             <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
                 <ul class="breadcrumb pt-0">
                     <li class="breadcrumb-item"><a href="{{ route('razen-teknologi.admin.dashboard.index') }}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="#">Landing Page Layanan</a></li>
+                    <li class="breadcrumb-item"><a href="#">Lain - Lain</a></li>
                 </ul>
             </nav>
         </div>

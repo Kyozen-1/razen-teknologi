@@ -369,85 +369,60 @@
 @endsection
 
 @section('content')
+    @php
+        use App\Models\Profil;
+
+        $profil = Profil::first();
+    @endphp
     <div class="web-wrapper">
         <main class="insight">
             <section class="masthead masthead--hero" id="masthead">
                 <div class="container masthead__wrap">
-                <div class="masthead__content">
-                    <div class="row align-items-center">
-                    <div class="col-lg-6 masthead__left">
-                        <h1 class="masthead__title" itemprop="headline"> Produk Pemerintahan Daerah oleh Razen </h1>
-                        <div class="masthead__media show-sm">
-                        <div class="media media--video">
-                            <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201252%20776'%3E%3C/svg%3E"
-                                                data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-379x235.png 379w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-1000x620.png 1000w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-1013x628.png 1013w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-768x476.png 768w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-678x420.png 678w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-694x430.png 694w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage.png 1252w"
-                                                data-lazy-sizes="(max-width: 335px) 100vw, 335px" alt="Produk Dinas Razen" width="1252" height="776"
-                                                data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-379x235.png">
-                            <noscript>
-                            <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-379x235.png" srcset="
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-379x235.png   379w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-1000x620.png 1000w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-1013x628.png 1013w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-768x476.png   768w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-678x420.png   678w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-694x430.png   694w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage.png          1252w
-                                    " sizes="(max-width: 335px) 100vw, 335px" alt="Produk Dinas Razen" width="1252" height="776" />
-                            </noscript>
-                            <a class="btn-play--blue" href="https://www.youtube.com/" data-lity="data-lity">
-                            <span class="bg">
-                                <span>Lihat video</span>
-                            </span>
-                            </a>
-                        </div>
-                        </div>
-                        <div class="masthead__action show-sm">
-                        {{-- <a id="" class="btn btn-blue cta-waba show" href="https://wa.me/6282299449494?text={{code}}%20-%20Halo,%20Saya%20dengan%20:................%20%20Dari%20:................%20Keperluan::%20Ingin%20mencoba%20produk%20Dinas%20dari%20Razen%20Teknologi{{suf}}" target="_blank" rel="noreferrer">Hubungi sales</a> --}}
-                        <a id="" class="btn btn-blue-border" href="https://api.whatsapp.com/send?phone=6282299449494&amp;text=hai%20razen%20teknologi,%20saya%20dengan%20:................%20%20dari%20:................%20keperluan::%20ingin%20mencoba%20produk%20dinas%20dari%20razen%20teknologi" target="_blank" rel="noreferrer">Coba Demo</a>
-                        </div>
-                        <div class="masthead__desc">
-                        <ul class="custom-list">
-                            <li> Produk Dinas Razen sistem akuntansi online terbukti handal untuk bisnis </li>
-                            <li> Membantu pencatatan keuangan, pembukuan &amp; operasional bisnis perusahaan menjadi mudah &amp; efisien </li>
-                            <li> Kelola dengan solusi automasi, kapanpun &amp; dimanapun </li>
-                        </ul>
-                        </div>
-                        <div class="masthead__action hidden-sm">
-                        {{-- <a id="" class="btn btn-blue cta-waba show" href="https://wa.me/6282299449494?text={{code}}%20-%20Halo,%20Saya%20dengan%20:................%20%20Dari%20:................%20Keperluan::%20Ingin%20mencoba%20produk%20Dinas%20dari%20Razen%20Teknologi{{suf}}" target="_blank" rel="noreferrer">Hubungi sales</a> --}}
+                    <div class="masthead__content">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 masthead__left">
+                                <h1 class="masthead__title" itemprop="headline"> Produk Pemerintahan Daerah oleh Razen </h1>
+                                <div class="masthead__media show-sm">
+                                    <div class="media media--video">
+                                        <img class="lazyload media__cover"
+                                            data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-379x235.png">
+                                        <a class="btn-play--blue" href="https://www.youtube.com/" data-lity="data-lity">
+                                            <span class="bg">
+                                                <span>Lihat video</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="masthead__action show-sm">
+                                    <a id="" class="btn btn-blue cta-waba text-center show" href="https://api.whatsapp.com/send?phone={{$profil->no_hp}}&text=Hai%20Razen%20Teknologi,%20Saya%20dengan%20:................%20%20Dari%20:................%20Keperluan::................" target="_blank" rel="noreferrer">Hubungi sales</a>
+                                    <a id="" class="btn btn-blue-border" href="https://api.whatsapp.com/send?phone={{$profil->no_hp}}&amp;text=hai%20razen%20teknologi,%20saya%20dengan%20:................%20%20dari%20:................%20keperluan::%20ingin%20mencoba%20produk%20dinas%20dari%20razen%20teknologi" target="_blank" rel="noreferrer">Coba Demo</a>
+                                </div>
+                                <div class="masthead__desc">
+                                    <ul class="custom-list">
+                                        <li> Produk Dinas Razen sistem akuntansi online terbukti handal untuk bisnis </li>
+                                        <li> Membantu pencatatan keuangan, pembukuan &amp; operasional bisnis perusahaan menjadi mudah &amp; efisien </li>
+                                        <li> Kelola dengan solusi automasi, kapanpun &amp; dimanapun </li>
+                                    </ul>
+                                </div>
+                                <div class="masthead__action hidden-sm">
+                                    <a id="" class="btn btn-blue cta-waba show" href="https://api.whatsapp.com/send?phone={{$profil->no_hp}}&text=Hai%20Razen%20Teknologi,%20Saya%20dengan%20:................%20%20Dari%20:................%20Keperluan::................" target="_blank" rel="noreferrer">Hubungi sales</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 masthead__right">
+                                <div class="masthead__media hidden-sm">
+                                    <div class="media media--video">
+                                        <img class="lazyload media__cover entered lazyloaded"
+                                        data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-694x430.png">
+                                        <a class="btn-play--blue" href="https://www.youtube.com/" data-lity="data-lity">
+                                            <span class="bg">
+                                                <span>Lihat video</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 masthead__right">
-                        <div class="masthead__media hidden-sm">
-                        <div class="media media--video">
-                            <img class="lazyload media__cover entered lazyloaded" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-694x430.png" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-694x430.png 694w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-1000x620.png 1000w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-1013x628.png 1013w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-768x476.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-678x420.png 678w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-379x235.png 379w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage.png 1252w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="Produk Dinas Razen" width="1252" height="776" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-694x430.png" data-ll-status="loaded" sizes="(max-width: 600px) 100vw, 600px" srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-694x430.png 694w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-1000x620.png 1000w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-1013x628.png 1013w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-768x476.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-678x420.png 678w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-379x235.png 379w, https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage.png 1252w">
-                            <noscript>
-                            <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-694x430.png" srcset="
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-694x430.png   694w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-1000x620.png 1000w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-1013x628.png 1013w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-768x476.png   768w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-678x420.png   678w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-379x235.png   379w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage.png          1252w
-                                    " sizes="(max-width: 600px) 100vw, 600px" alt="Produk Dinas Razen" width="1252" height="776" />
-                            </noscript>
-                            <a class="btn-play--blue" href="https://www.youtube.com/" data-lity="data-lity">
-                            <span class="bg">
-                                <span>Lihat video</span>
-                            </span>
-                            </a>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </section>
             <section class="our-customer our-customer--alt" id="clients">
@@ -455,234 +430,124 @@
                 <h2 class="our-customer__title"> Produk Pemerintahan Daerah yang terbukti dipercaya 30 dinas di Indonesia </h2>
                 </div>
                 <div class="logo-marquee__group">
-                <div class="logo-marquee__list" style="min-width: 1764px">
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/bpbd.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/bpbd.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/bpbd.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/pariwisata.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/pariwisata.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/pariwisata.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/jateng.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/jateng.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/jateng.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kabupaten_madiun.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kabupaten_madiun.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kabupaten_madiun.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kemendikbud.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kemendikbud.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kemendikbud.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/LOGO_KEMENTERIAN_PERHUBUNGAN_REPUBLIK_INDONESIA.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/LOGO_KEMENTERIAN_PERHUBUNGAN_REPUBLIK_INDONESIA.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/LOGO_KEMENTERIAN_PERHUBUNGAN_REPUBLIK_INDONESIA.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Lambang_Kota_Blitar_0.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Lambang_Kota_Blitar_0.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Lambang_Kota_Blitar_0.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo_pemkab_magelang.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo_pemkab_magelang.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo_pemkab_magelang.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-batam.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-batam.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-batam.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                </div>
-                <div class="logo-marquee__list" aria-hidden="true" style="min-width: 1764px">
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/bpbd.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/bpbd.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/bpbd.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/pariwisata.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/pariwisata.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/pariwisata.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/jateng.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/jateng.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/jateng.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kabupaten_madiun.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kabupaten_madiun.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kabupaten_madiun.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kemendikbud.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kemendikbud.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kemendikbud.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/LOGO_KEMENTERIAN_PERHUBUNGAN_REPUBLIK_INDONESIA.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/LOGO_KEMENTERIAN_PERHUBUNGAN_REPUBLIK_INDONESIA.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/LOGO_KEMENTERIAN_PERHUBUNGAN_REPUBLIK_INDONESIA.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Lambang_Kota_Blitar_0.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Lambang_Kota_Blitar_0.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Lambang_Kota_Blitar_0.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo_pemkab_magelang.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo_pemkab_magelang.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo_pemkab_magelang.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="data:image/svg+xml,%3Csvg%20
-                                                                                                                xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20296%20112'%3E%3C/svg%3E" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-batam.png">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-batam.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                </div>
+                    <div class="logo-marquee__list" style="min-width: 1764px">
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/bpbd.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/pariwisata.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/jateng.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kabupaten_madiun.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kemendikbud.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/LOGO_KEMENTERIAN_PERHUBUNGAN_REPUBLIK_INDONESIA.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Lambang_Kota_Blitar_0.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo_pemkab_magelang.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-batam.png" >
+                        </li>
+                    </div>
+                    <div class="logo-marquee__list" aria-hidden="true" style="min-width: 1764px">
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/bpbd.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/pariwisata.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/jateng.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kabupaten_madiun.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kemendikbud.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/LOGO_KEMENTERIAN_PERHUBUNGAN_REPUBLIK_INDONESIA.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Lambang_Kota_Blitar_0.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo_pemkab_magelang.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-batam.png">
+                        </li>
+                    </div>
                 </div>
                 <div class="logo-marquee__group reverse">
-                <div class="logo-marquee__list" style="min-width: 1764px">
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendagri.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendagri.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendagri.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-malang.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-malang.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-malang.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kaltim.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kaltim.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kaltim.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendag.svg" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendag.svg" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendag.svg" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenparekraf.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenparekraf.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenparekraf.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kementan.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kementan.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kementan.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenag.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenag.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenag.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kab-Ponorogo.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kab-Ponorogo.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kab-Ponorogo.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-jatim.png" srcset="" data-lazy-sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-jatim.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 148px) 100vw, 148px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-jatim.png" srcset="" sizes="(max-width: 148px) 100vw, 148px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                </div>
-                <div class="logo-marquee__list" aria-hidden="true" style="min-width: 1764px">
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendagri.png" srcset="" data-lazy-sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendagri.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 150px) 100vw, 150px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendagri.png" srcset="" sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-malang.png" srcset="" data-lazy-sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-malang.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 150px) 100vw, 150px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-malang.png" srcset="" sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kaltim.png" srcset="" data-lazy-sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kaltim.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 150px) 100vw, 150px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kaltim.png" srcset="" sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendag.svg" srcset="" data-lazy-sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendag.svg" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 150px) 100vw, 150px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendag.svg" srcset="" sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenparekraf.png" srcset="" data-lazy-sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenparekraf.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 150px) 100vw, 150px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenparekraf.png" srcset="" sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kementan.png" srcset="" data-lazy-sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kementan.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 150px) 100vw, 150px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kementan.png" srcset="" sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenag.png" srcset="" data-lazy-sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenag.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 150px) 100vw, 150px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenag.png" srcset="" sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kab-Ponorogo.png" srcset="" data-lazy-sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kab-Ponorogo.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 150px) 100vw, 150px">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kab-Ponorogo.png" srcset="" sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                    <li class="item">
-                    <img src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                        xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20296%20112'%3E%3C/svg%3E" srcset="" data-lazy-sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-jatim.png">
-                    <noscript>
-                        <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-jatim.png" srcset="" sizes="(max-width: 150px) 100vw, 150px" alt="Produk Dinas Razen" width="296" height="112" />
-                    </noscript>
-                    </li>
-                </div>
+                    <div class="logo-marquee__list" style="min-width: 1764px">
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendagri.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-malang.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kaltim.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendag.svg" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenparekraf.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kementan.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenag.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kab-Ponorogo.png" >
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-jatim.png" >
+                        </li>
+                    </div>
+                    <div class="logo-marquee__list" aria-hidden="true" style="min-width: 1764px">
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendagri.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-malang.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kaltim.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendag.svg">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenparekraf.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kementan.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenag.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kab-Ponorogo.png">
+                        </li>
+                        <li class="item">
+                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-jatim.png">
+                        </li>
+                    </div>
                 </div>
             </section>
             <section class="tab-feature" id="feature">
@@ -1163,8 +1028,8 @@
                     </div>
                     <div class="col-12">
                     <div class="items-block__action">
-                        {{-- <a id="" class="btn btn-blue cta-waba show" href="https://wa.me/6282299449494?text={{code}}%20-%20Halo,%20Saya%20dengan%20:................%20%20Dari%20:................%20Keperluan::%20Ingin%20mencoba%20produk%20Dinas%20dari%20Razen%20Teknologi{{suf}}" target="_blank" rel="noreferrer">Hubungi sales</a> --}}
-                        <a id="" class="link-more" href="mengapa-smart kabupaten/index.html" target="_self">Tentang Produk Dinas Razen</a>
+                        <a id="" class="btn btn-blue cta-waba show" href="https://api.whatsapp.com/send?phone={{$profil->no_hp}}&text=Hai%20Razen%20Teknologi,%20Saya%20dengan%20:................%20%20Dari%20:................%20Keperluan::................" target="_blank" rel="noreferrer">Hubungi sales</a>
+                        <a id="" class="link-more" href="{{ route('aplikasi') }}" target="_self">Produk Razen</a>
                     </div>
                     </div>
                 </div>

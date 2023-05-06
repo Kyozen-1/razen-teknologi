@@ -99,6 +99,40 @@ Route::prefix('razen-teknologi')->group(function(){
         });
 
         Route::prefix('layanan')->group(function(){
+            Route::prefix('pemerintahan')->group(function(){
+                Route::get('/', 'RazenTeknologi\LandingPage\LayananPemerintahanController@index')->name('razen-teknologi.landing-page.layanan.pemerintahan.index');
+
+                Route::post('/store/section-1', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_1')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-1');
+                Route::post('/store/section-1/konten', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_1_konten')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-1.konten');
+                Route::post('/hapus/section-1/konten', 'RazenTeknologi\LandingPage\LayananPemerintahanController@hapus_section_1_konten')->name('razen-teknologi.landing-page.layanan.pemerintahan.hapus.section-1.konten');
+
+                Route::post('/store/section-2', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_2')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-2');
+
+                Route::post('/store/section-3', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_3')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-3');
+
+                Route::post('/store/section-4', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_4')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-4');
+                Route::post('/store/section-4/konten', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_4_konten')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-4.konten');
+                Route::post('/hapus/section-4/konten', 'RazenTeknologi\LandingPage\LayananPemerintahanController@hapus_section_4_konten')->name('razen-teknologi.landing-page.layanan.pemerintahan.hapus.section-4.konten');
+
+                Route::post('/store/section-5', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_5')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-5');
+
+                Route::post('/store/section-6', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_6')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-6');
+                Route::post('/store/section-6/konten', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_6_konten')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-6.konten');
+                Route::post('/hapus/section-6/konten', 'RazenTeknologi\LandingPage\LayananPemerintahanController@hapus_section_6_konten')->name('razen-teknologi.landing-page.layanan.pemerintahan.hapus.section-6.konten');
+
+                Route::post('/store/section-7', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_7')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-7');
+                Route::post('/store/section-7/konten', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_7_konten')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-7.konten');
+                Route::post('/hapus/section-7/konten', 'RazenTeknologi\LandingPage\LayananPemerintahanController@hapus_section_7_konten')->name('razen-teknologi.landing-page.layanan.pemerintahan.hapus.section-7.konten');
+            });
+
+            Route::prefix('swasta')->group(function(){
+                Route::get('/', 'RazenTeknologi\LandingPage\LayananSwastaController@index')->name('razen-teknologi.landing-page.layanan.swasta.index');
+
+                Route::post('/store/section-1', 'RazenTeknologi\LandingPage\LayananSwastaController@store_section_1')->name('razen-teknologi.landing-page.layanan.swasta.store.section-1');
+            });
+
+
+            // Layanan Lain - Lain
             Route::get('/', 'RazenTeknologi\LandingPage\LayananController@index')->name('razen-teknologi.landing-page.layanan.index');
 
             Route::post('/store/section-1', 'RazenTeknologi\LandingPage\LayananController@store_section_1')->name('razen-teknologi.landing-page.layanan.store.section-1');
