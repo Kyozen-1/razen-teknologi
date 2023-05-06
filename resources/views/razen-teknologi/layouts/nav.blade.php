@@ -177,7 +177,8 @@
                     request()->routeIs('razen-teknologi.landing-page.aplikasi.index') ||
                     request()->routeIs('razen-teknologi.landing-page.kontak.index') ||
                     request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.index') ||
-                    request()->routeIs('razen-teknologi.landing-page.layanan.swasta.index'))
+                    request()->routeIs('razen-teknologi.landing-page.layanan.swasta.index') ||
+                    request()->routeIs('razen-teknologi.landing-page.layanan.startup.index'))
                     <a href="#landing_page" class="active">
                     @else
                     <a href="#landing_page">
@@ -207,7 +208,8 @@
                         <li>
                             @if (request()->routeIs('razen-teknologi.landing-page.layanan.index') ||
                             request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.index') ||
-                            request()->routeIs('razen-teknologi.landing-page.layanan.swasta.index'))
+                            request()->routeIs('razen-teknologi.landing-page.layanan.swasta.index') ||
+                            request()->routeIs('razen-teknologi.landing-page.layanan.startup.index'))
                             <a href="#landing_page_layanan" class="active">
                             @else
                             <a href="#landing_page_layanan">
@@ -231,6 +233,15 @@
                                         <a href="{{ route('razen-teknologi.landing-page.layanan.swasta.index') }}">
                                     @endif
                                         <span class="label">Layanan Swasta</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    @if (request()->routeIs('razen-teknologi.landing-page.layanan.startup.index'))
+                                        <a href="{{ route('razen-teknologi.landing-page.layanan.startup.index') }}" class="active">
+                                    @else
+                                        <a href="{{ route('razen-teknologi.landing-page.layanan.startup.index') }}">
+                                    @endif
+                                        <span class="label">Layanan Startup</span>
                                     </a>
                                 </li>
                                 <li>

@@ -129,8 +129,41 @@ Route::prefix('razen-teknologi')->group(function(){
                 Route::get('/', 'RazenTeknologi\LandingPage\LayananSwastaController@index')->name('razen-teknologi.landing-page.layanan.swasta.index');
 
                 Route::post('/store/section-1', 'RazenTeknologi\LandingPage\LayananSwastaController@store_section_1')->name('razen-teknologi.landing-page.layanan.swasta.store.section-1');
+
+                Route::post('/store/section-2', 'RazenTeknologi\LandingPage\LayananSwastaController@store_section_2')->name('razen-teknologi.landing-page.layanan.swasta.store.section-2');
+
+                Route::post('/store/section-3', 'RazenTeknologi\LandingPage\LayananSwastaController@store_section_3')->name('razen-teknologi.landing-page.layanan.swasta.store.section-3');
+
+                Route::post('/store/section-4', 'RazenTeknologi\LandingPage\LayananSwastaController@store_section_4')->name('razen-teknologi.landing-page.layanan.swasta.store.section-4');
+
+                Route::post('/store/section-5', 'RazenTeknologi\LandingPage\LayananSwastaController@store_section_5')->name('razen-teknologi.landing-page.layanan.swasta.store.section-5');
+                Route::post('/store/section-5/konten', 'RazenTeknologi\LandingPage\LayananSwastaController@store_section_5_konten')->name('razen-teknologi.landing-page.layanan.swasta.store.section-5.konten');
+                Route::post('/hapus/section-5/konten', 'RazenTeknologi\LandingPage\LayananSwastaController@hapus_section_5_konten')->name('razen-teknologi.landing-page.layanan.swasta.hapus.section-5.konten');
+
+                Route::post('/store/section-6', 'RazenTeknologi\LandingPage\LayananSwastaController@store_section_6')->name('razen-teknologi.landing-page.layanan.swasta.store.section-6');
             });
 
+            Route::prefix('startup')->group(function(){
+                Route::get('/', 'RazenTeknologi\LandingPage\LayananStartupController@index')->name('razen-teknologi.landing-page.layanan.startup.index');
+
+                Route::post('/store/section-1', 'RazenTeknologi\LandingPage\LayananStartupController@store_section_1')->name('razen-teknologi.landing-page.layanan.startup.store.section-1');
+
+                Route::post('/store/section-2', 'RazenTeknologi\LandingPage\LayananStartupController@store_section_2')->name('razen-teknologi.landing-page.layanan.startup.store.section-2');
+
+                Route::post('/store/section-3', 'RazenTeknologi\LandingPage\LayananStartupController@store_section_3')->name('razen-teknologi.landing-page.layanan.startup.store.section-3');
+                Route::post('/store/section-3/konten', 'RazenTeknologi\LandingPage\LayananStartupController@store_section_3_konten')->name('razen-teknologi.landing-page.layanan.startup.store.section-3.konten');
+                Route::post('/hapus/section-3/konten', 'RazenTeknologi\LandingPage\LayananStartupController@hapus_section_3_konten')->name('razen-teknologi.landing-page.layanan.startup.hapus.section-3.konten');
+
+                Route::post('/store/section-4', 'RazenTeknologi\LandingPage\LayananStartupController@store_section_4')->name('razen-teknologi.landing-page.layanan.startup.store.section-4');
+
+                Route::post('/store/section-5', 'RazenTeknologi\LandingPage\LayananStartupController@store_section_5')->name('razen-teknologi.landing-page.layanan.startup.store.section-5');
+
+                Route::post('/store/section-6', 'RazenTeknologi\LandingPage\LayananStartupController@store_section_6')->name('razen-teknologi.landing-page.layanan.startup.store.section-6');
+                Route::post('/store/section-6/konten', 'RazenTeknologi\LandingPage\LayananStartupController@store_section_6_konten')->name('razen-teknologi.landing-page.layanan.startup.store.section-6.konten');
+                Route::post('/hapus/section-6/konten', 'RazenTeknologi\LandingPage\LayananStartupController@hapus_section_6_konten')->name('razen-teknologi.landing-page.layanan.startup.hapus.section-6.konten');
+
+                Route::post('/store/section-7', 'RazenTeknologi\LandingPage\LayananStartupController@store_section_7')->name('razen-teknologi.landing-page.layanan.startup.store.section-7');
+            });
 
             // Layanan Lain - Lain
             Route::get('/', 'RazenTeknologi\LandingPage\LayananController@index')->name('razen-teknologi.landing-page.layanan.index');
