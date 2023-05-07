@@ -182,7 +182,9 @@
                     request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.index') ||
                     request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.index') ||
                     request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.index') ||
-                    request()->routeIs('razen-teknologi.landing-page.layanan.swasta.data.produk-lengkap.index'))
+                    request()->routeIs('razen-teknologi.landing-page.layanan.swasta.data.produk-lengkap.index') ||
+                    request()->routeIs('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.index') ||
+                    request()->routeIs('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.index'))
                     <a href="#landing_page" class="active">
                     @else
                     <a href="#landing_page">
@@ -217,7 +219,9 @@
                             request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.index') ||
                             request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.index') ||
                             request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.index') ||
-                            request()->routeIs('razen-teknologi.landing-page.layanan.swasta.data.produk-lengkap.index'))
+                            request()->routeIs('razen-teknologi.landing-page.layanan.swasta.data.produk-lengkap.index') ||
+                            request()->routeIs('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.index') ||
+                            request()->routeIs('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.index'))
                             <a href="#landing_page_layanan" class="active">
                             @else
                             <a href="#landing_page_layanan">
@@ -311,6 +315,36 @@
                                     @endif
                                         <span class="label">Layanan Startup</span>
                                     </a>
+                                </li>
+                                <li>
+                                    @if (request()->routeIs('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.index') ||
+                                    request()->routeIs('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.index'))
+                                    <a href="#data_layanan_startup" class="active">
+                                    @else
+                                    <a href="#data_layanan_startup">
+                                    @endif
+                                        <span class="label">Data Layanan Startup</span>
+                                    </a>
+                                    <ul id="data_layanan_startup">
+                                        <li>
+                                            @if (request()->routeIs('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.index'))
+                                                <a href="{{ route('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.index') }}" class="active">
+                                            @else
+                                                <a href="{{ route('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.index') }}">
+                                            @endif
+                                                <span class="label">Produk Rintisan</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            @if (request()->routeIs('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.index'))
+                                                <a href="{{ route('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.index') }}" class="active">
+                                            @else
+                                                <a href="{{ route('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.index') }}">
+                                            @endif
+                                                <span class="label">Produk Rintisan Unggulan</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     @if (request()->routeIs('razen-teknologi.landing-page.layanan.index'))

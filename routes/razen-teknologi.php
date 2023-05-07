@@ -203,6 +203,26 @@ Route::prefix('razen-teknologi')->group(function(){
                 Route::post('/hapus/section-6/konten', 'RazenTeknologi\LandingPage\LayananStartupController@hapus_section_6_konten')->name('razen-teknologi.landing-page.layanan.startup.hapus.section-6.konten');
 
                 Route::post('/store/section-7', 'RazenTeknologi\LandingPage\LayananStartupController@store_section_7')->name('razen-teknologi.landing-page.layanan.startup.store.section-7');
+
+                Route::prefix('data')->group(function(){
+                    Route::prefix('produk-rintisan')->group(function(){
+                        Route::get('/', 'RazenTeknologi\LandingPage\Data\ProdukRintisanController@index')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.index');
+                        Route::get('/detail/{id}', 'RazenTeknologi\LandingPage\Data\ProdukRintisanController@show')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.show');
+                        Route::post('/','RazenTeknologi\LandingPage\Data\ProdukRintisanController@store')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.store');
+                        Route::get('/edit/{id}','RazenTeknologi\LandingPage\Data\ProdukRintisanController@edit')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.edit');
+                        Route::post('/update','RazenTeknologi\LandingPage\Data\ProdukRintisanController@update')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.update');
+                        Route::get('/destroy/{id}','RazenTeknologi\LandingPage\Data\ProdukRintisanController@destroy')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan.destroy');
+                    });
+
+                    Route::prefix('produk-rintisan-unggulan')->group(function(){
+                        Route::get('/', 'RazenTeknologi\LandingPage\Data\ProdukRintisanUnggulanController@index')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.index');
+                        Route::get('/detail/{id}', 'RazenTeknologi\LandingPage\Data\ProdukRintisanUnggulanController@show')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.show');
+                        Route::post('/','RazenTeknologi\LandingPage\Data\ProdukRintisanUnggulanController@store')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.store');
+                        Route::get('/edit/{id}','RazenTeknologi\LandingPage\Data\ProdukRintisanUnggulanController@edit')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.edit');
+                        Route::post('/update','RazenTeknologi\LandingPage\Data\ProdukRintisanUnggulanController@update')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.update');
+                        Route::get('/destroy/{id}','RazenTeknologi\LandingPage\Data\ProdukRintisanUnggulanController@destroy')->name('razen-teknologi.landing-page.layanan.rintisan.data.produk-rintisan-unggulan.destroy');
+                    });
+                });
             });
 
             // Layanan Lain - Lain

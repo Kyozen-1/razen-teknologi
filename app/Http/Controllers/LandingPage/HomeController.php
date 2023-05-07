@@ -17,6 +17,8 @@ use App\Models\LayananPemerintahanDataDinas;
 use App\Models\LayananPemerintahanProdukUnggulan;
 use App\Models\LayananPemerintahanTestimoniPemerintah;
 use App\Models\LayananSwastaProdukLengkap;
+use App\Models\LayananStartupProdukRintisanUnggulan;
+use App\Models\LayananStartupProdukRintisan;
 
 class HomeController extends Controller
 {
@@ -83,7 +85,12 @@ class HomeController extends Controller
 
     public function layanan_startup()
     {
-        return view('landing-page.layanan-startup');
+        $produk_rintisan_unggulan = LayananStartupProdukRintisanUnggulan::all();
+        $produk_rintisan = LayananStartupProdukRintisan::all();
+        return view('landing-page.layanan-startup', [
+            'produk_rintisan_unggulan' => $produk_rintisan_unggulan,
+            'produk_rintisan' => $produk_rintisan
+        ]);
     }
 
     public function layanan_lain_lain()
