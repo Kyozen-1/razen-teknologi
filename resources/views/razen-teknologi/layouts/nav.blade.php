@@ -178,7 +178,10 @@
                     request()->routeIs('razen-teknologi.landing-page.kontak.index') ||
                     request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.index') ||
                     request()->routeIs('razen-teknologi.landing-page.layanan.swasta.index') ||
-                    request()->routeIs('razen-teknologi.landing-page.layanan.startup.index'))
+                    request()->routeIs('razen-teknologi.landing-page.layanan.startup.index') ||
+                    request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.index') ||
+                    request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.index') ||
+                    request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.index'))
                     <a href="#landing_page" class="active">
                     @else
                     <a href="#landing_page">
@@ -209,7 +212,10 @@
                             @if (request()->routeIs('razen-teknologi.landing-page.layanan.index') ||
                             request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.index') ||
                             request()->routeIs('razen-teknologi.landing-page.layanan.swasta.index') ||
-                            request()->routeIs('razen-teknologi.landing-page.layanan.startup.index'))
+                            request()->routeIs('razen-teknologi.landing-page.layanan.startup.index') ||
+                            request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.index') ||
+                            request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.index') ||
+                            request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.index'))
                             <a href="#landing_page_layanan" class="active">
                             @else
                             <a href="#landing_page_layanan">
@@ -225,6 +231,46 @@
                                     @endif
                                         <span class="label">Layanan Pemerintahan</span>
                                     </a>
+                                </li>
+                                <li>
+                                    @if (request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.index') ||
+                                    request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.index') ||
+                                    request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.index'))
+                                    <a href="#data_layanan_pemerintahan" class="active">
+                                    @else
+                                    <a href="#data_layanan_pemerintahan">
+                                    @endif
+                                        <span class="label">Data Layanan Pemerintahan</span>
+                                    </a>
+                                    <ul id="data_layanan_pemerintahan">
+                                        <li>
+                                            @if (request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.index'))
+                                                <a href="{{ route('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.index') }}" class="active">
+                                            @else
+                                                <a href="{{ route('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.index') }}">
+                                            @endif
+                                                <span class="label">Data Dinas</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            @if (request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.index'))
+                                                <a href="{{ route('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.index') }}" class="active">
+                                            @else
+                                                <a href="{{ route('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.index') }}">
+                                            @endif
+                                                <span class="label">Data Produk Unggulan</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            @if (request()->routeIs('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.index'))
+                                                <a href="{{ route('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.index') }}" class="active">
+                                            @else
+                                                <a href="{{ route('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.index') }}">
+                                            @endif
+                                                <span class="label">Data Testimoni Pemerintah</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     @if (request()->routeIs('razen-teknologi.landing-page.layanan.swasta.index'))

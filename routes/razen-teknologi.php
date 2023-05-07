@@ -123,6 +123,35 @@ Route::prefix('razen-teknologi')->group(function(){
                 Route::post('/store/section-7', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_7')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-7');
                 Route::post('/store/section-7/konten', 'RazenTeknologi\LandingPage\LayananPemerintahanController@store_section_7_konten')->name('razen-teknologi.landing-page.layanan.pemerintahan.store.section-7.konten');
                 Route::post('/hapus/section-7/konten', 'RazenTeknologi\LandingPage\LayananPemerintahanController@hapus_section_7_konten')->name('razen-teknologi.landing-page.layanan.pemerintahan.hapus.section-7.konten');
+
+                Route::prefix('data')->group(function(){
+                    Route::prefix('dinas')->group(function(){
+                        Route::get('/', 'RazenTeknologi\LandingPage\Data\DinasController@index')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.index');
+                        Route::get('/detail/{id}', 'RazenTeknologi\LandingPage\Data\DinasController@show')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.show');
+                        Route::post('/','RazenTeknologi\LandingPage\Data\DinasController@store')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.store');
+                        Route::get('/edit/{id}','RazenTeknologi\LandingPage\Data\DinasController@edit')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.edit');
+                        Route::post('/update','RazenTeknologi\LandingPage\Data\DinasController@update')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.update');
+                        Route::get('/destroy/{id}','RazenTeknologi\LandingPage\Data\DinasController@destroy')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.dinas.destroy');
+                    });
+
+                    Route::prefix('produk-unggulan')->group(function(){
+                        Route::get('/', 'RazenTeknologi\LandingPage\Data\ProdukUnggulanController@index')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.index');
+                        Route::get('/detail/{id}', 'RazenTeknologi\LandingPage\Data\ProdukUnggulanController@show')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.show');
+                        Route::post('/','RazenTeknologi\LandingPage\Data\ProdukUnggulanController@store')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.store');
+                        Route::get('/edit/{id}','RazenTeknologi\LandingPage\Data\ProdukUnggulanController@edit')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.edit');
+                        Route::post('/update','RazenTeknologi\LandingPage\Data\ProdukUnggulanController@update')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.update');
+                        Route::get('/destroy/{id}','RazenTeknologi\LandingPage\Data\ProdukUnggulanController@destroy')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.produk-unggulan.destroy');
+                    });
+
+                    Route::prefix('testimoni-pemerintah')->group(function(){
+                        Route::get('/', 'RazenTeknologi\LandingPage\Data\TestimoniPemerintahController@index')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.index');
+                        Route::get('/detail/{id}', 'RazenTeknologi\LandingPage\Data\TestimoniPemerintahController@show')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.show');
+                        Route::post('/','RazenTeknologi\LandingPage\Data\TestimoniPemerintahController@store')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.store');
+                        Route::get('/edit/{id}','RazenTeknologi\LandingPage\Data\TestimoniPemerintahController@edit')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.edit');
+                        Route::post('/update','RazenTeknologi\LandingPage\Data\TestimoniPemerintahController@update')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.update');
+                        Route::get('/destroy/{id}','RazenTeknologi\LandingPage\Data\TestimoniPemerintahController@destroy')->name('razen-teknologi.landing-page.layanan.pemerintahan.data.testimoni-pemerintah.destroy');
+                    });
+                });
             });
 
             Route::prefix('swasta')->group(function(){

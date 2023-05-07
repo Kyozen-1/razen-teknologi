@@ -371,8 +371,19 @@
 @section('content')
     @php
         use App\Models\Profil;
+        use App\Models\LandingPageLayananPemerintahan;
 
         $profil = Profil::first();
+
+        $layanan_pemerintahan = LandingPageLayananPemerintahan::first();
+
+        $section_1 = json_decode($layanan_pemerintahan->section_1, true);
+        $section_2 = json_decode($layanan_pemerintahan->section_2, true);
+        $section_3 = json_decode($layanan_pemerintahan->section_3, true);
+        $section_4 = json_decode($layanan_pemerintahan->section_4, true);
+        $section_5 = json_decode($layanan_pemerintahan->section_5, true);
+        $section_6 = json_decode($layanan_pemerintahan->section_6, true);
+        $section_7 = json_decode($layanan_pemerintahan->section_7, true);
     @endphp
     <div class="web-wrapper">
         <main class="insight">
@@ -381,12 +392,12 @@
                     <div class="masthead__content">
                         <div class="row align-items-center">
                             <div class="col-lg-6 masthead__left">
-                                <h1 class="masthead__title" itemprop="headline"> Produk Pemerintahan Daerah oleh Razen </h1>
+                                <h1 class="masthead__title" itemprop="headline"> {{$section_1?$section_1['judul'] : ''}} </h1>
                                 <div class="masthead__media show-sm">
                                     <div class="media media--video">
                                         <img class="lazyload media__cover"
-                                            data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-379x235.png">
-                                        <a class="btn-play--blue" href="https://www.youtube.com/" data-lity="data-lity">
+                                            data-lazy-src="{{ asset('images/landing-page/layanan/pemerintahan/'.$section_1['gambar']) }}">
+                                        <a class="btn-play--blue" href="{{$section_1?$section_1['tautan'] : ''}}" data-lity="data-lity">
                                             <span class="bg">
                                                 <span>Lihat video</span>
                                             </span>
@@ -399,9 +410,11 @@
                                 </div>
                                 <div class="masthead__desc">
                                     <ul class="custom-list">
-                                        <li> Produk Dinas Razen sistem akuntansi online terbukti handal untuk bisnis </li>
-                                        <li> Membantu pencatatan keuangan, pembukuan &amp; operasional bisnis perusahaan menjadi mudah &amp; efisien </li>
-                                        <li> Kelola dengan solusi automasi, kapanpun &amp; dimanapun </li>
+                                        @if ($section_1['konten'] != '')
+                                            @foreach ($section_1['konten'] as $item)
+                                                <li>{{$item['item']}}</li>
+                                            @endforeach
+                                        @endif
                                     </ul>
                                 </div>
                                 <div class="masthead__action hidden-sm">
@@ -412,8 +425,8 @@
                                 <div class="masthead__media hidden-sm">
                                     <div class="media media--video">
                                         <img class="lazyload media__cover entered lazyloaded"
-                                        data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/003/hero-homepage-694x430.png">
-                                        <a class="btn-play--blue" href="https://www.youtube.com/" data-lity="data-lity">
+                                        data-lazy-src="{{ asset('images/landing-page/layanan/pemerintahan/'.$section_1['gambar']) }}">
+                                        <a class="btn-play--blue" href="{{$section_1?$section_1['tautan'] : ''}}" data-lity="data-lity">
                                             <span class="bg">
                                                 <span>Lihat video</span>
                                             </span>
@@ -427,612 +440,135 @@
             </section>
             <section class="our-customer our-customer--alt" id="clients">
                 <div class="our-customer__wrap">
-                <h2 class="our-customer__title"> Produk Pemerintahan Daerah yang terbukti dipercaya 30 dinas di Indonesia </h2>
+                <h2 class="our-customer__title"> {{$section_2?$section_2['judul'] : ''}} </h2>
                 </div>
                 <div class="logo-marquee__group">
                     <div class="logo-marquee__list" style="min-width: 1764px">
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/bpbd.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/pariwisata.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/jateng.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kabupaten_madiun.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kemendikbud.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/LOGO_KEMENTERIAN_PERHUBUNGAN_REPUBLIK_INDONESIA.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Lambang_Kota_Blitar_0.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo_pemkab_magelang.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-batam.png" >
-                        </li>
+                        @foreach ($dinas as $item)
+                            <li class="item">
+                                <img data-lazy-src="{{asset('images/landing-page/layanan/pemerintahan/data/dinas/'.$item->foto)}}">
+                            </li>
+                        @endforeach
                     </div>
                     <div class="logo-marquee__list" aria-hidden="true" style="min-width: 1764px">
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/bpbd.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/pariwisata.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/jateng.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kabupaten_madiun.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/kemendikbud.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/LOGO_KEMENTERIAN_PERHUBUNGAN_REPUBLIK_INDONESIA.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Lambang_Kota_Blitar_0.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo_pemkab_magelang.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-batam.png">
-                        </li>
+                        @foreach ($dinas as $item)
+                            <li class="item">
+                                <img data-lazy-src="{{asset('images/landing-page/layanan/pemerintahan/data/dinas/'.$item->foto)}}">
+                            </li>
+                        @endforeach
                     </div>
                 </div>
                 <div class="logo-marquee__group reverse">
                     <div class="logo-marquee__list" style="min-width: 1764px">
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendagri.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-malang.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kaltim.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendag.svg" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenparekraf.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kementan.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenag.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kab-Ponorogo.png" >
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-jatim.png" >
-                        </li>
+                        @foreach ($dinas as $item)
+                            <li class="item">
+                                <img data-lazy-src="{{asset('images/landing-page/layanan/pemerintahan/data/dinas/'.$item->foto)}}">
+                            </li>
+                        @endforeach
                     </div>
                     <div class="logo-marquee__list" aria-hidden="true" style="min-width: 1764px">
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendagri.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-malang.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kaltim.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemendag.svg">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenparekraf.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kementan.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-kemenag.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/Logo-Kab-Ponorogo.png">
-                        </li>
-                        <li class="item">
-                            <img data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2023/02/logo-jatim.png">
-                        </li>
+                        @foreach ($dinas as $item)
+                            <li class="item">
+                                <img data-lazy-src="{{asset('images/landing-page/layanan/pemerintahan/data/dinas/'.$item->foto)}}">
+                            </li>
+                        @endforeach
                     </div>
                 </div>
             </section>
             <section class="tab-feature" id="feature">
                 <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                    <div class="tab-feature__head">
-                        <h2 class="tab-feature__title"> 7 Produk pemerintahan unggulan Razen Teknologi </h2>
-                    </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                    <ul class="tab-feature__nav nav nav-tabs">
-                        <li class="nav-item">
-                        <a class="nav-link active" href="#tf-1" data-toggle="tab">Mitigasi Bencana</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#tf-2" data-toggle="tab">Pariwisata</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#tf-3" data-toggle="tab">Sekolah Pro</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#tf-4" data-toggle="tab">Pertanian</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#tf-5" data-toggle="tab">Perpusdes</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#tf-6" data-toggle="tab">Desa Digital</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#tf-7" data-toggle="tab">Smart Kabupaten</a>
-                        </li>
-                    </ul>
-                    </div>
-                    <div class="col-12">
-                    <div class="tab-content">
-                        <div class="tab-pane fade active show" id="tf-1">
-                        <div class="tab-feature__content">
-                            <div class="row justify-content center align-items-center">
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__toggle">
-                                <h3 class="tab-feature__title"> Laporan Bisnis &amp; Keuangan </h3>
-                                </div>
-                                <div class="tab-feature__meta">
-                                <h3 class="tab-feature__title"> Laporan Bisnis &amp; Keuangan </h3>
-                                <div class="tab-feature__desc">
-                                    <p> Pantau laporan bisnis &amp; keuangan melalui dasbor performa bisnis dengan template laporan yang lengkap </p>
-                                </div>
-                                <div class="tab-feature__action">
-                                    <a id="" class="link-more" href="fitur/laporan-keuangan-bisnis/index.html" target="_self">Pelajari selengkapnya</a>
-                                </div>
-                                <div class="tab-feature__img">
-                                    <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                            xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201264%201052'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="akuntansi online Produk Dinas Razen" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-517x430.png">
-                                    <noscript>
-                                        <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-517x430.png" srcset="
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-517x430.png  517w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-755x628.png  755w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-768x639.png  768w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-505x420.png  505w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-282x235.png  282w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="akuntansi online Produk Dinas Razen" width="1264" height="1052" />
-                                    </noscript>
-                                    </div>
-                                </div>
-                                </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="tab-feature__head">
+                                <h2 class="tab-feature__title"> {{$section_3?$section_3['judul'] : ''}} </h2>
                             </div>
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__img">
-                                <div class="media media--video">
-                                    <img class="lazyload media__cover entered error" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="akuntansi online Produk Dinas Razen" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-517x430.png" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-517x430.png" data-ll-status="error" sizes="(max-width: 600px) 100vw, 600px" srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero.png 1264w">
-                                    <noscript>
-                                    <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-517x430.png" srcset="
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-517x430.png  517w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-755x628.png  755w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-768x639.png  768w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-505x420.png  505w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-282x235.png  282w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="akuntansi online Produk Dinas Razen" width="1264" height="1052" />
-                                    </noscript>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="tab-pane fade" id="tf-2">
-                        <div class="tab-feature__content">
-                            <div class="row justify-content center align-items-center">
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__toggle">
-                                <h3 class="tab-feature__title">Akuntansi</h3>
-                                </div>
-                                <div class="tab-feature__meta">
-                                <h3 class="tab-feature__title">Akuntansi</h3>
-                                <div class="tab-feature__desc">
-                                    <p> Lebih akurat dengan pembukuan yang lebih mudah dipahami dan sesuai dengan standar akuntansi di Indonesia </p>
-                                </div>
-                                <div class="tab-feature__action">
-                                    <a id="" class="link-more" href="fitur/aplikasi-akuntansi/index.html" target="_self">Pelajari selengkapnya</a>
-                                </div>
-                                <div class="tab-feature__img">
-                                    <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                    xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201264%201052'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="tampilan buku besar zen smart kabupaten" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--517x430.png">
-                                    <noscript>
-                                        <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--517x430.png" srcset="
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--517x430.png  517w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--755x628.png  755w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--768x639.png  768w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--505x420.png  505w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--282x235.png  282w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="tampilan buku besar zen smart kabupaten" width="1264" height="1052" />
-                                    </noscript>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__img">
-                                <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                    xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201264%201052'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="tampilan buku besar zen smart kabupaten" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--517x430.png">
-                                    <noscript>
-                                    <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--517x430.png" srcset="
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--517x430.png  517w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--755x628.png  755w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--768x639.png  768w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--505x420.png  505w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero--282x235.png  282w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/07/hero-.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="tampilan buku besar zen smart kabupaten" width="1264" height="1052" />
-                                    </noscript>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="tab-pane fade" id="tf-3">
-                        <div class="tab-feature__content">
-                            <div class="row justify-content center align-items-center">
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__toggle">
-                                <h3 class="tab-feature__title">Razen Pay</h3>
-                                </div>
-                                <div class="tab-feature__meta">
-                                <h3 class="tab-feature__title">Razen Pay</h3>
-                                <div class="tab-feature__desc">
-                                    <p> Terima segala pembayaran lebih mudah dengan satu dompet digital yang keamanannya setara dengan standar bank </p>
-                                </div>
-                                <div class="tab-feature__action">
-                                    <a id="" class="link-more" href="fitur/razen-pay/index.html" target="_self">Pelajari selengkapnya</a>
-                                </div>
-                                <div class="tab-feature__img">
-                                    <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                            xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20491%20406'%3E%3C/svg%3E" srcset="" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="Razen Pay dari akuntansi online" width="491" height="406" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Send-maker-simplified.svg">
-                                    <noscript>
-                                        <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Send-maker-simplified.svg" srcset="" sizes="(max-width: 600px) 100vw, 600px" alt="Razen Pay dari akuntansi online" width="491" height="406" />
-                                    </noscript>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__img">
-                                <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                            xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20491%20406'%3E%3C/svg%3E" srcset="" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="Razen Pay dari akuntansi online" width="491" height="406" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Send-maker-simplified.svg">
-                                    <noscript>
-                                    <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Send-maker-simplified.svg" srcset="" sizes="(max-width: 600px) 100vw, 600px" alt="Razen Pay dari akuntansi online" width="491" height="406" />
-                                    </noscript>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="tab-pane fade" id="tf-4">
-                        <div class="tab-feature__content">
-                            <div class="row justify-content center align-items-center">
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__toggle">
-                                <h3 class="tab-feature__title"> Invoice &amp; Faktur </h3>
-                                </div>
-                                <div class="tab-feature__meta">
-                                <h3 class="tab-feature__title"> Invoice &amp; Faktur </h3>
-                                <div class="tab-feature__desc">
-                                    <p> Terima pembayaran lebih cepat dengan fitur otomasi invoice tanpa perlu khawatir lupa kirim atau telat kirim </p>
-                                </div>
-                                <div class="tab-feature__action">
-                                    <a id="" class="link-more" href="fitur/invoice-faktur/index.html" target="_self">Pelajari Selengkapnya</a>
-                                </div>
-                                <div class="tab-feature__img">
-                                    <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                    xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201264%201052'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="aplikasi invoice online Indonesia" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-517x430.png">
-                                    <noscript>
-                                        <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-517x430.png" srcset="
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-517x430.png  517w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-755x628.png  755w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-768x639.png  768w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-505x420.png  505w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-282x235.png  282w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="aplikasi invoice online Indonesia" width="1264" height="1052" />
-                                    </noscript>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__img">
-                                <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                    xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201264%201052'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="aplikasi invoice online Indonesia" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-517x430.png">
-                                    <noscript>
-                                    <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-517x430.png" srcset="
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-517x430.png  517w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-755x628.png  755w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-768x639.png  768w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-505x420.png  505w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3-282x235.png  282w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-3.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="aplikasi invoice online Indonesia" width="1264" height="1052" />
-                                    </noscript>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="tab-pane fade" id="tf-5">
-                        <div class="tab-feature__content">
-                            <div class="row justify-content center align-items-center">
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__toggle">
-                                <h3 class="tab-feature__title"> Produk &amp; Inventory </h3>
-                                </div>
-                                <div class="tab-feature__meta">
-                                <h3 class="tab-feature__title"> Produk &amp; Inventory </h3>
-                                <div class="tab-feature__desc">
-                                    <p> Kelola stok barang secara terpusat dan real-time pada setiap gudang hanya melalui satu dasbor </p>
-                                </div>
-                                <div class="tab-feature__action">
-                                    <a id="" class="link-more" href="fitur/produk-inventory/index.html" target="_self">Pelajari selengkapnya</a>
-                                </div>
-                                <div class="tab-feature__img">
-                                    <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                            xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201264%201052'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="aplikasi inventory barang" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-517x430.png">
-                                    <noscript>
-                                        <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-517x430.png" srcset="
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-517x430.png  517w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-755x628.png  755w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-768x639.png  768w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-505x420.png  505w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-282x235.png  282w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="aplikasi inventory barang" width="1264" height="1052" />
-                                    </noscript>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__img">
-                                <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                            xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201264%201052'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="aplikasi inventory barang" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-517x430.png">
-                                    <noscript>
-                                    <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-517x430.png" srcset="
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-517x430.png  517w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-755x628.png  755w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-768x639.png  768w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-505x420.png  505w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero-282x235.png  282w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/img-asset-hero.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="aplikasi inventory barang" width="1264" height="1052" />
-                                    </noscript>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="tab-pane fade" id="tf-6">
-                        <div class="tab-feature__content">
-                            <div class="row justify-content center align-items-center">
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__toggle">
-                                <h3 class="tab-feature__title"> Biaya &amp; Anggaran </h3>
-                                </div>
-                                <div class="tab-feature__meta">
-                                <h3 class="tab-feature__title"> Biaya &amp; Anggaran </h3>
-                                <div class="tab-feature__desc">
-                                    <p> Manfaatkan data real-time untuk membuat keputusan perusahaan lebih akurat dengan aplikasi laporan keuangan </p>
-                                </div>
-                                <div class="tab-feature__action">
-                                    <a id="" class="link-more" href="fitur/biaya-anggaran/index.html" target="_self">Pelajari selengkapnya</a>
-                                </div>
-                                <div class="tab-feature__img">
-                                    <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                                    xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201264%201052'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="manajemen keuangan" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-517x430.png">
-                                    <noscript>
-                                        <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-517x430.png" srcset="
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-517x430.png  517w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-755x628.png  755w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-768x639.png  768w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-505x420.png  505w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-282x235.png  282w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="manajemen keuangan" width="1264" height="1052" />
-                                    </noscript>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__img">
-                                <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                                    xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201264%201052'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="manajemen keuangan" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-517x430.png">
-                                    <noscript>
-                                    <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-517x430.png" srcset="
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-517x430.png  517w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-755x628.png  755w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-768x639.png  768w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-505x420.png  505w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4-282x235.png  282w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-4.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="manajemen keuangan" width="1264" height="1052" />
-                                    </noscript>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="tab-pane fade" id="tf-7">
-                        <div class="tab-feature__content">
-                            <div class="row justify-content center align-items-center">
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__toggle">
-                                <h3 class="tab-feature__title">Perpajakan</h3>
-                                </div>
-                                <div class="tab-feature__meta">
-                                <h3 class="tab-feature__title">Perpajakan</h3>
-                                <div class="tab-feature__desc">
-                                    <p> Hilangkan risiko kesalahan perhitungan pajak dengan kalkulasi otomatis hanya dengan satu klik </p>
-                                </div>
-                                <div class="tab-feature__action">
-                                    <a id="" class="link-more" href="fitur/pajak/index.html" target="_self">Pelajari selengkapnya</a>
-                                </div>
-                                <div class="tab-feature__img">
-                                    <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                                            xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201264%201052'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="fitur pajak zen Smart Kabupaten" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-517x430.png">
-                                    <noscript>
-                                        <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-517x430.png" srcset="
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-517x430.png  517w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-755x628.png  755w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-768x639.png  768w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-505x420.png  505w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-282x235.png  282w,
-                                                https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="fitur pajak zen Smart Kabupaten" width="1264" height="1052" />
-                                    </noscript>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="tab-feature__img">
-                                <div class="media media--video">
-                                    <img class="lazyload media__cover" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                                            xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201264%201052'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-517x430.png 517w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-755x628.png 755w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-768x639.png 768w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-505x420.png 505w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5.png 1264w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="fitur pajak zen Smart Kabupaten" width="1264" height="1052" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-517x430.png">
-                                    <noscript>
-                                    <img class="lazyload media__cover" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-517x430.png" srcset="
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-517x430.png  517w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-755x628.png  755w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-768x639.png  768w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-505x420.png  505w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5-282x235.png  282w,
-                                            https://tech.razen.co.id/pemerintahan/assets/uploads/2022/02/hero-5.png         1264w
-                                            " sizes="(max-width: 600px) 100vw, 600px" alt="fitur pajak zen Smart Kabupaten" width="1264" height="1052" />
-                                    </noscript>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
                         </div>
                     </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <ul class="tab-feature__nav nav nav-tabs">
+                                @foreach ($produk_unggulans as $produk_unggulan)
+                                    <li class="nav-item">
+                                        <a class="nav-link @if($loop->first) active @endif" href="#tf-{{$produk_unggulan->id}}" data-toggle="tab">{{$produk_unggulan->judul}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="col-12">
+                            <div class="tab-content">
+                                @foreach ($produk_unggulans as $produk_unggulan)
+                                    <div class="tab-pane fade @if($loop->first) active show @endif" id="tf-{{$produk_unggulan->id}}">
+                                        <div class="tab-feature__content">
+                                            <div class="row justify-content center align-items-center">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="tab-feature__toggle">
+                                                        <h3 class="tab-feature__title">{{$produk_unggulan->judul}}</h3>
+                                                    </div>
+                                                    <div class="tab-feature__meta">
+                                                        <h3 class="tab-feature__title">{{$produk_unggulan->judul}}</h3>
+                                                        <div class="tab-feature__desc">
+                                                            <p>{{$produk_unggulan->deskripsi}}</p>
+                                                        </div>
+                                                        <div class="tab-feature__action">
+                                                            <a id="" class="link-more" href="{{$produk_unggulan->link}}" target="blank">Pelajari selengkapnya</a>
+                                                        </div>
+                                                        <div class="tab-feature__img">
+                                                            <div class="media media--video">
+                                                                <img class="lazyload media__cover" data-lazy-src="{{ asset('images/landing-page/layanan/pemerintahan/data/produk-unggulan/'.$produk_unggulan->gambar) }}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="tab-feature__img">
+                                                        <div class="media media--video">
+                                                            <img class="lazyload media__cover entered error" data-lazy-src="{{ asset('images/landing-page/layanan/pemerintahan/data/produk-unggulan/'.$produk_unggulan->gambar) }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
-                </div>
                 </div>
             </section>
             <section class="items-block items-block--alt" id="items">
                 <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                    <div class="item-block__head">
-                        <h2 class="items-block__title"> 3 alasan Produk Dinas Razen jadi Pilihan Pemerintah Daerah </h2>
-                    </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center align-items-top">
-                    <div class="col-12">
-                    <div class="items-block__wrap">
-                        <div class="item">
-                        <div class="item__icon">
-                            <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-1-235x235.png" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-1-235x235.png 235w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-1.png 244w" data-lazy-sizes="(max-width: 236px) 100vw, 236px" alt="mengapa pilih sistem akuntansi Smart Kabupaten" width="236" height="236" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-1-235x235.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 236px) 100vw, 236px" srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-1-235x235.png 235w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-1.png 244w">
-                            <noscript>
-                            <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-1-235x235.png" srcset="
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-1-235x235.png 235w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-1.png         244w
-                                    " sizes="(max-width: 236px) 100vw, 236px" alt="mengapa pilih sistem akuntansi Smart Kabupaten" width="236" height="236" />
-                            </noscript>
-                        </div>
-                        <div class="item__icon item__icon--sm">
-                            <img src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                                    xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2044%2044'%3E%3C/svg%3E" srcset="" data-lazy-sizes="(max-width: 44px) 100vw, 44px" alt="Produk Dinas Razen" width="44" height="44" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Performance.png">
-                            <noscript>
-                            <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Performance.png" srcset="" sizes="(max-width: 44px) 100vw, 44px" alt="Produk Dinas Razen" width="44" height="44" />
-                            </noscript>
-                        </div>
-                        <label class="item__title">Pionir sistem akuntansi online pertama di Indonesia</label>
-                        </div>
-                        <div class="item">
-                        <div class="item__icon">
-                            <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-1-1-235x235.png" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-1-1-235x235.png 235w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-1-1.png 244w" data-lazy-sizes="(max-width: 236px) 100vw, 236px" alt="fitur smart kabupaten software" width="236" height="236" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-1-1-235x235.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 236px) 100vw, 236px" srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-1-1-235x235.png 235w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-1-1.png 244w">
-                            <noscript>
-                            <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-1-1-235x235.png" srcset="
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-1-1-235x235.png 235w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-1-1.png         244w
-                                    " sizes="(max-width: 236px) 100vw, 236px" alt="fitur smart kabupaten software" width="236" height="236" />
-                            </noscript>
-                        </div>
-                        <div class="item__icon item__icon--sm">
-                            <img src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                                            xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2044%2044'%3E%3C/svg%3E" srcset="" data-lazy-sizes="(max-width: 44px) 100vw, 44px" alt="Produk Dinas Razen" width="44" height="44" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Add-ons.png">
-                            <noscript>
-                            <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Add-ons.png" srcset="" sizes="(max-width: 44px) 100vw, 44px" alt="Produk Dinas Razen" width="44" height="44" />
-                            </noscript>
-                        </div>
-                        <label class="item__title">Fitur terlengkap, terintegrasi dalam satu platform</label>
-                        </div>
-                        <div class="item">
-                        <div class="item__icon">
-                            <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-235x235.png" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-235x235.png 235w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2.png 244w" data-lazy-sizes="(max-width: 236px) 100vw, 236px" alt="CS Smart Kabupaten" width="236" height="236" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-235x235.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 236px) 100vw, 236px" srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-235x235.png 235w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2.png 244w">
-                            <noscript>
-                            <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-235x235.png" srcset="
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2-235x235.png 235w,
-                                    https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Image-2.png         244w
-                                    " sizes="(max-width: 236px) 100vw, 236px" alt="CS Smart Kabupaten" width="236" height="236" />
-                            </noscript>
-                        </div>
-                        <div class="item__icon item__icon--sm">
-                            <img src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                                                    xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2044%2044'%3E%3C/svg%3E" srcset="" data-lazy-sizes="(max-width: 44px) 100vw, 44px" alt="Produk Dinas Razen" width="44" height="44" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Chat.png">
-                            <noscript>
-                            <img src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/Chat.png" srcset="" sizes="(max-width: 44px) 100vw, 44px" alt="Produk Dinas Razen" width="44" height="44" />
-                            </noscript>
-                        </div>
-                        <label class="item__title">Layanan after sales terbaik dengan fitur live chat</label>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="item-block__head">
+                                <h2 class="items-block__title"> {{$section_4?$section_4['judul'] : ''}} </h2>
+                            </div>
                         </div>
                     </div>
+                    <div class="row justify-content-center align-items-top">
+                        <div class="col-12">
+                            <div class="items-block__wrap">
+                                @if ($section_4['konten'] != '')
+                                    @foreach ($section_4['konten'] as $item)
+                                        <div class="item">
+                                            <div class="item__icon">
+                                                <img data-lazy-src="{{ asset('images/landing-page/layanan/pemerintahan/'.$item['gambar']) }}" class="entered lazyloaded">
+                                            </div>
+                                            <div class="item__icon item__icon--sm">
+                                                <img data-lazy-src="{{ asset('images/landing-page/layanan/pemerintahan/'.$item['gambar']) }}">
+                                            </div>
+                                            <label class="item__title">{{$item['item']}}</label>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="items-block__action">
+                                <a id="" class="btn btn-blue cta-waba show" href="https://api.whatsapp.com/send?phone={{$profil->no_hp}}&text=Hai%20Razen%20Teknologi,%20Saya%20dengan%20:................%20%20Dari%20:................%20Keperluan::................" target="_blank" rel="noreferrer">Hubungi sales</a>
+                                <a id="" class="link-more" href="{{ route('aplikasi') }}" target="_self">Produk Razen</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12">
-                    <div class="items-block__action">
-                        <a id="" class="btn btn-blue cta-waba show" href="https://api.whatsapp.com/send?phone={{$profil->no_hp}}&text=Hai%20Razen%20Teknologi,%20Saya%20dengan%20:................%20%20Dari%20:................%20Keperluan::................" target="_blank" rel="noreferrer">Hubungi sales</a>
-                        <a id="" class="link-more" href="{{ route('aplikasi') }}" target="_self">Produk Razen</a>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </section>
 
@@ -1042,82 +578,31 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-7 text-center">
                             <div class="section__heading mb-50">
-                                <h4 class="section__heading--title-small"><span class="mr-10">//</span>Testimoni Pemerintah Derah<span class="ml-10">//</span></h4>
+                                <h4 class="section__heading--title-small"><span class="mr-10">//</span>{{$section_5?$section_5['sub_judul'] : ''}}<span class="ml-10">//</span></h4>
                                 <h1 class="section__heading--transparent white">Testimoni</h1>
-                                <h2 class="section__heading--title"> Pelajari apa yang Pemerintah daerah katakan tentang kami</h2>
+                                <h2 class="section__heading--title"> {{$section_5?$section_5['judul'] : ''}}</h2>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="testimonials__2 owl-carousel">
-                                <div class="testimonial">
-                                    <h4 class="title mb-25">Great Quality Software</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore to
-                                        magna
-                                        aliqua. Ut enim ad minim veniam, quis nostrud a exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-                                        aute irure dolor in reprehenderit.</p>
-                                    <div class="authore mt-35 d-flex align-items-center">
-                                        <div class="authore--thumb mr-20">
-                                            <img src="{{ asset('techbuzz/assets/images/others/testimonial-authore-1.png') }}" alt="">
+                                @foreach ($testimoni_pemerintahs as $testimoni_pemerintah)
+                                    <div class="testimonial">
+                                        <h4 class="title mb-25">{{$testimoni_pemerintah->judul_testimoni}}</h4>
+                                        <p>{{$testimoni_pemerintah->testimoni}}</p>
+                                        <div class="authore mt-35 d-flex align-items-center">
+                                            <div class="authore--thumb mr-20">
+                                                <img src="{{ asset('images/landing-page/layanan/pemerintahan/data/testimoni-pemerintah/'.$testimoni_pemerintah->foto) }}" style="height: 3rem;">
+                                            </div>
+                                            <div class="authore--content">
+                                                <h5 class="name">{{$testimoni_pemerintah->nama}}</h5>
+                                                <span class="designatin">{{$testimoni_pemerintah->jabatan}}</span>
+                                            </div>
                                         </div>
-                                        <div class="authore--content">
-                                            <h5 class="name">Rosalina D. William</h5>
-                                            <span class="designatin">Founder, Romada Co.</span>
-                                        </div>
+                                        <img src="{{ asset('techbuzz/assets/images/icons/quote.png') }}" alt="" class="quote-icon">
                                     </div>
-                                    <img src="{{ asset('techbuzz/assets/images/icons/quote.png') }}" alt="" class="quote-icon">
-                                </div>
-                                <div class="testimonial">
-                                    <h4 class="title mb-25">Great Quality Software</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore to
-                                        magna
-                                        aliqua. Ut enim ad minim veniam, quis nostrud a exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-                                        aute irure dolor in reprehenderit.</p>
-                                    <div class="authore mt-35 d-flex align-items-center">
-                                        <div class="authore--thumb mr-20">
-                                            <img src="{{ asset('techbuzz/assets/images/others/testimonial-authore-1.png') }}" alt="">
-                                        </div>
-                                        <div class="authore--content">
-                                            <h5 class="name">Rosalina D. William</h5>
-                                            <span class="designatin">Founder, Romada Co.</span>
-                                        </div>
-                                    </div>
-                                    <img src="{{ asset('techbuzz/assets/images/icons/quote.png') }}" alt="" class="quote-icon">
-                                </div>
-                                <div class="testimonial">
-                                    <h4 class="title mb-25">Great Quality Software</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore to
-                                        magna
-                                        aliqua. Ut enim ad minim veniam, quis nostrud a exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-                                        aute irure dolor in reprehenderit.</p>
-                                    <div class="authore mt-35 d-flex align-items-center">
-                                        <div class="authore--thumb mr-20">
-                                            <img src="{{ asset('techbuzz/assets/images/others/testimonial-authore-1.png') }}" alt="">
-                                        </div>
-                                        <div class="authore--content">
-                                            <h5 class="name">Rosalina D. William</h5>
-                                            <span class="designatin">Founder, Romada Co.</span>
-                                        </div>
-                                    </div>
-                                    <img src="{{ asset('techbuzz/assets/images/icons/quote.png') }}" alt="" class="quote-icon">
-                                </div>
-                                <div class="testimonial">
-                                    <h4 class="title mb-25">Great Quality Software</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore to magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud a exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-                                    aute irure dolor in reprehenderit.</p>
-                                    <div class="authore mt-35 d-flex align-items-center">
-                                        <div class="authore--thumb mr-20">
-                                            <img src="{{ asset('techbuzz/assets/images/others/testimonial-authore-1.png') }}" alt="">
-                                        </div>
-                                        <div class="authore--content">
-                                            <h5 class="name">Rosalina D. William</h5>
-                                            <span class="designatin">Founder, Romada Co.</span>
-                                        </div>
-                                    </div>
-                                    <img src="{{ asset('techbuzz/assets/images/icons/quote.png') }}" alt="" class="quote-icon">
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -1130,184 +615,82 @@
                     <div class="row justify-content-center align-items-center">
                         <div class="col-lg-5 col-md-10">
                             <div class="section-head align-left">
-                                <h2 class="section-head__title"> Dapatkan solusi lengkap dengan jasa konsultasi bisnis </h2>
+                                <h2 class="section-head__title"> {{$section_6?$section_6['judul'] : ''}} </h2>
                                 <div class="section-head__content">
-                                    <p> Terbukti dipercaya untuk tumbuh bersama bisnis dan perusahaan terbaik dari beragam skala, usaha kecil, UKM, industri, dan berbagai kota di Indonesia. </p>
+                                    <p>{{$section_6?$section_6['deskripsi'] : ''}}</p>
                                 </div>
                                 <div class="section-head__action">
-                                    <a id="" class="btn btn-blue" href="jasa-konsultan/index.html" target="_self">Cari Konsultan Sekarang</a>
+                                    <a id="" class="btn btn-blue" href="{{ route('kontak') }}" target="_self">Cari Konsultan Sekarang</a>
                                 </div>
-                                <img class="show-sm" style="margin: 18px auto" src="data:image/svg+xml,%3Csvg%20
-                                                                                                                                                                                                                                                                                        xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20351%20292'%3E%3C/svg%3E" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image.jpg 600w" data-lazy-sizes="(max-width: 351px) 100vw, 351px" alt="Akuntansi online Produk Dinas Razen" width="351" height="292" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image.jpg">
-                                <noscript>
-                                <img class="show-sm" style="margin: 18px auto" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image.jpg" srcset="
-                                        https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image.jpg         600w
-                                        " sizes="(max-width: 351px) 100vw, 351px" alt="Akuntansi online Produk Dinas Razen" width="351" height="292" />
-                                </noscript>
                             </div>
                             <div class="accordion" id="acchj">
-                                <div class="card">
-                                    <div class="card__header collapsed" id="acchjh1" data-toggle="collapse" data-target="#acchjb1"
-                                        aria-expanded="false" aria-controls="acchjb1">
-                                        <h3 class="card__title">Pembukuan jadi lebih akurat</h3>
-                                    </div>
-                                    <div class="collapse" id="acchjb1" aria-labelledby="acchjh1" data-parent="#acchj">
-                                        <div class="card__body">
-                                            <p> Keuangan bisnis Anda akan ditangani oleh partner konsultan yang berpengalaman di bidangnya. </p>
+                                @if ($section_6['konten'] != '')
+                                    @foreach ($section_6['konten'] as $item)
+                                        <div class="card">
+                                            <div class="card__header collapsed" id="acchjh{{$item['id']}}" data-toggle="collapse" data-target="#acchjb{{$item['id']}}"
+                                                aria-expanded="false" aria-controls="acchjb{{$item['id']}}">
+                                                <h3 class="card__title">{{$item['pertanyaan']}}</h3>
+                                            </div>
+                                            <div class="collapse" id="acchjb{{$item['id']}}" aria-labelledby="acchjh{{$item['id']}}" data-parent="#acchj">
+                                                <div class="card__body">
+                                                    <p> {{$item['jawaban']}} </p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card__header collapsed" id="acchjh2" data-toggle="collapse" data-target="#acchjb2"
-                                    aria-expanded="false" aria-controls="acchjb2">
-                                        <h3 class="card__title"> Pengambilan keputusan lebih instan </h3>
-                                    </div>
-                                    <div class="collapse" id="acchjb2" aria-labelledby="acchjh2" data-parent="#acchj">
-                                        <div class="card__body">
-                                            <p> Keuangan bisnis Anda akan ditangani oleh partner konsultan yang berpengalaman di bidangnya. </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card__header collapsed" id="acchjh3" data-toggle="collapse" data-target="#acchjb3"
-                                    aria-expanded="false" aria-controls="acchjb3">
-                                        <h3 class="card__title"> Pengelolaan bisnis jadi lebih mudah </h3>
-                                    </div>
-                                    <div class="collapse" id="acchjb3" aria-labelledby="acchjh3" data-parent="#acchj">
-                                        <div class="card__body">
-                                            <p> Keuangan bisnis Anda akan ditangani oleh partner konsultan yang berpengalaman di bidangnya. </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="col-lg-6 offset-lg-1">
                             <div class="items-accr__img hidden">
                                 <img class="lazyload" data-bg="" src="#">
                             </div>
-                            <img class="hidden-sm entered lazyloaded" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-516x430.png" data-lazy-srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-516x430.png 516w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-504x420.png 504w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image.jpg 600w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" alt="Akuntansi online Produk Dinas Razen" width="600" height="500" data-lazy-src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-516x430.png" data-ll-status="loaded" sizes="(max-width: 600px) 100vw, 600px" srcset="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-516x430.png 516w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-504x420.png 504w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-282x235.png 282w, https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image.jpg 600w">
-                            <noscript>
-                                <img class="hidden-sm" src="https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-516x430.png" srcset="
-                                        https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-516x430.png 516w,
-                                        https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-504x420.png 504w,
-                                        https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image-123-282x235.png 282w,
-                                        https://tech.razen.co.id/pemerintahan/assets/uploads/2022/06/image.jpg         600w
-                                    " sizes="(max-width: 600px) 100vw, 600px" alt="Akuntansi online Produk Dinas Razen" width="600" height="500" />
-                            </noscript>
+                            <img class="hidden-sm entered lazyloaded" data-lazy-src="{{ asset('images/landing-page/layanan/pemerintahan/'.$section_6['gambar']) }}">
                         </div>
                     </div>
                 </div>
             </section>
+
             <section class="faq-block faq-block--alt">
                 <div class="container faq-block__wrap">
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="section-head align-left">
-                                <h2 class="section-head__title"> Apa itu zen smart kabupaten? </h2>
+                                <h2 class="section-head__title"> {{$section_7?$section_7['judul'] : ''}}</h2>
                                 <div class="section-head__content" style="max-width: 400px">
-                                <p> Zen smart kabupaten adalah perangkat lunak untuk mencatat, mengolah, menampilkan data transaksi akuntansi bisnis untuk memberikan solusi bagi UKM &amp; perusahaan terkait pembukuan, laporan keuangan, invoice, dan neraca keuangan secara online serta <em> real-time</em>. </p>
-                                <p> Ribuan pemerintah daerah mempercayai kemampuan akuntansi online yang terintegrasi&nbsp; <em>cloud</em>. Saatnya Anda mendapatkan manfaatnya, sekarang. </p>
+                                <p>{{$section_7?$section_7['deskripsi'] : ''}}</p>
                                 </div>
                                 <div class="section-head__action">
-                                {{-- <a id="btnsales" class="btn btn-blue cta-waba show" href="https://wa.me/6282299449494?text={{code}}%20-%20Halo,%20Saya%20dengan%20:................%20%20Dari%20:................%20Keperluan::%20Ingin%20mencoba%20produk%20Dinas%20dari%20Razen%20Teknologi{{suf}}" target="_blank" rel="noreferrer">Hubungi sales</a> --}}
+                                    <a id="" class="btn btn-blue cta-waba show" href="https://api.whatsapp.com/send?phone={{$profil->no_hp}}&text=Hai%20Razen%20Teknologi,%20Saya%20dengan%20:................%20%20Dari%20:................%20Keperluan::................" target="_blank" rel="noreferrer">Hubungi sales</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-7">
                             <div class="accordion accordion--faq" id="accfaq">
-                                <div class="card">
-                                    <div class="card__header collapsed" id="accfaqh1" data-target="#accfaqb1" data-toggle="collapse"
-                                    aria-expanded="false" aria-controls="accfaqb1">
-                                        <h3 class="card__title"> Apa manfaat dari produk sistem akuntansi online? </h3>
-                                    </div>
-                                    <div class="collapse" id="accfaqb1" data-parent="#accfaq">
-                                        <div class="card__body">
-                                        <p> Ada 5 manfaat besar dari menggunakan software akuntansi online, antara lain: <a href="index.html#memudahkan">1. memudahkan pekerjaan dinas</a>, <a href="index.html#hemat">2. menghemat biaya sistem akuntansi</a>, <a href="index.html#sdm">3. optimalisasi SDM</a>, <a href="index.html#otomasi">4. otomasi</a> dan <a href="index.html#efisiensi">5. efisiensi</a>: </p>
-                                        <p>
-                                            <strong id="memudahkan">1. Memudahkan pekerjaan dinas</strong>: Sistem akuntansi online bermanfaat untuk membantu dinas atau perusahaan dalam memproses kegiatan pencatatan dan perhitungan transaksi bisnis yang lebih efisien, cepat, instan, serta memudahkan untuk di akses.
-                                        </p>
-                                        <p>
-                                            <strong id="hemat">2. Menghemat biaya sistem akuntansi</strong>: Sistem jenis ini dapat digunakan dengan biaya yang lebih terjangkau sehingga lebih menguntungkan dibandingkan dengan tenaga dan biaya manual.
-                                        </p>
-                                        <p>
-                                            <strong id="sdm">3. Optimalisasi SDM</strong>: Anda tidak perlu banyak tenaga ahli akuntan untuk bisnis, Anda tidak harus paham penggunaan rumus-rumus akuntansi dalam pemakaiannya.
-                                        </p>
-                                        <p>
-                                            <strong id="otomasi">4. Otomasi</strong>: Proses pembukuan yang otomatis dan lebih aman dengan minim risiko kesalahan hitung manusia seperti yang terjadi dalam proses manual.
-                                        </p>
-                                        <p>
-                                            <strong id="efisiensi">5. Efisiensi</strong>: Sistem dapat mengumpulkan seluruh pendataan perusahaan sehingga semua menjadi satu tempat, lebih mudah di kontrol dan diawasi.
-                                        </p>
-                                        <p> Ada banyak hal yang bisa dilakukan oleh software akuntansi, antara lain: Untuk laporan keuangan, pembukuan, data transaksi, faktur invoice penjualan, pembayaran pesanan. </p>
+                                @if ($section_7['konten'] != '')
+
+                                    @foreach ($section_7['konten'] as $item)
+                                        <div class="card">
+                                            <div class="card__header collapsed" id="accfaqh{{$item['id']}}" data-target="#accfaqb{{$item['id']}}" data-toggle="collapse"
+                                            aria-expanded="false" aria-controls="accfaqb{{$item['id']}}">
+                                                <h3 class="card__title" style="font-weight: bold"> {{$item['pertanyaan']}} </h3>
+                                            </div>
+                                            <div class="collapse" id="accfaqb{{$item['id']}}" data-parent="#accfaq">
+                                                <div class="card__body" style="font-weight:normal">
+                                                    {{$item['jawaban']}}
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card__header collapsed" id="accfaqh2" data-target="#accfaqb2" data-toggle="collapse"
-                                    aria-expanded="false" aria-controls="accfaqb2">
-                                        <h3 class="card__title"> Bagaimana cara memilih sistem akuntansi online untuk bisnis? </h3>
-                                    </div>
-                                    <div class="collapse" id="accfaqb2" data-parent="#accfaq">
-                                        <div class="card__body">
-                                        <p> Beberapa kriteria dalam memilih sistem termasuk kemanan data zen antara lain: </p>
-                                        <p> Harus memiliki <a href="security/index.html">keamanan yang ber-sertifikat</a>, mudah digunakan, mudah diakses, memiliki <a href="fitur/index.html">fitur lengkap</a>, <a href="integrasi/index.html">sistem terintegrasi</a>, <a href="klien-kami/index.html">sudah dipercaya banyak pengguna</a> dan memiliki customer support yang siap membantu. </p>
-                                        <p> Pastikan juga memiliki <a href="harga/index.html">paket dan harga</a> yang bersahabat dan sesuai dengan kebutuhan. </p>
-                                        <p> Untuk Anda yang membutuhkan solusi manajemen perhitungan dan pencatatan transaksi bisnis yang murah dan aman, pastikan vendor dan perusahaannya sudah terpercaya. </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card__header collapsed" id="accfaqh3" data-target="#accfaqb3" data-toggle="collapse"
-                                    aria-expanded="false" aria-controls="accfaqb3">
-                                        <h3 class="card__title"> Apa perbedaan akuntansi online dan offline? </h3>
-                                    </div>
-                                    <div class="collapse" id="accfaqb3" data-parent="#accfaq">
-                                        <div class="card__body">
-                                        <p> Software offline di install di komputer, bisa dijalankan tanpa terhubung ke internet. Tetapi untuk mendapatkan data yang <em>real-time</em> dan akurat membutuhkan <em>update</em> data secara manual. </p>
-                                        <p> Sedangkan <i>sistem</i>&nbsp; <em>online</em> harus terhubung ke internet, tetapi laporan data terintegrasi dan dapat diakses secara <em>real-time</em> kapan saja dan di mana saja, melalui perangkat komputer atau perangkat <a href="fitur/ios-android-app/index.html">Android atau iOS</a>. </p>
-                                        <p> Tidak harus di instal atau dipasang di komputer, sehingga membuat proses akuntansi semakin ringan karena <a href="blog/definisi-arti-fungsi-manfaat-platform-cloud-accounting-adalah/index.html">berbasis <em>Web Base (Cloud)</em>
-                                            </a>. </p>
-                                        <p> Koneksi internet dan kebutuhan olah informasi secara cepat sangat dibutuhkan perusahaan untuk selalu memonitor bisnis secara akurat. </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card__header collapsed" id="accfaqh4"  data-target="#accfaqb4" data-toggle="collapse"
-                                    aria-expanded="false" aria-controls="accfaqb4">
-                                        <h3 class="card__title"> Mengapa harus menggunakan sistem zen yang asli? </h3>
-                                    </div>
-                                    <div class="collapse" id="accfaqb4" data-parent="#accfaq">
-                                        <div class="card__body">
-                                        <p> Bagaimana jadinya jika sistem yang sering digunakan di perusahaan adalah produk tidak resmi? Apakah menjadi manfaat dan aman untuk melindungi data perusahaan? </p>
-                                        <p>
-                                            <em>Download</em> dan gunakan <em>zen original</em> untuk menjaga data dan keamanan bisnis Anda.
-                                        </p>
-                                        <p>
-                                            <em>Software</em> dari dalam dan brand luar negeri, jika tidak resmi dapat membahayakan sistem pengguna, sangat disarankan untuk selalu menggunakan aplikasi resmi untuk keamanan data perusahaan.
-                                        </p>
-                                        <p> Kelola bisnis lebih tenang dan berkah dengan produk yang terpercaya, murah cukup terjangkau, resmi dan terjamin. </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card__header collapsed" id="accfaqh6"  data-target="#accfaqb6" data-toggle="collapse"
-                                    aria-expanded="false" aria-controls="accfaqb6">
-                                        <h3 class="card__title"> Bagaimana cara memulai menggunakan Smart Kabupaten online? </h3>
-                                    </div>
-                                    <div class="collapse" id="accfaqb6" data-parent="#accfaq">
-                                        <div class="card__body">
-                                        <p> Daftar hari ini dan <em>login</em> ke sistem <em>website</em> Smart Kabupaten.id, atau <em>install</em> aplikasi Smart Kabupaten di <a href="fitur/ios-android-app/index.html">Google Play dan App Store</a>. </p>
-                                        <p>GRATIS untuk demo!</p>
-                                        <p> Tidak perlu melakukan Gunakan <em>browser</em> Anda dan langsung gunakan di <em>browser (web base)</em>, atau dapatkan dan <em>Install</em> aplikasinya. </p>
-                                        <p> Paket harga langganan yang <em>bervariasi</em> tergantung kebutuhan bisnis yang Anda miliki, dapatkan langganan harga terjangkau di halaman <a href="harga/index.html">harga software Smart Kabupaten ini</a>. </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                    @endforeach
+
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+
             <div class="tf tf--alt">
                 <div class="container-fluid">
                 <div class="row justify-content-center">

@@ -13,6 +13,9 @@ use App\Models\Tim;
 use App\Models\Layanan;
 use App\Models\FiturLayanan;
 use App\Models\PivotItemFiturLayanan;
+use App\Models\LayananPemerintahanDataDinas;
+use App\Models\LayananPemerintahanProdukUnggulan;
+use App\Models\LayananPemerintahanTestimoniPemerintah;
 
 class HomeController extends Controller
 {
@@ -59,7 +62,14 @@ class HomeController extends Controller
 
     public function layanan_pemerintahan()
     {
-        return view('landing-page.layanan-pemerintahan');
+        $dinas = LayananPemerintahanDataDinas::latest()->get();
+        $produk_unggulans = LayananPemerintahanProdukUnggulan::latest()->get();
+        $testimoni_pemerintahs = LayananPemerintahanTestimoniPemerintah::latest()->get();
+        return view('landing-page.layanan-pemerintahan', [
+            'dinas' => $dinas,
+            'produk_unggulans' => $produk_unggulans,
+            'testimoni_pemerintahs' => $testimoni_pemerintahs,
+        ]);
     }
 
     public function layanan_swasta()
