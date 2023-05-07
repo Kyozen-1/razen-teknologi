@@ -1,7 +1,10 @@
 @php
     use App\Models\Profil;
+    use App\Models\LayananSwastaProdukLengkap;
 
     $profil = Profil::first();
+
+    $link_produk_lengkaps = LayananSwastaProdukLengkap::select('judul','link')->get();
 @endphp
 
 <header class="header">
@@ -73,7 +76,15 @@
                                         <li><a href="{{route('layanan.lain-lain')}}">Lain - Lain</a></li>
                                     </ul>
                                 </li>
-
+                                @if (request()->routeIs('layanan.swasta'))
+                                    <li><a href="#">Produk<span>+</span></a>
+                                        <ul class="sub-menu">
+                                            @foreach ($link_produk_lengkaps as $item)
+                                                <li><a href="{{$item->link}}" target="blank">{{$item->judul}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endif
                                 <li>
                                     <a href="https://shop.razen.co.id/stores/razen-teknologi">E - Commerce</a>
                                 </li>

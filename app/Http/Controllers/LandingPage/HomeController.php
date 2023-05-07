@@ -16,6 +16,7 @@ use App\Models\PivotItemFiturLayanan;
 use App\Models\LayananPemerintahanDataDinas;
 use App\Models\LayananPemerintahanProdukUnggulan;
 use App\Models\LayananPemerintahanTestimoniPemerintah;
+use App\Models\LayananSwastaProdukLengkap;
 
 class HomeController extends Controller
 {
@@ -74,7 +75,10 @@ class HomeController extends Controller
 
     public function layanan_swasta()
     {
-        return view('landing-page.layanan-swasta');
+        $produk_lengkaps = LayananSwastaProdukLengkap::get();
+        return view('landing-page.layanan-swasta', [
+            'produk_lengkaps' => $produk_lengkaps
+        ]);
     }
 
     public function layanan_startup()

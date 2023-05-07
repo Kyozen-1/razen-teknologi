@@ -170,6 +170,17 @@ Route::prefix('razen-teknologi')->group(function(){
                 Route::post('/hapus/section-5/konten', 'RazenTeknologi\LandingPage\LayananSwastaController@hapus_section_5_konten')->name('razen-teknologi.landing-page.layanan.swasta.hapus.section-5.konten');
 
                 Route::post('/store/section-6', 'RazenTeknologi\LandingPage\LayananSwastaController@store_section_6')->name('razen-teknologi.landing-page.layanan.swasta.store.section-6');
+
+                Route::prefix('data')->group(function(){
+                    Route::prefix('produk-lengkap')->group(function(){
+                        Route::get('/', 'RazenTeknologi\LandingPage\Data\ProdukLengkapController@index')->name('razen-teknologi.landing-page.layanan.swasta.data.produk-lengkap.index');
+                        Route::get('/detail/{id}', 'RazenTeknologi\LandingPage\Data\ProdukLengkapController@show')->name('razen-teknologi.landing-page.layanan.swasta.data.produk-lengkap.show');
+                        Route::post('/','RazenTeknologi\LandingPage\Data\ProdukLengkapController@store')->name('razen-teknologi.landing-page.layanan.swasta.data.produk-lengkap.store');
+                        Route::get('/edit/{id}','RazenTeknologi\LandingPage\Data\ProdukLengkapController@edit')->name('razen-teknologi.landing-page.layanan.swasta.data.produk-lengkap.edit');
+                        Route::post('/update','RazenTeknologi\LandingPage\Data\ProdukLengkapController@update')->name('razen-teknologi.landing-page.layanan.swasta.data.produk-lengkap.update');
+                        Route::get('/destroy/{id}','RazenTeknologi\LandingPage\Data\ProdukLengkapController@destroy')->name('razen-teknologi.landing-page.layanan.swasta.data.produk-lengkap.destroy');
+                    });
+                });
             });
 
             Route::prefix('startup')->group(function(){
