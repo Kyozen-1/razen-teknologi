@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 26 Apr 2023 pada 06.27
+-- Waktu pembuatan: 07 Bulan Mei 2023 pada 10.20
 -- Versi server: 5.7.33
 -- Versi PHP: 8.0.2
 
@@ -147,6 +147,83 @@ INSERT INTO `landing_page_layanans` (`id`, `section_1`, `section_2`, `created_at
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `landing_page_layanan_pemerintahans`
+--
+
+CREATE TABLE `landing_page_layanan_pemerintahans` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `section_1` json DEFAULT NULL,
+  `section_2` json DEFAULT NULL,
+  `section_3` json DEFAULT NULL,
+  `section_4` json DEFAULT NULL,
+  `section_5` json DEFAULT NULL,
+  `section_6` json DEFAULT NULL,
+  `section_7` json DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `landing_page_layanan_pemerintahans`
+--
+
+INSERT INTO `landing_page_layanan_pemerintahans` (`id`, `section_1`, `section_2`, `section_3`, `section_4`, `section_5`, `section_6`, `section_7`, `created_at`, `updated_at`) VALUES
+(1, '{\"judul\": \"Produk Pemerintahan Daerah oleh Razen\", \"gambar\": \"6454bb9519e9e-230505.png\", \"konten\": [{\"id\": \"6454bf78288b4\", \"item\": \"Produk Dinas Razen sistem akuntansi online terbukti handal untuk bisnis\"}, {\"id\": \"6454bf78288b6\", \"item\": \"Membantu pencatatan keuangan, pembukuan & operasional bisnis perusahaan menjadi mudah & efisien\"}, {\"id\": \"6454bf8b4fc76\", \"item\": \"Kelola dengan solusi automasi, kapanpun & dimanapun\"}], \"tautan\": \"https://www.youtube.com/embed/pH47yFwWDJ0\"}', '{\"judul\": \"Produk Pemerintahan Daerah yang terbukti dipercaya 30 dinas di Indonesia\"}', '{\"judul\": \"7 Produk pemerintahan unggulan Razen Teknologi\"}', '{\"judul\": \"3 alasan Produk Dinas Razen jadi Pilihan Pemerintah Daerah\", \"konten\": [{\"id\": \"645602ec505ad\", \"item\": \"Pionir sistem akuntansi online pertama di Indonesia\", \"gambar\": \"645602ec2f439-230506.png\"}, {\"id\": \"645602ec52ebe\", \"item\": \"Fitur terlengkap, terintegrasi dalam satu platform\", \"gambar\": \"645602ec506f0-230506.png\"}, {\"id\": \"6456038f1d003\", \"item\": \"Layanan after sales terbaik dengan fitur live chat\", \"gambar\": \"6456038f1a097-230506.png\"}]}', '{\"judul\": \"Pelajari apa yang Pemerintah daerah katakan tentang kami\", \"sub_judul\": \"TESTIMONI PEMERINTAH DERAH\"}', '{\"judul\": \"Dapatkan solusi lengkap dengan jasa konsultasi bisnis\", \"gambar\": \"6456085c666aa-230506.png\", \"konten\": [{\"id\": \"645607aeb4b16\", \"jawaban\": \"Keuangan bisnis Anda akan ditangani oleh partner konsultan yang berpengalaman di bidangnya.\", \"pertanyaan\": \"Pembukuan jadi lebih akurat\"}, {\"id\": \"645607aeb4b19\", \"jawaban\": \"Keuangan bisnis Anda akan ditangani oleh partner konsultan yang berpengalaman di bidangnya.\", \"pertanyaan\": \"Pengambilan keputusan lebih instan\"}, {\"id\": \"645608e90a16f\", \"jawaban\": \"Keuangan bisnis Anda akan ditangani oleh partner konsultan yang berpengalaman di bidangnya.\", \"pertanyaan\": \"Pengelolaan bisnis jadi lebih mudah\"}], \"deskripsi\": \"Terbukti dipercaya untuk tumbuh bersama bisnis dan perusahaan terbaik dari beragam skala, usaha kecil, UKM, industri, dan berbagai kota di Indonesia.\"}', '{\"judul\": \"Apa itu zen smart kabupaten?\", \"konten\": [{\"id\": \"64560bbb5abbe\", \"jawaban\": \"Ada 5 manfaat besar dari menggunakan software akuntansi online, antara lain: 1. memudahkan pekerjaan dinas, 2. menghemat biaya sistem akuntansi, 3. optimalisasi SDM, 4. otomasi dan 5. efisiensi:\\r\\n\\r\\n1. Memudahkan pekerjaan dinas: Sistem akuntansi online bermanfaat untuk membantu dinas atau perusahaan dalam memproses kegiatan pencatatan dan perhitungan transaksi bisnis yang lebih efisien, cepat, instan, serta memudahkan untuk di akses.\\r\\n\\r\\n2. Menghemat biaya sistem akuntansi: Sistem jenis ini dapat digunakan dengan biaya yang lebih terjangkau sehingga lebih menguntungkan dibandingkan dengan tenaga dan biaya manual.\\r\\n\\r\\n3. Optimalisasi SDM: Anda tidak perlu banyak tenaga ahli akuntan untuk bisnis, Anda tidak harus paham penggunaan rumus-rumus akuntansi dalam pemakaiannya.\\r\\n\\r\\n4. Otomasi: Proses pembukuan yang otomatis dan lebih aman dengan minim risiko kesalahan hitung manusia seperti yang terjadi dalam proses manual.\\r\\n\\r\\n5. Efisiensi: Sistem dapat mengumpulkan seluruh pendataan perusahaan sehingga semua menjadi satu tempat, lebih mudah di kontrol dan diawasi.\\r\\n\\r\\nAda banyak hal yang bisa dilakukan oleh software akuntansi, antara lain: Untuk laporan keuangan, pembukuan, data transaksi, faktur invoice penjualan, pembayaran pesanan.\", \"pertanyaan\": \"Apa manfaat dari produk sistem akuntansi online?\"}, {\"id\": \"64560bbb5abc0\", \"jawaban\": \"Beberapa kriteria dalam memilih sistem termasuk kemanan data zen antara lain:\\r\\n\\r\\nHarus memiliki keamanan yang ber-sertifikat, mudah digunakan, mudah diakses, memiliki fitur lengkap, sistem terintegrasi, sudah dipercaya banyak pengguna dan memiliki customer support yang siap membantu.\\r\\n\\r\\nPastikan juga memiliki paket dan harga yang bersahabat dan sesuai dengan kebutuhan.\\r\\n\\r\\nUntuk Anda yang membutuhkan solusi manajemen perhitungan dan pencatatan transaksi bisnis yang murah dan aman, pastikan vendor dan perusahaannya sudah terpercaya.\", \"pertanyaan\": \"Bagaimana cara memilih sistem akuntansi online untuk bisnis?\"}, {\"id\": \"64560bbb5abc1\", \"jawaban\": \"Software offline di install di komputer, bisa dijalankan tanpa terhubung ke internet. Tetapi untuk mendapatkan data yang real-time dan akurat membutuhkan update data secara manual.\\r\\n\\r\\nSedangkan sistem  online harus terhubung ke internet, tetapi laporan data terintegrasi dan dapat diakses secara real-time kapan saja dan di mana saja, melalui perangkat komputer atau perangkat Android atau iOS.\\r\\n\\r\\nTidak harus di instal atau dipasang di komputer, sehingga membuat proses akuntansi semakin ringan karena berbasis Web Base (Cloud) .\\r\\n\\r\\nKoneksi internet dan kebutuhan olah informasi secara cepat sangat dibutuhkan perusahaan untuk selalu memonitor bisnis secara akurat.\", \"pertanyaan\": \"Apa perbedaan akuntansi online dan offline?\"}, {\"id\": \"64560bbb5abc2\", \"jawaban\": \"Bagaimana jadinya jika sistem yang sering digunakan di perusahaan adalah produk tidak resmi? Apakah menjadi manfaat dan aman untuk melindungi data perusahaan?\\r\\n\\r\\nDownload dan gunakan zen original untuk menjaga data dan keamanan bisnis Anda.\\r\\n\\r\\nSoftware dari dalam dan brand luar negeri, jika tidak resmi dapat membahayakan sistem pengguna, sangat disarankan untuk selalu menggunakan aplikasi resmi untuk keamanan data perusahaan.\\r\\n\\r\\nKelola bisnis lebih tenang dan berkah dengan produk yang terpercaya, murah cukup terjangkau, resmi dan terjamin.\", \"pertanyaan\": \"Mengapa harus menggunakan sistem zen yang asli?\"}, {\"id\": \"64560bd2242f9\", \"jawaban\": \"Daftar hari ini dan login ke sistem website Smart Kabupaten.id, atau install aplikasi Smart Kabupaten di Google Play dan App Store.\\r\\n\\r\\nGRATIS untuk demo!\\r\\n\\r\\nTidak perlu melakukan Gunakan browser Anda dan langsung gunakan di browser (web base), atau dapatkan dan Install aplikasinya.\\r\\n\\r\\nPaket harga langganan yang bervariasi tergantung kebutuhan bisnis yang Anda miliki, dapatkan langganan harga terjangkau di halaman harga software Smart Kabupaten ini.\", \"pertanyaan\": \"Bagaimana cara memulai menggunakan Smart Kabupaten online?\"}], \"deskripsi\": \"Zen smart kabupaten adalah perangkat lunak untuk mencatat, mengolah, menampilkan data transaksi akuntansi bisnis untuk memberikan solusi bagi UKM & perusahaan terkait pembukuan, laporan keuangan, invoice, dan neraca keuangan secara online serta real-time.\\r\\n\\r\\nRibuan pemerintah daerah mempercayai kemampuan akuntansi online yang terintegrasi  cloud. Saatnya Anda mendapatkan manfaatnya, sekarang.\"}', '2023-05-05 01:17:25', '2023-05-06 17:28:25');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `landing_page_layanan_startups`
+--
+
+CREATE TABLE `landing_page_layanan_startups` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `section_1` json DEFAULT NULL,
+  `section_2` json DEFAULT NULL,
+  `section_3` json DEFAULT NULL,
+  `section_4` json DEFAULT NULL,
+  `section_5` json DEFAULT NULL,
+  `section_6` json DEFAULT NULL,
+  `section_7` json DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `landing_page_layanan_startups`
+--
+
+INSERT INTO `landing_page_layanan_startups` (`id`, `section_1`, `section_2`, `section_3`, `section_4`, `section_5`, `section_6`, `section_7`, `created_at`, `updated_at`) VALUES
+(1, '{\"judul\": \"Produk Startup Rintisan oleh Razen\", \"video\": \"64564cc57e699-230506.mp4\", \"gambar\": \"64564cc57ed10-230506.jpg\", \"deskripsi\": \"Punya gagasan operasi bisnis Anda di suatu tempat? Tidak masalah! Razen Teknologi adalah layanan yang Anda perlukan untuk mengelola seluruh website Anda dari mana saja, kapan saja!\", \"sub_judul\": \"RAZEN TEKNOLOGI\"}', '{\"judul\": \"Berkualitas dan Teknologi Terkini!\", \"deskripsi\": \"Memiliki berbagai macam fiturdesain yang kreatif,\\r\\nkonten yang informatif dan bermanfaat, navigasi yang mudah dipahami,\\r\\ntampilan responsif yang memudahkan akses dari berbagai perangkat,\\r\\nkecepatan loading yang cepat dan fitur interaktif seperti forum\\r\\natau chat yang memungkinkan pengguna berinteraksi satu sama lain.\", \"sub_judul\": \"Dapatkan Semua Fitur Menakjubkan Hanya Dalam Satu Website\"}', '{\"judul\": \"Generasi Baru Dari Website Teknologi Terkini Telah Hadir\", \"konten\": [{\"id\": \"645653a4d2f18\", \"ikon\": \"icon-1\", \"judul\": \"Performa Tinggi\"}, {\"id\": \"645653a4d2f1b\", \"ikon\": \"icon-2\", \"judul\": \"Menggunakan Plugins and Extensions\"}, {\"id\": \"64565437f1d1d\", \"ikon\": \"icon-3\", \"judul\": \"Mudah Digunakan\"}], \"deskripsi\": \"Serangkaian alat lengkap dirancang untuk membuat hidup lebih mudah dengan website berkualitas\"}', '{\"judul\": \"4 Produk Startup Rintisan Unggulan Razen Teknologi\"}', '{\"judul\": \"100+ IN ALL RAZEN TECHNOLOGY VERSIONS\", \"deskripsi\": \"TOP 5 STAR RATING\\r\\nReal people, real stories. Hear from our community.\", \"sub_judul\": \"Startup Rintisan Produk Razen Teknologi\"}', '{\"judul\": \"Didukung Oleh Tenaga Professional PROFESSIONAL\", \"gambar\": \"64565b21940ee-230506.png\", \"konten\": [{\"id\": \"64565cd164a98\", \"judul\": \"Dokumentasi Online - Berisi semua deskripsi terkait dengan penggunaan dan fitur yang tersedia\"}, {\"id\": \"64565cd164a9a\", \"judul\": \"Dokumentasi Video (segera hadir) - Butuh instruksi visual? Periksa tutorial video kami\"}, {\"id\": \"64565ce78cd98\", \"judul\": \"Dukungan Penuh - Hubungi kami jika Anda mendapatkan masalah saat menggunakan produk kami\"}], \"deskripsi\": \"Bermasalah ketika menggunakan produk kami? Kami akan membantu Anda\"}', '{\"judul\": \"Bangun situs web Anda dengan Razen Teknologi Beli sekarang, mulai dari IDR 2.000K!\", \"deskripsi\": \"Razen Teknologi telah berpengalaman sejak 2019 dan merupakan salah satu perusahaan terpercaya dengan penjualan lebih dari 100+.\"}', '2023-05-06 05:49:09', '2023-05-06 07:04:19');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `landing_page_layanan_swastas`
+--
+
+CREATE TABLE `landing_page_layanan_swastas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `section_1` json DEFAULT NULL,
+  `section_2` json DEFAULT NULL,
+  `section_3` json DEFAULT NULL,
+  `section_4` json DEFAULT NULL,
+  `section_5` json DEFAULT NULL,
+  `section_6` json DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `landing_page_layanan_swastas`
+--
+
+INSERT INTO `landing_page_layanan_swastas` (`id`, `section_1`, `section_2`, `section_3`, `section_4`, `section_5`, `section_6`, `created_at`, `updated_at`) VALUES
+(1, '{\"judul\": \"Beragam Pengelolaan Dalam Menunjang Kebutuhan Bisnis Anda\", \"video\": \"645637d40f041-230506.mp4\", \"deskripsi\": \"Performance Power Full, Efisien, dan memiliki berbagai Fitur menarik.\", \"sub_judul\": \"PRODUK SWASTA\"}', '{\"deskripsi\": \"Cara Tercepat untuk Mengembangkan Bisnis Anda dengan Teknologi\\r\\nRazen Teknologi Siap Memberikan Fitur - Fitur Terbaik Sesuai Kebutuhan Bisnis Anda\"}', '{\"judul\": \"5 Produk Lengkap Untuk Menunjang Bisnis Anda\"}', '{\"judul\": \"Mengembangkan bisnis kecil bersama sama\", \"gambar\": \"64563ae8aa44a-230506.png\", \"konten\": \"\", \"deskripsi\": \"Kami membuat aplikasi web & smartphone modern untuk membantu berbagai bisnis Anda. Kami akan memberikan fitur - fitur yang dapat membantu proses bisnis anda secara efisien. Segera menghubungi kami untuk menikmati kemudahan dalam bisnis anda.\"}', '{\"judul\": \"Testimoni Pengguna Produk Kami\", \"konten\": [{\"id\": \"6456421442f1b\", \"nama\": \"Farah Liza\", \"testimoni\": \"Pendapatan bisnis saya semakin meningkat setelah menggunakan sistem yang disediakan oleh Razen Teknologi.\"}, {\"id\": \"6456421442f1d\", \"nama\": \"Budi Basuki\", \"testimoni\": \"Fitur - fitur yang di berikan pada sistem aplikasi milik Razen, sangat memberikan kemudahan dalam mengelola penjualan bisnis saya.\"}, {\"id\": \"6456421442f1e\", \"nama\": \"Abdul Rahman\", \"testimoni\": \"Sebelum menggunakan sistem razen pendatapan bisnis saya begitu - begitu saja, Setelah menggunakan sistem milik Razen Bisnis saya terus berkembang.\"}, {\"id\": \"6456421442f1f\", \"nama\": \"Halim Podiono\", \"testimoni\": \"Aplikasi milik razen memiliki performa yang baik dan memiliki berbagai fitur - fitur yang memperluas bisnis saya.\"}]}', '{\"judul\": \"Website Swasta Menjadi Kebutuhkan Bisnis Anda Saat ini!\", \"deskripsi\": \"Website Company Profile Untuk UKM adalah Kebutuhan Anda untuk memiliki website profesional yang dibangun dengan web design premium, serta tampilan yang familiar.\"}', '2023-05-06 04:19:48', '2023-05-06 05:10:33');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `landing_page_perusahaans`
 --
 
@@ -198,6 +275,96 @@ INSERT INTO `layanans` (`id`, `judul_kecil`, `judul`, `deskripsi`, `ikon`, `gamb
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `layanan_pemerintahan_data_dinas`
+--
+
+CREATE TABLE `layanan_pemerintahan_data_dinas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `layanan_pemerintahan_data_dinas`
+--
+
+INSERT INTO `layanan_pemerintahan_data_dinas` (`id`, `nama`, `foto`, `created_at`, `updated_at`) VALUES
+(1, 'BPBD', '6456f75dd8137-230507.png', '2023-05-06 17:57:01', '2023-05-06 17:57:44'),
+(2, 'Pariwisata', '6456f77abd063-230507.png', '2023-05-06 17:57:30', '2023-05-06 17:57:30'),
+(3, 'Jawa Tengah', '6456f7972b185-230507.png', '2023-05-06 17:57:59', '2023-05-06 17:57:59'),
+(4, 'Kabupaten Madiun', '6456f7dede492-230507.gif', '2023-05-06 17:59:10', '2023-05-06 17:59:10'),
+(5, 'Kementrian Pendidikan dan Kebudayaan', '6456f8025a180-230507.png', '2023-05-06 17:59:46', '2023-05-06 17:59:46'),
+(6, 'Kementrian Perhubungan Republik Indonesia', '6456f82e22cb8-230507.png', '2023-05-06 18:00:30', '2023-05-06 18:00:30'),
+(7, 'Kota Blitar', '6456f8432a61f-230507.png', '2023-05-06 18:00:51', '2023-05-06 18:00:51'),
+(8, 'Kabupaten Magelang', '6456f85523826-230507.png', '2023-05-06 18:01:09', '2023-05-06 18:01:09'),
+(9, 'Batam', '6456f85f5038b-230507.png', '2023-05-06 18:01:19', '2023-05-06 18:01:19');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `layanan_pemerintahan_produk_unggulans`
+--
+
+CREATE TABLE `layanan_pemerintahan_produk_unggulans` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `judul` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deskripsi` longtext COLLATE utf8mb4_unicode_ci,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gambar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `layanan_pemerintahan_produk_unggulans`
+--
+
+INSERT INTO `layanan_pemerintahan_produk_unggulans` (`id`, `judul`, `deskripsi`, `link`, `gambar`, `created_at`, `updated_at`) VALUES
+(1, 'Akutansi Dinas', 'Pantau laporan bisnis & keuangan melalui dasbor performa bisnis dengan template laporan yang lengkap', '#', '645703dde8f5e-230507.png', '2023-05-06 18:50:22', '2023-05-06 18:54:39'),
+(2, 'Akuntansi', 'Lebih akurat dengan pembukuan yang lebih mudah dipahami dan sesuai dengan standar akuntansi di Indonesia', '#', '645704fb35817-230507.png', '2023-05-06 18:55:07', '2023-05-06 18:55:07'),
+(3, 'Razen Pay', 'Terima segala pembayaran lebih mudah dengan satu dompet digital yang keamanannya setara dengan standar bank', '#', '6457053970639-230507.png', '2023-05-06 18:56:09', '2023-05-06 18:56:09'),
+(4, 'Invoice & Faktur', 'Terima pembayaran lebih cepat dengan fitur otomasi invoice tanpa perlu khawatir lupa kirim atau telat kirim', '#', '6457054fca876-230507.png', '2023-05-06 18:56:31', '2023-05-06 18:56:31'),
+(5, 'Produk & Inventory', 'Kelola stok barang secara terpusat dan real-time pada setiap gudang hanya melalui satu dasbor', '#', '64570564d437d-230507.png', '2023-05-06 18:56:53', '2023-05-06 18:56:53'),
+(6, 'Biaya & Anggaran', 'Manfaatkan data real-time untuk membuat keputusan perusahaan lebih akurat dengan aplikasi laporan keuangan', '#', '64570578be681-230507.png', '2023-05-06 18:57:12', '2023-05-06 18:57:12'),
+(7, 'Perpajakan', 'Hilangkan risiko kesalahan perhitungan pajak dengan kalkulasi otomatis hanya dengan satu klik', '#', '64570592668da-230507.png', '2023-05-06 18:57:38', '2023-05-06 18:57:38');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `layanan_pemerintahan_testimoni_pemerintahs`
+--
+
+CREATE TABLE `layanan_pemerintahan_testimoni_pemerintahs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jabatan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `judul_testimoni` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `testimoni` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `layanan_pemerintahan_testimoni_pemerintahs`
+--
+
+INSERT INTO `layanan_pemerintahan_testimoni_pemerintahs` (`id`, `nama`, `jabatan`, `foto`, `judul_testimoni`, `testimoni`, `created_at`, `updated_at`) VALUES
+(1, 'BPBD Madiun', 'Dinas', '64571731973ef-230507.png', 'Testimoni BPBD', '“Eatlah tidak perlu menghabiskan 1-2 hari kerja hanya untuk membuat laporan keuangan secara manual, karena proses diselesaikan secara otomatis dari aplikasi.”', '2023-05-06 20:12:49', '2023-05-06 20:14:18'),
+(2, 'Disbudpar Blitar', 'Dinas', '645717c530203-230507.png', 'Testimoni Disbudpar Blitar', '“Razen membantu kami mengetahui kondisi keuangan perusahaan kapanpun dan di manapun, bahkan ketika dalam perjalanan. Saat mengikuti tender, kami bisa mengambil keputusan bisnis secara cepat dan tepat.”', '2023-05-06 20:15:17', '2023-05-06 20:15:17'),
+(3, 'Disbudpar Madiun', 'Dinas', '645717ec0832f-230507.gif', 'Testimoni Disbudpar Madiun', '“Razen bisa memenuhi kebutuhan pengelolaan keuangan kami dengan sistem real time monitoring. Hal itu sangat membantu perusahaan yang memiliki ribuan outlet.”', '2023-05-06 20:15:56', '2023-05-06 20:15:56'),
+(4, 'Pertanian Magelang', 'Dinas', '6457180f95052-230507.png', 'Testimoni Pertanian Magelang', '“Fitur multi warehouse, memudahkan BARDI melihat pergerakan barang secara jelas, seperti berapa banyak produk yang sedang transit, dikirim ke pelanggan hingga jumlah produk yang ada di gudang cabang saat ini.”', '2023-05-06 20:16:31', '2023-05-06 20:16:31'),
+(5, 'Testimoni Dinas', 'Testimoni Dinas', '6457184df153d-230507.gif', 'Testimoni Dinas', '“Kami tidak perlu membuat sistem sendiri. Sistem stock in and stock out, payment customer hingga terms of payment mengikuti sistem yang ada di Smart Kabupaten. Tanpa sistem Smart Kabupaten, akan sulit manage peoplenya.”', '2023-05-06 20:17:33', '2023-05-06 20:17:33'),
+(6, 'Testimoni Dinas 2', 'Dinas', '64571868c5754-230507.gif', 'Testimoni Dinas', '“Proses pembuatan invoice lebih cepat hingga 5x lipat. Secara manual biasanya sekitar 25 hari, kini hanya membutuhkan 3-5 hari.”', '2023-05-06 20:18:00', '2023-05-06 20:18:00'),
+(7, 'Dinas 3', 'Dinas', '645718d465bb7-230507.gif', 'Testimoni Dinas 3', '“Dulu, rekapan stok opame hanya dapat dilakukan 1x sebulan secara manual. Kini, dengan fitur produk & inventory, stok opname dapat dilakukan otomatis setiap 1-2 minggu sekali. “', '2023-05-06 20:19:48', '2023-05-06 20:19:48'),
+(8, 'Dinas 4', 'Dinas', '645718f5be3f8-230507.gif', 'Testimoni Dinas 4', '“Pengawasan ribuan stok pun juga dapat dilakukan dengan praktis tanpa perlu datang ke gudang, karena data stok selalu ter-update secara real-time setiap ada transaksi.”', '2023-05-06 20:20:21', '2023-05-06 20:20:21'),
+(9, 'Dinas 5', 'Dinas', '645719313ca0e-230507.gif', 'Testimoni Dinas 5', '“Melalui fitur-fitur akuntansi Smart Kabupaten, kami jadi bisa memonitor perkembangan bisnis, sales, dan laporan keuangan di satu platform yang bisa diakses oleh banyak karyawan secara mudah.”', '2023-05-06 20:21:21', '2023-05-06 20:21:21');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `layanan_perusahaans`
 --
 
@@ -221,6 +388,92 @@ INSERT INTO `layanan_perusahaans` (`id`, `judul`, `deskripsi`, `gambar_default`,
 (3, 'Our Resources', 'Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed.', '643e11cfb2664-230418.png', '643e11cfb4273-230418.png', '2023-04-17 20:43:11', '2023-04-17 20:43:11'),
 (4, 'Growth Process', 'Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed.', '643e11ea6f039-230418.png', '643e11ea70d9f-230418.png', '2023-04-17 20:43:38', '2023-04-17 20:43:38'),
 (5, 'Our Support', 'Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed.', '643e132fea7ab-230418.png', '643e132feba7a-230418.png', '2023-04-17 20:49:03', '2023-04-17 20:49:03');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `layanan_startup_produk_rintisans`
+--
+
+CREATE TABLE `layanan_startup_produk_rintisans` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deskripsi` longtext COLLATE utf8mb4_unicode_ci,
+  `gambar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `layanan_startup_produk_rintisans`
+--
+
+INSERT INTO `layanan_startup_produk_rintisans` (`id`, `nama`, `link`, `created_at`, `updated_at`, `deskripsi`, `gambar`) VALUES
+(1, 'Mami Clean', '#', '2023-05-07 01:34:40', '2023-05-07 02:54:25', '\"Mami Clean merupakan merupakan Startup Rintisan di Indonesia yang memiliki layanan Layanan Mami Laundry, Mami Clean dan Mami Servic yang dikerjakan oleh para ahlinya\"', '6457755171654-230507.png'),
+(2, 'Pendekar Bengkel', 'https://www.pendekarbengkel.com/', '2023-05-07 01:34:58', '2023-05-07 02:53:50', '\"Layanan maintenance dan service kendaraan hanya untuk anda. Dapatkan layanan terbaik dari teknisi berpengalaman untuk memastikan kendaraan anda berada pada kondisi maksimal setiap saat.\"', '6457752e970d8-230507.png'),
+(3, 'Bangun Tani', 'https://marketplace.demo.smartservice.co.id/', '2023-05-07 01:35:28', '2023-05-07 02:53:17', '\"Banguntani merupakan e-commerce di Indonesia yang menawarkan berbagai macam produk sayuran, buah-buahan, daging segar, ikan segar, lauk pauk dan berbagai macam sembako.\"', '6457750d307be-230507.png'),
+(4, 'Subcon', '#', '2023-05-07 01:35:43', '2023-05-07 02:52:42', '\"Subcon merupakan aplikasi e-commerce di Indonesia yang merupakan Startup Rintisan\"', '645774ea6d0ff-230507.png'),
+(5, 'Akad sah', 'https://akadsah.com/', '2023-05-07 01:36:04', '2023-05-07 02:52:12', '\"Aplikasi manajemen pernikahan untuk membantu anda mempersiapkan hari spesial. Menyediakan semua kebutuhan pernikahan berkualitas dan terpercaya didalam 1 platform.\"', '645774cbb23c9-230507.png'),
+(6, 'Vokasee', 'https://vokasee.id/#', '2023-05-07 01:36:33', '2023-05-07 02:51:31', '\"Belajar tanpa batas secara Online. Mitra Prakerin dan Pengajaran online serta kursus yang akan dipandu oleh para ahli untuk membantu Anda memperoleh keterampilan baru di dunia Industri 4.0.\"', '645774a3b154d-230507.png'),
+(7, 'Laden', 'https://jasa.demo.smartservice.co.id/#/', '2023-05-07 01:36:47', '2023-05-07 02:50:12', '\"Laden merupakan e-commerce di Indonesia yang menawarkan berbagai macam layanan \"serabutan\", seperti pembersihan, perbaikan, pemasangan, renovasi pada berbagai macam bidang.\"', '64577454abfdc-230507.png'),
+(8, 'Frigle', '#', '2023-05-07 01:36:59', '2023-05-07 02:49:40', '\"Frigle merupakan aplikasi e-commerce di Indonesia yang merupakan Startup Rintisan\"', '645774346b2f2-230507.png'),
+(9, 'KolHype', 'https://kolhype.com/', '2023-05-07 01:37:26', '2023-05-07 02:48:47', 'Digital Agency Berbasis Komunitas Influencer #1 di Indonesia. Kesempatan terbaik untuk membuat Bisnis anda di kenal luas & mendapatkan Profit Yang Lebih Besar dengan strategi Influencer Marketing.', '645773ff5ec69-230507.png');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `layanan_startup_produk_rintisan_unggulans`
+--
+
+CREATE TABLE `layanan_startup_produk_rintisan_unggulans` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `judul` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deskripsi` longtext COLLATE utf8mb4_unicode_ci,
+  `gambar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `gambar_2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gambar_3` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `layanan_startup_produk_rintisan_unggulans`
+--
+
+INSERT INTO `layanan_startup_produk_rintisan_unggulans` (`id`, `judul`, `deskripsi`, `gambar`, `created_at`, `updated_at`, `gambar_2`, `gambar_3`) VALUES
+(1, 'Banguntani', '“Banguntani merupakan e-commerce di Indonesia yang menawarkan berbagai macam produk sayuran, buah-buahan, daging segar, ikan segar, lauk pauk dan berbagai macam sembako.”', '64576ca8dd137-230507.png', '2023-05-07 02:17:29', '2023-05-07 02:22:09', '64576ca93303d-230507.png', '64576ca962400-230507.png'),
+(2, 'Akadsah', '“Aplikasi manajemen pernikahan untuk membantu anda mempersiapkan hari spesial. Menyediakan semua kebutuhan pernikahan berkualitas dan terpercaya didalam 1 platform.\"', '64576f9ac1f2f-230507.png', '2023-05-07 02:30:04', '2023-05-07 02:30:04', '64576f9b26d0b-230507.png', '64576f9b7f0f6-230507.png'),
+(3, 'Pendekar Bengkel', '“Layanan maintenance dan service kendaraan hanya untuk anda. Dapatkan layanan terbaik dari teknisi berpengalaman untuk memastikan kendaraan anda berada pada kondisi maksimal setiap saat.”', '64576fe111de8-230507.png', '2023-05-07 02:31:14', '2023-05-07 02:31:14', '64576fe16ccf7-230507.png', '64576fe198db0-230507.png'),
+(4, 'Mami Clean', '“Layanan Mami Laundry, Mami Clean dan Mami Service.”', '6457702889174-230507.png', '2023-05-07 02:32:25', '2023-05-07 02:32:25', '64577028c95d4-230507.png', '6457702913bd1-230507.png');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `layanan_swasta_produk_lengkaps`
+--
+
+CREATE TABLE `layanan_swasta_produk_lengkaps` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `judul` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deskripsi` longtext COLLATE utf8mb4_unicode_ci,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gambar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `layanan_swasta_produk_lengkaps`
+--
+
+INSERT INTO `layanan_swasta_produk_lengkaps` (`id`, `judul`, `deskripsi`, `link`, `logo`, `gambar`, `created_at`, `updated_at`) VALUES
+(1, 'GET ERP', '“Platform Untuk Mengelola Seluruh Bisnis anda untuk operasional lebih produktif & terintegrasi. Kurangi waktu untuk tugas administratif, dan lebih banyak waktu untuk bekerja, menggunakan Zen ERP, SISTEM BISNIS ALL-IN-ONE.”', 'https://tech.razen.co.id/solusi/get-erp-razen/', '64572916f3631-230507.png', '645729174d7c8-230507.png', '2023-05-06 21:29:11', '2023-05-06 21:29:11'),
+(2, 'GET STORE', '“Bangun toko merupakan e-commerce online yang bisa Anda gunakan untuk menjual produk Anda dalam hitungan menit. Buat toko impian Anda, tambahkan produk, kelola inventaris dan mulai untuk kembangkan bisnis Anda.\"', 'https://tech.razen.co.id/solusi/get-store-razen/', '6457299d876da-230507.png', '6457299dd6950-230507.png', '2023-05-06 21:31:26', '2023-05-06 21:31:26'),
+(3, 'GET PROJECT', '“Semua fitur manajemen tugas diujung jari anda. Sistem dirancang untuk pengusaha dan manajer proyek yang mencari cara efisien untuk mengelola pekerjaan mereka. Buat proyek, tetapkan tugas, lacak waktu, buat faktur untuk klien, dan dapatkan bayaran - dalam beberapa klik.”', '#', '645729e3c2153-230507.png', '645729e41c367-230507.png', '2023-05-06 21:32:36', '2023-05-06 21:32:36'),
+(4, 'GET CRM', '“Satu - satunya alat yang anda perlukan untuk mengelola seluruh bisnis anda. Kelola setiap aspek bisnis Anda dengan sedikit atau tanpa usaha. Tetapkan proyek, tangani akuntansi, dan berkolaborasi dengan tim Anda. Kelola prospek dan ubah mereka menjadi klien - semuanya di satu tempat.”', '#', '64572a227eb22-230507.png', '64572a22cd3e1-230507.png', '2023-05-06 21:33:38', '2023-05-06 21:33:38'),
+(5, 'GET LMS', '“Platform pendidikan dengan fitur yang lengkap untuk membantu instruktur membuat dan menerbitkan kursus video, kelas langsung serta kursus teks sebagai langkah untuk menghasilkan uang dan membantu siswa belajar dengan mudah.”', 'https://tech.razen.co.id/solusi/elearning/', '64572a6eef67d-230507.png', '64572a6f49dec-230507.png', '2023-05-06 21:34:55', '2023-05-06 21:34:55');
 
 -- --------------------------------------------------------
 
@@ -286,7 +539,20 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2023_04_18_114705_create_pivot_daftar_layanans_table', 15),
 (20, '2023_04_19_024221_create_fitur_layanans_table', 16),
 (21, '2023_04_19_024502_create_pivot_item_fitur_layanans_table', 16),
-(22, '2023_04_23_035348_create_pivot_profil_media_sosials_table', 17);
+(22, '2023_04_23_035348_create_pivot_profil_media_sosials_table', 17),
+(23, '2023_05_04_015257_add_logo_kecil_to_profils', 18),
+(24, '2023_05_05_073427_create_landing_page_layanan_pemerintahans_table', 19),
+(25, '2023_05_06_081809_create_landing_page_layanan_swastas_table', 20),
+(27, '2023_05_06_123040_create_landing_page_layanan_startups_table', 21),
+(28, '2023_05_07_003837_create_layanan_pemerintahan_data_dinas_table', 22),
+(29, '2023_05_07_011428_create_layanan_pemerintahan_produk_unggulans_table', 23),
+(30, '2023_05_07_022407_create_layanan_pemerintahan_testimoni_pemerintahs_table', 24),
+(31, '2023_05_07_040458_create_layanan_swasta_produk_lengkaps_table', 25),
+(32, '2023_05_07_082206_create_layanan_startup_produk_rintisans_table', 26),
+(33, '2023_05_07_082644_drop_gambar_from_layanan_startup_produk_rintisans', 27),
+(34, '2023_05_07_085247_create_layanan_startup_produk_rintisan_unggulans_table', 28),
+(35, '2023_05_07_090706_add_gambar_2_to_layanan_startup_produk_rintisan_unggulans', 29),
+(36, '2023_05_07_094020_add_deskripsi_to_layanan_startup_produk_rintisans', 30);
 
 -- --------------------------------------------------------
 
@@ -437,15 +703,16 @@ CREATE TABLE `profils` (
   `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `alamat` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `logo_kecil` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `profils`
 --
 
-INSERT INTO `profils` (`id`, `nama`, `pt`, `no_hp`, `email`, `logo`, `alamat`, `created_at`, `updated_at`) VALUES
-(1, 'Razen Teknologi', 'PT Razen Teknologi Indonesia', '082299449494', 'hello@razen.co.id', '642b9aa063e73-230404.png', 'Yogyakarta', NULL, NULL);
+INSERT INTO `profils` (`id`, `nama`, `pt`, `no_hp`, `email`, `logo`, `alamat`, `created_at`, `updated_at`, `logo_kecil`) VALUES
+(1, 'Razen Teknologi', 'PT Razen Teknologi Indonesia', '082299449494', 'hello@razen.co.id', '642b9aa063e73-230404.png', 'Yogyakarta', NULL, '2023-05-03 18:57:29', '6453110958d3f-230504.png');
 
 -- --------------------------------------------------------
 
@@ -550,7 +817,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `color_layout`, `nav_color`, `placement`, `behaviour`, `layout`, `radius`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Razen Teknologi', 'razen_teknologi@razen.co.id', NULL, '$2y$10$vUlaHLsUBySNV17OB4bA0OgYjwnU1ThdLwFcLlbghO900K8Jz.1f.', 'dark-sky', 'default', 'vertical', 'pinned', 'fluid', 'rounded', NULL, NULL, '2023-04-18 18:28:42');
+(1, 'Razen Teknologi', 'razen_teknologi@razen.co.id', NULL, '$2y$10$vUlaHLsUBySNV17OB4bA0OgYjwnU1ThdLwFcLlbghO900K8Jz.1f.', 'dark-sky', 'default', 'vertical', 'pinned', 'fluid', 'rounded', NULL, NULL, '2023-05-06 17:16:43');
 
 --
 -- Indexes for dumped tables
@@ -594,6 +861,24 @@ ALTER TABLE `landing_page_layanans`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `landing_page_layanan_pemerintahans`
+--
+ALTER TABLE `landing_page_layanan_pemerintahans`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `landing_page_layanan_startups`
+--
+ALTER TABLE `landing_page_layanan_startups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `landing_page_layanan_swastas`
+--
+ALTER TABLE `landing_page_layanan_swastas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `landing_page_perusahaans`
 --
 ALTER TABLE `landing_page_perusahaans`
@@ -606,9 +891,45 @@ ALTER TABLE `layanans`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `layanan_pemerintahan_data_dinas`
+--
+ALTER TABLE `layanan_pemerintahan_data_dinas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `layanan_pemerintahan_produk_unggulans`
+--
+ALTER TABLE `layanan_pemerintahan_produk_unggulans`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `layanan_pemerintahan_testimoni_pemerintahs`
+--
+ALTER TABLE `layanan_pemerintahan_testimoni_pemerintahs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `layanan_perusahaans`
 --
 ALTER TABLE `layanan_perusahaans`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `layanan_startup_produk_rintisans`
+--
+ALTER TABLE `layanan_startup_produk_rintisans`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `layanan_startup_produk_rintisan_unggulans`
+--
+ALTER TABLE `layanan_startup_produk_rintisan_unggulans`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `layanan_swasta_produk_lengkaps`
+--
+ALTER TABLE `layanan_swasta_produk_lengkaps`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -731,6 +1052,24 @@ ALTER TABLE `landing_page_layanans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `landing_page_layanan_pemerintahans`
+--
+ALTER TABLE `landing_page_layanan_pemerintahans`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `landing_page_layanan_startups`
+--
+ALTER TABLE `landing_page_layanan_startups`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `landing_page_layanan_swastas`
+--
+ALTER TABLE `landing_page_layanan_swastas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `landing_page_perusahaans`
 --
 ALTER TABLE `landing_page_perusahaans`
@@ -743,9 +1082,45 @@ ALTER TABLE `layanans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT untuk tabel `layanan_pemerintahan_data_dinas`
+--
+ALTER TABLE `layanan_pemerintahan_data_dinas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT untuk tabel `layanan_pemerintahan_produk_unggulans`
+--
+ALTER TABLE `layanan_pemerintahan_produk_unggulans`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `layanan_pemerintahan_testimoni_pemerintahs`
+--
+ALTER TABLE `layanan_pemerintahan_testimoni_pemerintahs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT untuk tabel `layanan_perusahaans`
 --
 ALTER TABLE `layanan_perusahaans`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `layanan_startup_produk_rintisans`
+--
+ALTER TABLE `layanan_startup_produk_rintisans`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT untuk tabel `layanan_startup_produk_rintisan_unggulans`
+--
+ALTER TABLE `layanan_startup_produk_rintisan_unggulans`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `layanan_swasta_produk_lengkaps`
+--
+ALTER TABLE `layanan_swasta_produk_lengkaps`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
@@ -758,7 +1133,7 @@ ALTER TABLE `master_media_sosials`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT untuk tabel `pivot_daftar_layanans`
