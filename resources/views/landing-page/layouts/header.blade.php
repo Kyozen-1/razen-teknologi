@@ -44,14 +44,14 @@
     <div class="navarea">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-2 col-lg-2 col-md-4 my-auto">
+                <div class="col-xl-2 col-lg-2 col-md-4 col-6 justify-content-center align-self-center my-auto">
                     <div class="header__logo">
-                        <a href="index.html">
+                        <a href="{{ route('beranda') }}">
                             <img src="{{ asset('images/razen-teknologi/logo/'.$profil->logo) }}" alt="">
                         </a>
                     </div>
                 </div>
-                <div class="col-xl-10 col-lg-10">
+                <div class="col-xl-10 col-lg-10 col-md-8 col-6 justify-content-center align-self-center">
                     <div class="header__menu">
                         <nav id="mobile-menu">
                             <ul>

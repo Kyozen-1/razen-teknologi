@@ -24,8 +24,8 @@
                             <h1 class="heading">{!!$section_1?$section_1['judul']:'' !!}</h1>
                             {!!$section_1?$section_1['deskripsi']:'' !!}
                             <div class="buttons mt-35">
-                                <a href="{{ route('kontak') }}" class="site-btn">Kontak Kami <span>+</span></a>
-                                <a href="{{ route('perusahaan') }}" class="site-btn transparent">Pelajari Lebih Banyak <span>+</span></a>
+                                <a href="{{ route('kontak') }}" class="site-btn mr-2 mt-3">Kontak Kami <span>+</span></a>
+                                <a href="{{ route('perusahaan') }}" class="site-btn mt-3">Pelajari Lebih Banyak <span>+</span></a>
                             </div>
                         </div>
                     </div>

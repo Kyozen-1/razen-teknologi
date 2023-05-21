@@ -33,6 +33,9 @@
     <link rel="stylesheet" href="https://opuslab.works/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <style>
+        html, body {
+            overflow-x: hidden !important;
+        }
         @font-face {
             font-family: 'Google Sans';
             src: url('{{ asset('font/GoogleSans-Medium.ttf') }}') format('truetype');
