@@ -98,7 +98,7 @@
                         <div class="position-relative form-group mb-3">
                             <label for="" class="form-label">Gambar</label>
                             @if ($section_2)
-                                <input type="file" class="dropify" name="gambar" data-height="300" data-allowed-file-extensions="png jpg jpeg" data-show-errors="true" data-default-file="{{ asset('images/landing-page/beranda/'.$section_2['gambar']) }}" required>
+                                <input type="file" class="dropify" name="gambar" data-height="300" data-allowed-file-extensions="png jpg jpeg" data-show-errors="true" data-default-file="{{ asset('images/landing-page/perusahaan/'.$section_2['gambar']) }}" required>
                             @else
                                 <input type="file" class="dropify" name="gambar" data-height="300" data-allowed-file-extensions="png jpg jpeg" data-show-errors="true" required>
                             @endif
@@ -147,7 +147,7 @@
                         <div class="position-relative form-group mb-3">
                             <label for="" class="form-label">Gambar Kecil</label>
                             @if ($section_3)
-                                <input type="file" class="dropify" name="gambar_kecil" data-height="300" data-allowed-file-extensions="png jpg jpeg" data-show-errors="true" data-default-file="{{ asset('images/landing-page/beranda/'.$section_3['gambar_kecil']) }}" required>
+                                <input type="file" class="dropify" name="gambar_kecil" data-height="300" data-allowed-file-extensions="png jpg jpeg" data-show-errors="true" data-default-file="{{ asset('images/landing-page/perusahaan/'.$section_3['gambar_kecil']) }}" required>
                             @else
                                 <input type="file" class="dropify" name="gambar_kecil" data-height="300" data-allowed-file-extensions="png jpg jpeg" data-show-errors="true" required>
                             @endif
@@ -156,7 +156,7 @@
                         <div class="position-relative form-group">
                             <label for="" class="form-label">Gambar Besar</label>
                             @if ($section_3)
-                                <input type="file" class="dropify" name="gambar_kecil" data-height="300" data-allowed-file-extensions="png jpg jpeg" data-show-errors="true" data-default-file="{{ asset('images/landing-page/beranda/'.$section_3['gambar_besar']) }}" required>
+                                <input type="file" class="dropify" name="gambar_besar" data-height="300" data-allowed-file-extensions="png jpg jpeg" data-show-errors="true" data-default-file="{{ asset('images/landing-page/perusahaan/'.$section_3['gambar_besar']) }}" required>
                             @else
                                 <input type="file" class="dropify" name="gambar_besar" data-height="300" data-allowed-file-extensions="png jpg jpeg" data-show-errors="true" required>
                             @endif
