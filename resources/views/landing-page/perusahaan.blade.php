@@ -81,7 +81,7 @@
     <!-- counter area end -->
 
     <!-- cta area start -->
-    <div class="cta__area cta__area--4 bg_img" data-background="{{ asset('images/landing-page/beranda/'.$section_2['gambar']) }}" data-overlay="dark"
+    <div class="cta__area cta__area--4 bg_img" data-background="{{ asset('images/landing-page/perusahaan/'.$section_2['gambar']) }}" data-overlay="dark"
         data-opacity="5">
         <div class="container">
             <div class="row justify-content-center">
@@ -110,8 +110,8 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="about__bg about__bg--4">
-                        <img src="{{ asset('images/landing-page/beranda/'.$section_3['gambar_kecil']) }}" data-tilt data-tilt-perspective="3000" alt="">
-                        <img class="f-right" src="{{ asset('images/landing-page/beranda/'.$section_3['gambar_besar']) }}" data-tilt data-tilt-perspective="3000" alt="">
+                        <img src="{{ asset('images/landing-page/perusahaan/'.$section_3['gambar_kecil']) }}" data-tilt data-tilt-perspective="3000" alt="">
+                        <img class="f-right" src="{{ asset('images/landing-page/perusahaan/'.$section_3['gambar_besar']) }}" data-tilt data-tilt-perspective="3000" alt="">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 pl-20 mt-70">
