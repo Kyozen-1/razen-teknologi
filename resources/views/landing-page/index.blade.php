@@ -1,6 +1,49 @@
 @extends('landing-page.layouts.app')
 @section('title', 'Razen Teknologi | Beranda')
 
+@section('css')
+    <style>
+        .products .tab-content .card:hover .img-product {
+            /* box-shadow: -25px 18px 37px -10px rgba(158, 158, 158, 0.27); */
+            /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+            box-shadow: 10px 10px 18px -3px rgba(117, 117, 117, 0.75);
+            transform: scale(1.098);
+        }
+
+        @media (min-width: 989.5px)
+        {
+            .products .tab-content .card .img-product {
+                min-width: 155px;
+                max-width: 155px;
+                border-radius: 26px 26px 0 0;
+                min-height: 197.25px;
+            }
+        }
+        @media (min-width: 499.5px)
+        {
+            .products .tab-content .card .img-product {
+                min-width: 140px;
+                max-width: 140px;
+                border-radius: 10px 10px 0 0;
+                min-height: 179.25px;
+            }
+        }
+
+        .products .tab-content .card .img-product {
+            min-width: 100px;
+            margin-left: auto;
+            overflow: hidden;
+            transition: all .5s;
+            min-height: 92px;
+            max-width: 128px;
+            display: flex;
+            align-items: flex-end;
+            border-radius: 10px 10px 0 0;
+            /* background-color: #f5f5f5a1; */
+        }
+    </style>
+@endsection
+
 @section('content')
     @php
         use App\Models\LandingPageBeranda;
@@ -112,9 +155,7 @@
                                                 <h2>{{$item->nama}}</h2>
                                                 <h3>{{strip_tags($item->deskripsi)}}</h3>
                                             </div>
-                                            <div class="img_box">
-                                                <img src="{{ env('RAZEN_URL') }}storage/{{json_decode($item->gambar)[0]}}" alt="{{strip_tags($item->deskripsi)}}" class="img-fluid wow slideInUp animated" data-wow-duration=".5s" loading="lazy" style="visibility: visible; animation-duration: 0.5s; animation-name: slideInUp;">
-                                            </div>
+                                            <img src="{{ env('RAZEN_URL') }}storage/{{json_decode($item->gambar)[0]}}" alt="{{strip_tags($item->deskripsi)}}" class="img-product wow slideInUp animated" data-wow-duration=".5s" loading="lazy" style="visibility: visible; animation-duration: 0.5s; animation-name: slideInUp;">
                                         </a>
                                     </div>
                                 </div>
@@ -148,9 +189,7 @@
                                                     <h2>{{$item->nama}}</h2>
                                                     <h3>{{strip_tags($item->deskripsi)}}</h3>
                                                 </div>
-                                                <div class="img_box">
-                                                    <img src="{{ env('RAZEN_URL') }}storage/{{json_decode($item->gambar)[0]}}" alt="{{strip_tags($item->deskripsi)}}" class="img-fluid wow slideInUp animated" data-wow-duration=".5s" loading="lazy" style="visibility: visible; animation-duration: 0.5s; animation-name: slideInUp;">
-                                                </div>
+                                                <img src="{{ env('RAZEN_URL') }}storage/{{json_decode($item->gambar)[0]}}" alt="{{strip_tags($item->deskripsi)}}" class="img-product wow slideInUp animated" data-wow-duration=".5s" loading="lazy" style="visibility: visible; animation-duration: 0.5s; animation-name: slideInUp;">
                                             </a>
                                         </div>
                                     </div>
