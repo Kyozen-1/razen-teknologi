@@ -138,7 +138,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        @if ($produk->url_demo_app)
                                         <div class="btn_box   get_it_app2 w-100 wow fadeInUp  col-11 col-md-12 mx-auto" data-wow-duration=".5s" style="visibility: visible; animation-duration: 0.5s; animation-name: fadeInUp;">
                                             <div class="row no-gutters">
                                                 <div class="col-12 col-md-8 px-0">
@@ -151,6 +151,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @endif
 
                                         <div class="get_admin_backend pt-5">
                                             <h2>Butuh Aplikasi Lengkap (Admin/backend) ?</h2>
@@ -198,7 +199,20 @@
                     </div>
                     <!--banner section end-->
                 </div>
-
+                @if ($produk->status_aplikasi == 'sudah_jadi')
+                    <div class="col-12 col-lg-6 p-0 pt-4  d-none d-lg-block right_row_container text-center">
+                        <div class="testimonials owl-carousel">
+                            @php
+                                $gambars = json_decode($produk->gambar);
+                            @endphp
+                            @for ($i = 0; $i < count($gambars); $i++)
+                                <div class="testimonial">
+                                    <img src="{{ env('RAZEN_URL') }}storage/{{$gambars[$i]}}" alt="" style="height: 30rem">
+                                </div>
+                            @endfor
+                        </div>
+                    </div>
+                @else
                 <div class="col-12 col-lg-6 p-0 pt-4  d-none d-lg-block right_row_container">
                     <!--app section start-->
                     <div class="right_row px-2 pt-4 wow fadeInUp m-0" data-wow-duration=".5s" style="visibility: visible; animation-duration: 0.5s; animation-name: fadeInUp;">
@@ -237,6 +251,7 @@
                     </div>
                     <!--app section end-->
                 </div>
+                @endif
             </div>
         </div>
         <!-- Similar apps section start-->
