@@ -382,7 +382,7 @@
 
         $('#ok_button').click(function(){
             var url = "{{ route('razen-teknologi.admin.testimoni.destroy', ['id' => ":id"]) }}";
-            url = url.replace(":id", id);
+            url = url.replace(":id", user_id);
             $.ajax({
                 url: url,
                 beforeSend: function(){
